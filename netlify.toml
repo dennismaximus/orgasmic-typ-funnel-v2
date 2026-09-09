@@ -1,0 +1,81 @@
+# Netlify config — paths MUST be relative to this folder (repo/site root).
+# Absolute Windows paths break Linux builds.
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+  # Static site — no build command needed
+  command = "echo 'static typ-funnel deploy'"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[redirects]]
+  from = "/"
+  to = "/opt-in.html"
+  status = 200
+
+[[redirects]]
+  from = "/tag1"
+  to = "/video1.html"
+  status = 200
+
+[[redirects]]
+  from = "/tag2"
+  to = "/video2.html"
+  status = 200
+
+[[redirects]]
+  from = "/tag3"
+  to = "/video3.html"
+  status = 200
+
+[[redirects]]
+  from = "/tag4"
+  to = "/video4.html"
+  status = 200
+
+[[redirects]]
+  from = "/tag5"
+  to = "/video5.html"
+  status = 200
+
+[[redirects]]
+  from = "/tag6"
+  to = "/video6.html"
+  status = 200
+
+[[redirects]]
+  from = "/tag7"
+  to = "/video7.html"
+  status = 200
+
+[[redirects]]
+  from = "/tag8"
+  to = "/video8.html"
+  status = 200
+
+[[redirects]]
+  from = "/video.html"
+  to = "/video1.html"
+  status = 301
+
+[[redirects]]
+  from = "/index.html"
+  to = "/opt-in.html"
+  status = 301
+
+[[redirects]]
+  from = "/danke"
+  to = "/danke.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/opt-in.html"
+  status = 404

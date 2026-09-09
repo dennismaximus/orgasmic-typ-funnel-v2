@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="de"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exklusive Video-Serie | Alexandra &amp; Christian – Live Orgasmic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(160deg,#FFF8EA 0%,#FFFFFF 55%);
+    background-attachment: fixed;
+    color: #14060C;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 16px 48px;
+  }
+
+  nav {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  /* Weisse Wortmarke auf heller Flaeche: ohne Umkehrung ist sie unsichtbar.
+     Bei dunklem Grund diese Zeile entfernen. */
+  .nav-logo { height: 28px; width: auto; filter: invert(1) brightness(.42); }
+  .nav-name { font-size: 14px; font-weight: 800; color: #14060C; }
+
+  .progress-wrap { width: 100%; max-width: 480px; margin-bottom: 20px; }
+  .progress-bar-track { width: 100%; height: 3px; background: #E7E0D5; border-radius: 99px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; background: var(--mx-magenta); border-radius: 99px; transition: width 0.4s ease; }
+  .progress-label { font-size: 10px; color: #8A6072; margin-top: 6px; text-align: center; letter-spacing: .04em; }
+
+  .card {
+    width: 100%;
+    max-width: 480px;
+    background: #ffffff;
+    border: 1px solid #E7E0D5;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(60,0,26,0.22);
+  }
+
+  .step { display: none; }
+  .step.active { display: block; }
+
+  /* HEADER */
+  .intro-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 24px 20px;
+    text-align: center;
+    border-bottom: 1px solid #E7E0D5;
+  }
+  .page-avatar-fallback {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: #FDE8F0; border: 3px solid var(--mx-magenta);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; font-weight: 800; color: #8A0244; margin-bottom: 10px;
+  }
+  .page-name { font-size: 13px; font-weight: 700; color: #8A6072; margin-bottom: 14px; }
+  .intro-headline { font-size: 18px; font-weight: 800; line-height: 1.3; letter-spacing: -.2px; color: #14060C; }
+  .intro-headline em { font-style: normal; color: #8A0244; }
+  .intro-subline { font-size: 14px; line-height: 1.45; color: #6B6259; margin: 10px 0 0; font-weight: 500; }
+  .intro-text em { font-style: normal; color: #8A0244; font-weight: 600; }
+
+  /* BODY */
+  .intro-body { padding: 20px 24px 28px; }
+  .intro-text { font-size: 13px; color: #14060C; line-height: 1.7; margin-bottom: 20px; }
+  .intro-text p { margin-bottom: 12px; }
+  .intro-text .angebot { font-size: 12px; font-weight: 700; color: #14060C; margin-bottom: 14px; }
+
+  /* Kleine Bildschirme (320x568): Schritt-1-Knopf muss ueber dem Falz bleiben,
+     gemessen am 07.09.2026. Nur Abstaende, kein Text. */
+  @media (max-height: 640px) {
+    .intro-header { padding: 16px 20px 12px; }
+    .intro-body { padding: 12px 20px 16px; }
+    .intro-text { margin-bottom: 12px; line-height: 1.55; }
+    .intro-text p { margin-bottom: 8px; }
+  }
+
+  /* UPGRADE SECTION */
+  .upgrade-section { border-top: 1px solid #E7E0D5; padding-top: 20px; margin-top: 4px; }
+  .upgrade-question { font-size: 15px; font-weight: 800; line-height: 1.35; margin-bottom: 4px; color: #14060C; }
+  .upgrade-optional { font-size: 11px; color: #8A6072; margin-bottom: 14px; }
+  .upgrade-options { display: flex; flex-direction: column; gap: 10px; }
+  .upgrade-option {
+    display: flex; align-items: center; gap: 14px;
+    background: #ffffff; border: 1px solid #E7E0D5; border-radius: 8px;
+    padding: 14px 16px; cursor: pointer; transition: border-color .15s, background .15s;
+    font-size: 14px; font-weight: 600; color: #14060C; user-select: none;
+  }
+  .upgrade-option:hover { border-color: var(--mx-magenta); background: #FBF7F0; }
+  .upgrade-option.selected { border-color: var(--mx-magenta); background: #FDE8F0; }
+  .upgrade-checkbox {
+    width: 20px; height: 20px; border: 2px solid #D6CEC1; border-radius: 4px;
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+    transition: border-color .15s, background .15s;
+  }
+  .upgrade-option.selected .upgrade-checkbox { background: var(--mx-magenta); border-color: var(--mx-magenta); }
+  .upgrade-checkbox svg { display: none; width: 12px; height: 12px; stroke: #fff; fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .upgrade-option.selected .upgrade-checkbox svg { display: block; }
+
+  /* FORM */
+  .form-body { padding: 24px 24px 28px; }
+  .form-title { font-size: 16px; font-weight: 800; margin-bottom: 18px; color: #14060C; }
+  .form-group { margin-bottom: 12px; }
+  .form-group label { display: block; font-size: 11px; font-weight: 600; color: #8A6072; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; }
+  .form-group input {
+    width: 100%; background: #ffffff; border: 1px solid #DED7CB; border-radius: 6px;
+    padding: 14px 16px; font-size: 15px; color: #14060C; font-family: inherit;
+    outline: none; transition: border-color .15s;
+  }
+  .form-group input.error { border-color: #e53e3e !important; }
+  .form-group .error-msg { color: #e53e3e; font-size: 0.75rem; margin-top: 4px; display: none; }
+  .form-group input.error ~ .error-msg { display: block; }
+  .form-group input::placeholder { color: #A79E90; }
+  .form-group input:focus { border-color: var(--mx-magenta); box-shadow: 0 0 0 2px rgba(182,2,89,0.22); }
+
+  .btn-submit {
+    width: 100%; background-color: var(--mx-magenta); color: #fff; border: none; border-radius: 6px;
+    padding: 16px 24px; font-size: 16px; font-weight: 700; cursor: pointer; font-family: inherit;
+    display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px;
+  }
+  .btn-submit:hover { background-color: #8A0244; }
+
+  .trust-row { display: flex; justify-content: center; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
+  .trust-item { font-size: 11px; color: #8A6072; }
+
+  /* QUESTION STEPS */
+  .q-body { padding: 24px 24px 28px; }
+  .q-title { font-size: 16px; font-weight: 800; margin-bottom: 4px; color: #14060C; line-height: 1.35; }
+  .q-hint { font-size: 11px; color: #8A6072; margin-bottom: 16px; }
+  .q-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 4px; }
+  .btn-back-link { display: block; text-align: center; font-size: 12px; color: #8A6072; text-decoration: none; margin-top: 12px; cursor: pointer; }
+  /* Tippziel: Apple/Google verlangen 44px. Der Link stand auf 15px und liegt auf
+     jedem Schritt. Nicht nur nach Breite schalten — ein Handy im Querformat ist
+     844px breit, der Finger wird davon nicht kleiner. */
+  @media (max-width: 767px), (pointer: coarse) {
+    .btn-back-link { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; padding: 0 12px; }
+  }
+  .btn-back-link:hover { color: #14060C; }
+
+  /* SUCCESS */
+  .success-msg { display: none; text-align: center; padding: 40px 24px; }
+  .success-icon { width: 56px; height: 56px; background: rgba(26,38,66,0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .success-icon svg { width: 28px; height: 28px; stroke: #8A0244; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .success-msg h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; color: #14060C; }
+  .success-msg p { font-size: 14px; color: #8A6072; line-height: 1.5; }
+  .error-msg-submit { color: #e53e3e; background: #FDE2D6; padding: 12px; border-radius: 8px; margin: 14px 0; font-size: .85rem; display: none; }
+
+
+  /* ═══════════════════════════════════════════════════
+     ANZEIGEN-FARBEN (Magenta-Verlauf + gelber Marker)
+     Uebernommen aus dem Creative "wie eine Fremde", damit die Seite
+     nach dem Klick aussieht wie die Anzeige davor. Nur Farbe, kein Layout.
+     ═══════════════════════════════════════════════════ */
+  /* Akzent ist seit dem 25.08.2026 das Navy der uebrigen Funnel-Seiten
+     (#1a2642), nicht mehr das Magenta des alten Creatives. Die Variablennamen
+     heissen weiter --mx-magenta*: sie stehen an rund vierzig Stellen, und ein
+     Umbenennen waere Arbeit ohne Wirkung. Zurueck zu Magenta sind es die drei
+     Werte #C22A74 / #B60259 / #8A0244.
+     Gelb und Grundflaeche bleiben, wie sie sind. */
+  :root {
+    --mx-magenta-hell: #C22A74;
+    --mx-magenta:      #B60259;
+    --mx-magenta-tief: #8A0244;
+    --mx-gelb:         #F0D24A;
+    --mx-gelb-tief:    #E5C43A;
+    --mx-gelbtext:     #14060C;
+    --mx-grund:        #F8F4ED;   /* Grundflaeche: Sand, hell (Variante A, aufgehellt) */
+    --mx-grund-linie:  #EAE2D6;   /* Rahmen und Trennlinien auf der Grundflaeche */
+    --mx-grund-schrift:#6B6259;   /* Schrift AUF der Grundflaeche (Leiste, Fortschritt) */
+    --mx-creme:        #FFFFFF;
+    --mx-text:         #14060C;
+  }
+
+  /* Grundflaeche. Zwei Fassungen wurden verworfen: die volle Magenta-Flaeche des
+     Creatives (im Feed steht sie drei Sekunden, hier fuenf Minuten) und ein tiefes
+     Plum. Jetzt ein helles Sand — ruhig, warm, und es laesst Gelb und Magenta die
+     einzigen Farben der Seite bleiben.
+
+     Zum Tauschen reichen die drei Variablen oben:
+       Warmgrau  -> #ECECEA / #DCDCD8 / #63635E
+       Greige    -> #DED8CF / #CDC5B9 / #544D43
+       Anthrazit -> #26252A / rgba(255,255,255,.14) / #F2F2F5   (dunkel!)
+     Bei einer dunklen Flaeche zusaetzlich den Kartenschatten kraeftiger stellen. */
+  body {
+    background: var(--mx-grund);
+    color: var(--mx-text);
+  }
+
+  .nav-name { color: var(--mx-grund-schrift); }
+
+  .progress-bar-track { background: var(--mx-grund-linie); }
+  .progress-bar-fill  { background: var(--mx-magenta); }   /* Fortschritt in Akzentfarbe, nicht Gelb */
+  .progress-label     { color: var(--mx-grund-schrift); font-size: 11px; }
+
+  .card { border-color: var(--mx-grund-linie); box-shadow: 0 6px 20px rgba(60,45,25,0.10); }
+
+  /* Gelber Marker wie im Ad-Creative: ein Rechteck hinter EINEM Satzteil,
+     nicht hinter der ganzen Headline. Scharfe Ecken, enger Sitz. */
+  .intro-headline em {
+    background: var(--mx-gelb);
+    color: var(--mx-gelbtext);
+    font-style: normal;
+    font-weight: 800;
+    padding: 0.08em 0.28em 0.12em;
+    margin: 0 0.04em;
+    border-radius: 0;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    box-shadow: 0 0 0 1px var(--mx-gelb);
+  }
+
+  .intro-text .angebot { color: var(--mx-magenta); letter-spacing: .02em; }
+
+  .btn-submit {
+    background: linear-gradient(135deg, var(--mx-magenta-hell) 0%, var(--mx-magenta) 55%, var(--mx-magenta-tief) 100%);
+    background-color: var(--mx-magenta);
+    color: var(--mx-creme);
+    box-shadow: 0 4px 14px rgba(26,38,66,0.32);
+  }
+  .btn-submit:hover { background: var(--mx-magenta-tief); }
+
+  .trust-item { color: var(--mx-magenta); font-weight: 600; }
+  .success-icon svg { stroke: var(--mx-magenta); }
+
+  /* Gemessen am 25.08.2026: bei 768px greift weder max-width:767px noch
+     (pointer:coarse) im Desktop-Browser - der Zurueck-Link stand auf 16px.
+     Auf dem echten Tablet faengt (pointer:coarse) das ab, auf dem Messstand
+     nicht. Statt die Abfrage zu verbreitern gilt das Tippziel jetzt immer:
+     44px schaden auf dem Desktop nicht. */
+  .btn-back-link {
+    min-height: 44px;
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 0 12px; width: 100%;
+  }
+</style>
+<script type="text/javascript" data-name="TokenSigning" data-by="Web-eID extension" src="chrome-extension://ncibgoaomkmdpilpocfeponihegamlic/token-signing-page-script.js"></script></head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     TESTMODUS  —  Aufruf mit ?test=1
+     Zweck: die Seite komplett durchklicken, ohne dass ein Lead entsteht.
+     Muss VOR dem Meta-Pixel stehen: der Pixel-Schnipsel beginnt mit
+     `if(f.fbq)return;` — ist fbq schon belegt, laedt fbevents.js nie.
+     Ohne ?test=1 aendert dieser Block nichts, er definiert dann gar nichts.
+     ═══════════════════════════════════════════════════ -->
+<script>
+(function () {
+  var an = /[?&]test=1(&|$)/.test(location.search);
+  window.MX_TEST = an;
+  if (!an) return;
+
+  // 1) Meta-Pixel stilllegen. Muss VOR dem Pixel-Schnipsel laufen.
+  window.fbq = function () { console.log('[TEST] fbq unterdrueckt:', arguments); };
+  window.fbq.queue = []; window.fbq.loaded = true; window.fbq.version = '2.0';
+  window._fbq = window.fbq;
+
+  // 2) Jeden ausgehenden Aufruf abfangen. Betroffen sind der n8n-Webhook
+  //    (absolut, feuert auch von localhost), die Netlify-Funktionen
+  //    (mautic-lead, track) und alles andere, was diese Seite sendet.
+  window.__mxTestFetch = true;   // Marker: visitor.js wrappt dann nicht ein zweites Mal
+  try { sessionStorage.setItem('mx_test', '1'); } catch (e) {}
+  var echt = window.fetch.bind(window);
+  window.fetch = function (url, opt) {
+    var u = String((url && url.url) || url || '');
+    var eigen = /n8n\.|\/\.netlify\/functions\/|\/api\//.test(u);
+    if (!eigen) return echt(url, opt);
+    var koerper = opt && opt.body;
+    try { koerper = JSON.parse(koerper); } catch (e) {}
+    console.log('[TEST] NICHT gesendet an ' + u, koerper);
+    return Promise.resolve({
+      ok: true, status: 200,
+      json: function () { return Promise.resolve({ ok: true, test: true, mautic_id: 'TEST' }); },
+      text: function () { return Promise.resolve('{"ok":true,"test":true}'); }
+    });
+  };
+
+  // 3) Der sichtbare Balken wird von visitor.js gebaut - einmal fuer alle Seiten.
+
+  console.log('%c[TEST] Testmodus aktiv — n8n, Mautic, Tracking und Pixel sind abgeklemmt.',
+              'background:#FFDE59;color:#14060C;padding:2px 6px');
+})();
+</script>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '884943434243515');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=884943434243515&amp;ev=PageView&amp;noscript=1"></noscript>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+  if (!window.MX_TEST) (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xrfqd262dn");
+</script>
+
+<nav>
+  <img class="nav-logo" src="https://static.wixstatic.com/media/0e5e9b_ebcb6159e049414d9301c6ba1eb7879a~mv2.png/v1/fill/w_164,h_68,al_c,q_85,enc_avif,quality_auto/Logo.png" alt="Live ORGASMIC">
+  <span class="nav-name">Alexandra &amp; Christian - Live Orgasmic</span>
+</nav>
+
+<div class="progress-wrap" id="progress-wrap">
+  <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill" style="width:9%;"></div></div>
+  <div class="progress-label" id="progress-label">Schritt 1 von 2</div>
+</div>
+
+<div class="card">
+
+  <!-- SCHRITT 1: EINSTIEG. Umgebaut 07.09.2026: die Anzeige verspricht
+       "Endlich im Koerper ankommen & loslassen koennen" und "7 Days of Letting Go",
+       die Seite muss dasselbe sagen. Weiter-Knopf ueber dem Falz (375x812 gemessen:
+       vorher lag er bei 869 px, der Bildschirm endet bei 812). Die Erstgespraech-
+       Frage steht jetzt in Schritt 2 bei den Kontaktdaten, nicht mehr vor dem
+       ersten Klick. Gemessen vor dem Umbau: 461 von 512 Besucherinnen blieben auf
+       Schritt 1 stehen. -->
+  <div class="step active" id="step-1">
+    <div class="intro-header">
+      <h1 class="intro-headline">Klicke auf Kostenlos anmelden, um <em>deinen Pleasure-Blockaden-Typ</em> zu erfahren</h1>
+</div>
+
+    <div class="intro-body">
+      <div class="intro-text">
+        <p>Für Frauen, die alles verstanden haben und trotzdem nicht loslassen können.</p>
+        <p>Du erfährst, warum dein Nervensystem entscheidet, wann der Kopf aufhört, und was 5 Minuten am Tag daran verändern, sodass du wieder im Körper ankommst. Am Ende erfährst du, welcher der 5 <em>Pleasure-Blockaden-Typen</em> dich bisher ausgebremst hat.</p>
+      </div>
+
+      <button onclick="validateUpgradeAndGo()" class="btn-submit">Kostenlos anmelden →</button>
+    </div>
+  </div>
+
+  <!-- SCHRITT 2: KONTAKTDATEN -->
+  <div class="step" id="step-2">
+    <div class="form-body">
+      <h2 class="form-title">Wohin dürfen wir dir den Zugang zu den 7 Tagen schicken?</h2>
+      <div class="form-group">
+        <label for="b-name">Dein Vorname</label>
+        <input type="text" id="b-name" placeholder="Julia" autocomplete="given-name" required="">
+        <div class="error-msg">Bitte gib deinen Namen ein.</div>
+      </div>
+      <div class="form-group">
+        <label for="b-email">Deine E-Mail</label>
+        <input type="email" id="b-email" placeholder="julia@beispiel.de" autocomplete="email" required="">
+        <div class="error-msg">Bitte gib eine gültige E-Mail-Adresse ein.</div>
+      </div>
+      <div class="form-group">
+        <label for="b-phone">Deine Telefonnummer</label>
+        <input type="tel" id="b-phone" placeholder="+49 170 1234567" autocomplete="tel" required="">
+        <div class="error-msg">Bitte gib deine Telefonnummer ein.</div>
+      </div>
+      <button onclick="validateContactAndGo()" class="btn-submit">Weiter <span style="font-size: 18px;">→</span></button>
+      <a class="btn-back-link" onclick="goToStep(1)">← Zurück</a>
+    </div>
+  </div>
+
+  <!-- SCHRITT 3: BEZIEHUNGSSTATUS -->
+  <div class="step" id="step-3">
+    <div class="q-body">
+      <h2 class="q-title">Welche Aussage beschreibt deine aktuelle Beziehungssituation am besten?</h2>
+      <div class="q-options" id="q-beziehung">
+        <div class="upgrade-option" onclick="selectAnswer('beziehung','Single',this)">
+          <div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>
+          Single
+        </div>
+        <div class="upgrade-option" onclick="selectAnswer('beziehung','Seit Kurzem in einer Beziehung (&lt; 1 Jahr)',this)">
+          <div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>
+          Seit Kurzem in einer Beziehung (weniger als 1 Jahr)
+        </div>
+        <div class="upgrade-option" onclick="selectAnswer('beziehung','Langjährige Beziehung (&gt; 1 Jahr)',this)">
+          <div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>
+          In einer langjährigen Beziehung (mehr als 1 Jahr)
+        </div>
+        <div class="upgrade-option" onclick="selectAnswer('beziehung','Verheiratet',this)">
+          <div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>
+          Verheiratet
+        </div>
+      </div>
+      <button onclick="validateAndGo('beziehung')" class="btn-submit">Weiter <span style="font-size: 18px;">→</span></button>
+      <a class="btn-back-link" onclick="goToStep(2)">← Zurück</a>
+    </div>
+  </div>
+
+  <!-- SCHRITT 4: BERUFSGRUPPE -->
+  <div class="step" id="step-4">
+    <div class="q-body">
+      <h2 class="q-title">Welcher Berufsgruppe bist du zuzuordnen? *</h2>
+      <div class="q-options" id="q-beruf">
+        <div class="upgrade-option" onclick="selectAnswer('beruf','Unternehmerin / Selbstständig',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Unternehmerin / Selbstständig</div>
+        <div class="upgrade-option" onclick="selectAnswer('beruf','Führungskraft / Leitende Angestellte',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Führungskraft / Leitende Angestellte</div>
+        <div class="upgrade-option" onclick="selectAnswer('beruf','Angestellte / Beamtin',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Angestellte / Beamtin</div>
+        <div class="upgrade-option" onclick="selectAnswer('beruf','Hausfrau / Rentnerin',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Hausfrau / Rentnerin</div>
+        <div class="upgrade-option" onclick="selectAnswer('beruf','Studentin / Minijob',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Studentin / Minijob</div>
+        <div class="upgrade-option" onclick="selectAnswer('beruf','Arbeitssuchend',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Arbeitssuchend</div>
+      </div>
+      <button onclick="validateAndGo('beruf')" class="btn-submit">Weiter <span style="font-size: 18px;">→</span></button>
+      <a class="btn-back-link" onclick="goToStep(3)">← Zurück</a>
+    </div>
+  </div>
+
+  <!-- SCHRITT 5: SEIT WANN -->
+  <div class="step" id="step-5">
+    <div class="q-body">
+      <h2 class="q-title">Seit wann begleitet dich dieses Gefühl der Distanz zu deinem Körper und deiner Lust?</h2>
+      <div class="q-options" id="q-einkommen">
+        <div class="upgrade-option" onclick="selectAnswer('einkommen','Erst seit Kurzem (ein paar Monate)',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Erst seit Kurzem (ein paar Monate)</div>
+        <div class="upgrade-option" onclick="selectAnswer('einkommen','Schon seit ein paar Jahren',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Schon seit ein paar Jahren</div>
+        <div class="upgrade-option" onclick="selectAnswer('einkommen','Eigentlich schon mein Leben lang',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Eigentlich schon mein Leben lang</div>
+        <div class="upgrade-option" onclick="selectAnswer('einkommen','Keine Angabe',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Keine Angabe</div>
+      </div>
+      <button onclick="validateAndGo('einkommen')" class="btn-submit">Weiter <span style="font-size: 18px;">→</span></button>
+      <a class="btn-back-link" onclick="goToStep(4)">← Zurück</a>
+    </div>
+  </div>
+
+  <!-- SCHRITT 6: AKTUELLE SITUATION -->
+  <div class="step" id="step-6">
+    <div class="q-body">
+      <h2 class="q-title">Wie würdest du deine aktuelle Situation am ehesten beschreiben? *</h2>
+      <div class="q-hint">Mehrfachauswahl möglich</div>
+      <div class="q-options" id="q-situation">
+        <div class="upgrade-option" onclick="selectMultiAnswer('situation','Ich habe Schmerzen beim Sex',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Ich habe Schmerzen beim S**</div>
+        <div class="upgrade-option" onclick="selectMultiAnswer('situation','Ich vermeide Sex komplett',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Ich vermeide Se** komplett</div>
+        <div class="upgrade-option" onclick="selectMultiAnswer('situation','Ich komme nicht zum Höhepunkt',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Ich komme nicht zum Höhepunkt</div>
+        <div class="upgrade-option" onclick="selectMultiAnswer('situation','Meine Partnerschaft steht kurz vor dem Aus',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Meine Partnerschaft steht kurz vor dem Aus</div>
+        <div class="upgrade-option" onclick="selectMultiAnswer('situation','Ich bin unglücklich, weiß aber nicht warum',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Ich bin unglücklich, weiß aber nicht warum</div>
+        <div class="upgrade-option" onclick="selectMultiAnswer('situation','Eigentlich ist alles okay',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Eigentlich ist alles okay</div>
+      </div>
+      <button onclick="validateAndGo('situation')" class="btn-submit">Weiter <span style="font-size: 18px;">→</span></button>
+      <a class="btn-back-link" onclick="goToStep(5)">← Zurück</a>
+    </div>
+  </div>
+
+  <!-- SCHRITT 7: DRINGLICHKEIT -->
+  <div class="step" id="step-7">
+    <div class="q-body">
+      <h2 class="q-title">Wie wichtig ist es dir, dieses Thema JETZT für dich zu lösen?</h2>
+      <div class="q-options" id="q-dringlichkeit">
+        <div class="upgrade-option" onclick="selectAnswer('dringlichkeit','Es belastet mich extrem – ich will das endlich klären.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Es belastet mich extrem – ich will das endlich klären.</div>
+        <div class="upgrade-option" onclick="selectAnswer('dringlichkeit','Sehr wichtig, es beeinträchtigt meine Lebensqualität und Beziehung.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Sehr wichtig, es beeinträchtigt meine Lebensqualität und Beziehung.</div>
+        <div class="upgrade-option" onclick="selectAnswer('dringlichkeit','Wäre schön, aber ich habe gerade viel Stress im Job.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Wäre schön, aber ich habe gerade viel Stress im Job.</div>
+        <div class="upgrade-option" onclick="selectAnswer('dringlichkeit','Ich schaue mich nur mal um.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Ich schaue mich nur mal um.</div>
+      </div>
+      <button onclick="validateAndGo('dringlichkeit')" class="btn-submit">Weiter <span style="font-size: 18px;">→</span></button>
+      <a class="btn-back-link" onclick="goToStep(6)">← Zurück</a>
+    </div>
+  </div>
+
+  <!-- SCHRITT 8: BISHERIGE VERSUCHE -->
+  <div class="step" id="step-8">
+    <div class="q-body">
+      <h2 class="q-title">Was hast du bisher schon versucht, um das Problem zu lösen?</h2>
+      <div class="q-hint">Mehrfachauswahl möglich</div>
+      <div class="q-options" id="q-bisherigerVersuch">
+        <div class="upgrade-option" onclick="selectAnswer('bisherigerVersuch','Feste &quot;Date-Nights&quot; im Kalender geplant, damit wir im Alltag überhaupt dazu kommen.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Feste "Date-Nights" im Kalender geplant, damit wir im Alltag überhaupt dazu kommen.</div>
+        <div class="upgrade-option" onclick="selectAnswer('bisherigerVersuch','Versucht, mich mit Atemübungen oder Tipps aus Podcasts irgendwie zu entspannen, um den Kopf frei zu kriegen.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Versucht, mich mit Atemübungen oder Tipps aus Podcasts irgendwie zu entspannen, um den Kopf frei zu kriegen.</div>
+        <div class="upgrade-option" onclick="selectAnswer('bisherigerVersuch','Neue Sachen im Bett vorgeschlagen, damit es wenigstens für meinen Partner wieder spannender wird.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Neue Sachen im Bett vorgeschlagen, damit es wenigstens für meinen Partner wieder spannender wird.</div>
+        <div class="upgrade-option" onclick="selectAnswer('bisherigerVersuch','Schöne Wäsche gekauft oder das Licht ausgemacht, damit ich mich nicht so unwohl fühle.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Schöne Wäsche gekauft oder das Licht ausgemacht, damit ich mich nicht so unwohl fühle.</div>
+        <div class="upgrade-option" onclick="selectAnswer('bisherigerVersuch','Einfach abgewartet, bis wir im Urlaub sind, oder vorher ein Glas Wein getrunken, um lockerer zu werden.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Einfach abgewartet, bis wir im Urlaub sind, oder vorher ein Glas Wein getrunken, um lockerer zu werden.</div>
+      </div>
+      <button onclick="validateAndGo('bisherigerVersuch')" class="btn-submit">Weiter <span style="font-size: 18px;">→</span></button>
+      <a class="btn-back-link" onclick="goToStep(7)">← Zurück</a>
+    </div>
+  </div>
+
+  <!-- SCHRITT 9: INVESTITION IN PERSÖNLICHE ENTWICKLUNG -->
+  <div class="step" id="step-9">
+    <div class="q-body">
+      <h2 class="q-title">Wie viel investierst du im Durchschnitt monatlich in deine persönliche Weiterentwicklung &amp; dein Wohlbefinden?</h2>
+      <div class="q-options" id="q-gesundheit">
+        <div class="upgrade-option" onclick="selectAnswer('gesundheit','Aktuell nichts',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Aktuell nichts</div>
+        <div class="upgrade-option" onclick="selectAnswer('gesundheit','Unter 50€/Monat',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Unter 50€/Monat</div>
+        <div class="upgrade-option" onclick="selectAnswer('gesundheit','50€–150€/Monat',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>50€ – 150€/Monat</div>
+        <div class="upgrade-option" onclick="selectAnswer('gesundheit','150€–300€/Monat',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>150€ – 300€/Monat</div>
+        <div class="upgrade-option" onclick="selectAnswer('gesundheit','300€–1.000€/Monat',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>300€ – 1.000€/Monat</div>
+        <div class="upgrade-option" onclick="selectAnswer('gesundheit','Mehr als 1.000€/Monat',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Mehr als 1.000€/Monat</div>
+      </div>
+      <button onclick="validateAndGo('gesundheit')" class="btn-submit">Weiter <span style="font-size: 18px;">→</span></button>
+      <a class="btn-back-link" onclick="goToStep(8)">← Zurück</a>
+    </div>
+  </div>
+
+  <!-- SCHRITT 11: INVESTITIONSBEREITSCHAFT -->
+
+  <div class="step" id="step-12" data-section="12 - Intimität aktuell (Typ)">
+    <div class="q-body">
+      <h2 class="q-title">Hand aufs Herz – Wie erlebst du Intimität und Nähe aktuell?</h2>
+      <div class="q-options" id="q-intimitaet">
+        <div class="upgrade-option" onclick="selectAnswer('intimitaet','Wie ein weiteres To-Do auf meiner Liste, das ich &quot;erledigen&quot; muss.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Wie ein weiteres To-Do auf meiner Liste, das ich "erledigen" muss.</div>
+        <div class="upgrade-option" onclick="selectAnswer('intimitaet','Ich bin meistens nur im Kopf und kann die Kontrolle einfach nicht abgeben.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Ich bin meistens nur im Kopf und kann die Kontrolle einfach nicht abgeben.</div>
+        <div class="upgrade-option" onclick="selectAnswer('intimitaet','Ich mache es eher meinem Partner zuliebe, spüre mich selbst aber kaum dabei.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Ich mache es eher meinem Partner zuliebe, spüre mich selbst aber kaum dabei.</div>
+        <div class="upgrade-option" onclick="selectAnswer('intimitaet','Ich fühle mich unwohl in meiner Haut und verstecke mich lieber.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Ich fühle mich unwohl in meiner Haut und verstecke mich lieber.</div>
+        <div class="upgrade-option" onclick="selectAnswer('intimitaet','Ich warte oft darauf, dass der Funke überspringt, werde aber meist enttäuscht.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Ich warte oft darauf, dass der Funke überspringt, werde aber meist enttäuscht.</div>
+        <div class="upgrade-option" onclick="selectAnswer('intimitaet','Eigentlich ist alles okay, ich suche nur neue Impulse.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Eigentlich ist alles okay, ich suche nur neue Impulse.</div>
+      </div>
+      <button onclick="validateAndGo('intimitaet')" class="btn-submit">Weiter <span style="font-size: 18px;">→</span></button>
+      <a class="btn-back-link" onclick="zurueck()">← Zurück</a>
+    </div>
+  </div>
+
+  <div class="step" id="step-13" data-section="13 - Was hindert dich (Typ)">
+    <div class="q-body">
+      <h2 class="q-title">Was hindert dich am meisten daran, den Moment voll zu genießen?</h2>
+      <div class="q-options" id="q-hindernis">
+        <div class="upgrade-option" onclick="selectAnswer('hindernis','Der interne Druck, dass ich funktionieren oder ein bestimmtes Ziel erreichen muss.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Der interne Druck, dass ich funktionieren oder ein bestimmtes Ziel erreichen muss.</div>
+        <div class="upgrade-option" onclick="selectAnswer('hindernis','Ständige Gedanken an die Arbeit, To-Dos oder Alltagssorgen.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Ständige Gedanken an die Arbeit, To-Dos oder Alltagssorgen.</div>
+        <div class="upgrade-option" onclick="selectAnswer('hindernis','Die Angst, egoistisch zu wirken oder die Verbindung zum Partner zu verlieren.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Die Angst, egoistisch zu wirken oder die Verbindung zum Partner zu verlieren.</div>
+        <div class="upgrade-option" onclick="selectAnswer('hindernis','Ich fühle mich wie betäubt oder abgeschnitten von meinem Körper.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Ich fühle mich wie betäubt oder abgeschnitten von meinem Körper.</div>
+        <div class="upgrade-option" onclick="selectAnswer('hindernis','Ich weiß gar nicht genau, was ich will oder was ich brauche.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Ich weiß gar nicht genau, was ich will oder was ich brauche.</div>
+      </div>
+      <button onclick="validateAndGo('hindernis')" class="btn-submit">Weiter <span style="font-size: 18px;">→</span></button>
+      <a class="btn-back-link" onclick="zurueck()">← Zurück</a>
+    </div>
+  </div>
+
+  <div class="step" id="step-14" data-section="14 - Wunsch-Szenario (Typ)">
+    <div class="q-body">
+      <h2 class="q-title">Stell dir vor, wir lösen das Problem. Was wäre dein absolutes Wunsch-Szenario für dein Liebesleben?</h2>
+      <div class="q-options" id="q-wunsch">
+        <div class="upgrade-option" onclick="selectAnswer('wunsch','Endlich den Kopf ausschalten und voll im Hier und Jetzt sein.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Endlich den Kopf ausschalten und voll im Hier und Jetzt sein.</div>
+        <div class="upgrade-option" onclick="selectAnswer('wunsch','Mich endlich wieder lebendig und spürbar fühlen.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Mich endlich wieder lebendig und spürbar fühlen.</div>
+        <div class="upgrade-option" onclick="selectAnswer('wunsch','Mich attraktiv, frei und wohl in meinem Körper fühlen.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Mich attraktiv, frei und wohl in meinem Körper fühlen.</div>
+        <div class="upgrade-option" onclick="selectAnswer('wunsch','Sagen können, was ich will, und es mir nehmen.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Sagen können, was ich will, und es mir nehmen.</div>
+        <div class="upgrade-option" onclick="selectAnswer('wunsch','Tiefe Verschmelzung und intensive Momente erleben, ganz ohne Druck.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Tiefe Verschmelzung und intensive Momente erleben, ganz ohne Druck.</div>
+      </div>
+      <button onclick="validateAndGo('wunsch')" class="btn-submit">Weiter <span style="font-size: 18px;">→</span></button>
+      <a class="btn-back-link" onclick="zurueck()">← Zurück</a>
+    </div>
+  </div>
+
+  <div class="step" id="step-15" data-section="15 - Was kurz gewirkt hat (Typ)">
+    <div class="q-body">
+      <h2 class="q-title">Was davon hat vielleicht kurz gewirkt, aber dann wieder aufgehört?</h2>
+      <div class="q-options" id="q-kurzgewirkt">
+        <div class="upgrade-option" onclick="selectAnswer('kurzgewirkt','Das geplante Date war erst gut, aber schnell fühlte es sich an wie der nächste Pflichttermin.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Das geplante Date war erst gut, aber schnell fühlte es sich an wie der nächste Pflichttermin.</div>
+        <div class="upgrade-option" onclick="selectAnswer('kurzgewirkt','Im Urlaub oder am Wochenende ging es besser, aber im Alltag war der Kopf sofort wieder voll.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Im Urlaub oder am Wochenende ging es besser, aber im Alltag war der Kopf sofort wieder voll.</div>
+        <div class="upgrade-option" onclick="selectAnswer('kurzgewirkt','Er hat sich total gefreut, aber meine eigene Lust blieb trotzdem auf der Strecke.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Er hat sich total gefreut, aber meine eigene Lust blieb trotzdem auf der Strecke.</div>
+        <div class="upgrade-option" onclick="selectAnswer('kurzgewirkt','Ich fühlte mich kurz etwas weiblicher, aber die innere Blockade kam schnell zurück.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Ich fühlte mich kurz etwas weiblicher, aber die innere Blockade kam schnell zurück.</div>
+        <div class="upgrade-option" onclick="selectAnswer('kurzgewirkt','Mit Wein oder im Urlaub ging es leichter, aber das ist ja auf Dauer keine echte Lösung.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Mit Wein oder im Urlaub ging es leichter, aber das ist ja auf Dauer keine echte Lösung.</div>
+      </div>
+      <button onclick="validateAndGo('kurzgewirkt')" class="btn-submit">Weiter <span style="font-size: 18px;">→</span></button>
+      <a class="btn-back-link" onclick="zurueck()">← Zurück</a>
+    </div>
+  </div>
+
+  <div class="step" id="step-16" data-section="16 - Kern-Ursache (Typ)">
+    <div class="q-body">
+      <h2 class="q-title">Woran, glaubst du selbst, liegt es im Kern?</h2>
+      <div class="q-options" id="q-kern">
+        <div class="upgrade-option" onclick="selectAnswer('kern','Daran, dass ich mein ganzes Leben wie ein Projekt manage und gar nicht mehr weiß, wie man einfach nur &quot;ist&quot;.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Daran, dass ich mein ganzes Leben wie ein Projekt manage und gar nicht mehr weiß, wie man einfach nur "ist".</div>
+        <div class="upgrade-option" onclick="selectAnswer('kern','Daran, dass mein Kopf einfach nie Pause macht und ich ständig über tausend Dinge gleichzeitig nachdenke.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Daran, dass mein Kopf einfach nie Pause macht und ich ständig über tausend Dinge gleichzeitig nachdenke.</div>
+        <div class="upgrade-option" onclick="selectAnswer('kern','Daran, dass ich es immer allen recht machen will und komplett vergessen habe, was ich eigentlich brauche.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Daran, dass ich es immer allen recht machen will und komplett vergessen habe, was ich eigentlich brauche.</div>
+        <div class="upgrade-option" onclick="selectAnswer('kern','Daran, dass ich den Zugang zu meinem eigenen Körper irgendwie auf der Strecke gelassen habe.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Daran, dass ich den Zugang zu meinem eigenen Körper irgendwie auf der Strecke gelassen habe.</div>
+        <div class="upgrade-option" onclick="selectAnswer('kern','Daran, dass ich insgeheim immer noch hoffe, dass es einfach von alleine wieder so wird wie ganz am Anfang.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Daran, dass ich insgeheim immer noch hoffe, dass es einfach von alleine wieder so wird wie ganz am Anfang.</div>
+      </div>
+      <button onclick="validateAndGo('kern')" class="btn-submit">Weiter <span style="font-size: 18px;">→</span></button>
+      <a class="btn-back-link" onclick="zurueck()">← Zurück</a>
+    </div>
+  </div>
+
+  <div class="step" id="step-11">
+    <div class="q-body">
+      <h2 class="q-title">Letzte Frage: Angenommen, wir haben eine Lösung für dich, die zu 100% funktioniert. Bist du bereit in dich zu investieren und dich zu verändern? *</h2>
+      <div class="q-options" id="q-investitionsbereitschaft">
+        <div class="upgrade-option" onclick="selectAnswer('investitionsbereitschaft','Ja, klar. Ich will ja Veränderung.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Ja, klar. Ich will ja Veränderung.</div>
+        <div class="upgrade-option" onclick="selectAnswer('investitionsbereitschaft','Nein. Ich will, dass alles so bleibt, wie es ist.',this)"><div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>Nein. Ich will, dass alles so bleibt, wie es ist.</div>
+      </div>
+      <button onclick="validateAndGo('investitionsbereitschaft')" class="btn-submit">Weiter <span style="font-size: 18px;">→</span></button>
+      <a class="btn-back-link" onclick="goToStep(10)">← Zurück</a>
+      <div class="trust-row">
+        <div class="trust-item">✓ In nur 8 Tagen zu mehr Verbindung</div>
+        <div class="trust-item">✓ Für dich allein, in deinem Tempo</div>
+        <div class="trust-item">✓ Wirklich spürbare Veränderung</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCHRITT 17: ERSTGESPRAECH. Ans Ende gestellt am 07.09.2026 auf Sebastians
+       Ansage. Vorher stand die Frage in Schritt 2 bei den Kontaktdaten, davor
+       (bis 07.09.) sogar vor dem allerersten Klick auf Schritt 1. Ganz hinten
+       hat sie zwei Vorteile: die Frau hat 15 Fragen investiert, bevor sie
+       gefragt wird, und die Frage blockiert keinen einzigen Schritt davor.
+       Der Absendeknopf sitzt jetzt hier, Schritt 11 fuehrt nur noch weiter. -->
+  <div class="step" id="step-17">
+    <div class="q-body">
+      <h2 class="q-title">Möchtest du zusätzlich ein kostenfreies Erstgespräch, in dem wir uns deine Situation gemeinsam anschauen?</h2>
+      <div class="upgrade-optional">20 Minuten, persönlich, unverbindlich. Bitte eine Option wählen.</div>
+      <div class="upgrade-options">
+          <div class="upgrade-option" id="opt-yes" onclick="selectUpgrade('yes')">
+            <div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>
+            Ja, gerne — ist ja kostenfrei
+          </div>
+          <div class="upgrade-option" id="opt-no" onclick="selectUpgrade('no')">
+            <div class="upgrade-checkbox"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"></polyline></svg></div>
+            Nein danke, erstmal nur die Videos
+          </div>
+        </div>
+      <button onclick="submitQuiz()" class="btn-submit">Video-Serie jetzt kostenfrei sichern →</button>
+      <a class="btn-back-link" onclick="goToStep(11)">← Zurück</a>
+      <div class="trust-row">
+        <div class="trust-item">✓ In nur 8 Tagen zu mehr Verbindung</div>
+        <div class="trust-item">✓ Für dich allein, in deinem Tempo</div>
+        <div class="trust-item">✓ Wirklich spürbare Veränderung</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUCCESS -->
+  <div class="success-msg" id="success-msg">
+    <div class="success-icon"><svg viewBox="0 0 24 24"><polyline points="20,6 9,17 4,12"></polyline></svg></div>
+    <h2 id="success-name">Auf dem Weg zu dir!</h2>
+    <p>Checke dein Postfach — deine Zugangsdaten zur Video-Serie landen in den nächsten Minuten bei dir. Schau auch in den Spam-Ordner.</p>
+    <div class="error-msg-submit" id="errorMsgSubmit">⚠️ Fehler beim Absenden. Bitte versuche es erneut.</div>
+  </div>
+
+</div>
+
+<script src="./config.js"></script>
+<script src="./visitor.js"></script>
+<script>
+// ═══════════════════════════════════════════════════
+// KONSTANTEN
+// ═══════════════════════════════════════════════════
+const KUNDE_NAME  = "Magic LLC";
+const KUNDE_ID    = "103";
+const WEBHOOK_URL = "https://n8n.srv923523.hstgr.cloud/webhook/netlify";
+// Video-Tracking-Backend (dasselbe System wie video1-8.html). Kunde-Slug, Buchungs-
+// link und Zugangsfrist kommen ab v2 aus config.js — vorher standen sie in jeder
+// Seite einzeln und liefen beim Ändern auseinander.
+const TRACK_WEBHOOK_URL = window.MX_CONFIG.TRACK_URL;
+const TRACK_KUNDE_ID    = window.MX_CONFIG.KUNDE_ID;
+const TRACK_KUNDE_NAME  = window.MX_CONFIG.KUNDE_NAME;
+const REDIRECT_URL = window.MX_TEST ? "./oto.html?test=1" : "./oto.html";
+const KONTAKT_PAGE_INDEX = 2; // Schritt 2 (Name/E-Mail/Telefon) ist der Kontakt-Schritt
+
+// ═══════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════
+let upgradeChoice = '';
+// Reihenfolge, nicht Nummernfolge. Alexandras acht Fragen (Doc vom 21.08.2026)
+// sind eingeordnet, die bestehenden Score-Fragen dazwischen. Schritt 10 ist raus:
+// er fragte dasselbe wie 11 und zaehlte auf keinen Score.
+//  1 Intro · 2 Kontakt · 3 Beziehung · 4 Beruf[A1] · 12 Intimitaet[A2]
+//  13 Hindernis[A3] · 6 Situation · 5 Dauer · 14 Wunsch[A4] · 7 Dringlichkeit[A5]
+//  8 Versuche[A6] · 15 Kurz gewirkt[A7] · 16 Kern[A8] · 9 Invest · 11 Bereitschaft
+const SCHRITTE = [1, 2, 3, 4, 12, 13, 6, 5, 14, 7, 8, 15, 16, 9, 11, 17];
+const TOTAL_STEPS = SCHRITTE.length;
+
+function position(n) { return SCHRITTE.indexOf(n); }
+function naechsterNach(n) {
+  const i = position(n);
+  return (i >= 0 && i + 1 < SCHRITTE.length) ? SCHRITTE[i + 1] : undefined;
+}
+function zurueck() {
+  const aktiv = document.querySelector('.step.active');
+  if (!aktiv) return;
+  const i = position(Number(aktiv.id.replace('step-', '')));
+  if (i > 0) goToStep(SCHRITTE[i - 1]);
+}
+const answers = {};
+let viewContentTracked = false;
+let partialSent = false;
+// Welche Schritte wurden schon ans Dashboard gemeldet (siehe goToStep)
+const gemeldeteSchritte = new Set();
+
+// ═══════════════════════════════════════════════════
+// EMAIL VALIDATION
+// ═══════════════════════════════════════════════════
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// ═══════════════════════════════════════════════════
+// NAVIGATION
+// ═══════════════════════════════════════════════════
+function goToStep(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step-' + n).classList.add('active');
+  // Angezeigt wird die POSITION in der Reihenfolge, nicht die Schritt-ID. Sonst
+  // stuende nach dem Umsortieren "Schritt 16 von 15".
+  const pos = position(n) + 1;
+  document.getElementById('progress-fill').style.width = Math.round((pos / TOTAL_STEPS) * 100) + '%';
+  // ANZEIGE: zwei Phasen statt sechzehn Schritte (07.09.2026, Sebastians Ansage).
+  // "Schritt 1 von 16" ueber dem allerersten Bildschirm schreckt ab, bevor irgendetwas
+  // gelesen wurde. Phase 1 ist der Einstieg, Phase 2 alles danach.
+  //
+  // Bewusst NUR die Anzeige. Gemeldet wird weiterhin die echte Position von 16
+  // (siehe unten), sonst waere die Absprung-Analyse blind: sie beantwortet die
+  // Frage, an welchem der sechzehn Bildschirme abgesprungen wird.
+  //
+  // Der Fortschrittsbalken laeuft weiter fein durch. Ohne ihn stuende die Anzeige
+  // fuenfzehn Bildschirme lang still und die Frau haette gar keine Rueckmeldung mehr.
+  const phase = pos === 1 ? 1 : 2;
+  document.getElementById('progress-label').textContent = 'Schritt ' + phase + ' von 2';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Track ViewContent beim ersten echten Schritt
+  if (n === 2 && !viewContentTracked && typeof fbq === 'function') {
+    fbq('track', 'ViewContent');
+    viewContentTracked = true;
+  }
+
+  // Jeden erreichten Schritt EINMAL melden. Bei elf Schritten ist die eigentliche
+  // Frage nicht "wie viele melden sich an", sondern "an welchem Schritt springen
+  // sie ab" — ohne dieses Ereignis ist das nicht beantwortbar. Einmal pro Schritt,
+  // damit ein Zurück-Klick die Zahlen nicht aufblaeht.
+  if (!gemeldeteSchritte.has(n)) {
+    gemeldeteSchritte.add(n);
+    // Gemeldet wird die POSITION, nicht die Schritt-ID. Seit die Fragen
+    // umsortiert sind, sind das zwei verschiedene Dinge: der fuenfte Schritt
+    // heisst intern step-12. Wuerde die ID gemeldet, stuende im Dashboard
+    // "12 von 15" fuer den fuenften Schritt — und die Absprung-Analyse waere
+    // still falsch, ohne dass es jemandem auffaellt.
+    trackToVideoDashboard('formular_schritt', [
+      { frage: 'Schritt', antwort: pos + ' von ' + TOTAL_STEPS },
+      { frage: 'Schritt-ID', antwort: String(n) }
+    ]);
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// UPGRADE SELECTION
+// ═══════════════════════════════════════════════════
+function selectUpgrade(choice) {
+  upgradeChoice = choice;
+  document.querySelectorAll('#step-17 .upgrade-option').forEach(o => o.classList.remove('selected'));
+  document.getElementById('opt-' + choice).classList.add('selected');
+}
+
+// ═══════════════════════════════════════════════════
+// ANSWER SELECTION (Single-Choice)
+// ═══════════════════════════════════════════════════
+function selectAnswer(field, value, el) {
+  answers[field] = value;
+  el.parentElement.querySelectorAll('.upgrade-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+// ═══════════════════════════════════════════════════
+// ANSWER SELECTION (Mehrfachauswahl)
+// ═══════════════════════════════════════════════════
+function selectMultiAnswer(field, value, el) {
+  if (!Array.isArray(answers[field])) answers[field] = [];
+  const idx = answers[field].indexOf(value);
+  if (idx === -1) {
+    answers[field].push(value);
+    el.classList.add('selected');
+  } else {
+    answers[field].splice(idx, 1);
+    el.classList.remove('selected');
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// VALIDATION FUNCTIONS
+// ═══════════════════════════════════════════════════
+function validateAndGo(field, nextStep) {
+  const val = answers[field];
+  const isEmpty = Array.isArray(val) ? val.length === 0 : !val;
+  if (isEmpty) {
+    alert('Bitte wähle mindestens eine Antwort aus, bevor du weitergehst.');
+    return;
+  }
+  // Ohne Zielnummer entscheidet SCHRITTE, nicht das onclick im HTML. Noetig,
+  // seit die Fragen nicht mehr in numerischer Reihenfolge laufen.
+  const aktiv = document.querySelector('.step.active');
+  const hier = aktiv ? Number(aktiv.id.replace('step-', '')) : undefined;
+  const ziel = (nextStep === undefined || nextStep === null) ? naechsterNach(hier) : nextStep;
+  if (ziel) goToStep(ziel);
+}
+
+function validateUpgradeAndGo() {
+  // Schritt 1 hat seit 07.09.2026 keine Auswahl mehr; die Erstgespraech-Frage
+  // steht als letzter Schritt (#step-17) und wird in submitQuiz() geprueft.
+  goToStep(2);
+}
+
+function validateContactAndGo() {
+  const name = document.getElementById('b-name').value.trim();
+  const email = document.getElementById('b-email').value.trim();
+  const phone = document.getElementById('b-phone').value.trim();
+
+  let valid = true;
+  const nameInput = document.getElementById('b-name');
+  const emailInput = document.getElementById('b-email');
+  const phoneInput = document.getElementById('b-phone');
+
+  if (!name) {
+    nameInput.classList.add('error');
+    valid = false;
+  } else {
+    nameInput.classList.remove('error');
+  }
+
+  if (!email || !isValidEmail(email)) {
+    emailInput.classList.add('error');
+    valid = false;
+  } else {
+    emailInput.classList.remove('error');
+  }
+
+  if (!phone) {
+    phoneInput.classList.add('error');
+    valid = false;
+  } else {
+    phoneInput.classList.remove('error');
+  }
+
+  if (!valid) {
+    alert('Bitte fülle alle Felder korrekt aus, bevor du weitergehst.');
+    return;
+  }
+
+  answers.name = name;
+  answers.email = email;
+  answers.phone = phone;
+
+  // Für Calendly-Prefill auf OTO- und Video-Seiten (nur localStorage, nicht via URL)
+  try {
+    localStorage.setItem('mx_known_name', name);
+    localStorage.setItem('mx_known_email', email);
+  } catch (e) {}
+  window.MX_KNOWN_NAME = name;
+  window.MX_KNOWN_EMAIL = email;
+
+  sendPartialLead();
+  uebergebeLeadFrueh();
+  goToStep(3);
+}
+
+// ═══════════════════════════════════════════════════
+// QUERY PARAMETER
+// ═══════════════════════════════════════════════════
+function getQueryParameter() {
+  const params = {};
+  new URLSearchParams(window.location.search).forEach((value, key) => {
+    params[key] = value;
+  });
+  return params;
+}
+
+// ═══════════════════════════════════════════════════
+// COLLECT ANSWERS
+// ═══════════════════════════════════════════════════
+function collectAnswers() {
+  const answersArray = [];
+
+  // Schritt 1: Upgrade
+  if (upgradeChoice) {
+    answersArray.push({
+      frage: "Möchtest du zusätzlich ein kostenfreies Erstgespräch?",
+      antwort: upgradeChoice === 'yes' ? 'Ja' : 'Nein'
+    });
+  }
+
+  // Schritt 2: Kontaktdaten
+  if (answers.name) answersArray.push({ frage: "Dein Vorname", antwort: answers.name });
+  if (answers.email) answersArray.push({ frage: "Deine E-Mail", antwort: answers.email });
+  if (answers.phone) answersArray.push({ frage: "Deine Telefonnummer", antwort: answers.phone });
+
+  // Schritte 3-11: Quiz-Antworten
+  const asText = (v) => Array.isArray(v) ? v.join(', ') : v;
+  if (answers.intimitaet) answersArray.push({ frage: "Hand aufs Herz – Wie erlebst du Intimität und Nähe aktuell?", antwort: answers.intimitaet });
+  if (answers.hindernis) answersArray.push({ frage: "Was hindert dich am meisten daran, den Moment voll zu genießen?", antwort: answers.hindernis });
+  if (answers.wunsch) answersArray.push({ frage: "Was wäre dein absolutes Wunsch-Szenario?", antwort: answers.wunsch });
+  if (answers.kurzgewirkt) answersArray.push({ frage: "Was hat kurz gewirkt, aber dann wieder aufgehört?", antwort: answers.kurzgewirkt });
+  if (answers.kern) answersArray.push({ frage: "Woran, glaubst du selbst, liegt es im Kern?", antwort: answers.kern });
+  if (answers.beziehung) answersArray.push({ frage: "Welche Aussage beschreibt deine aktuelle Beziehungssituation am besten?", antwort: answers.beziehung });
+  if (answers.beruf) answersArray.push({ frage: "Welcher Berufsgruppe bist du zuzuordnen?", antwort: answers.beruf });
+  if (answers.einkommen) answersArray.push({ frage: "Seit wann begleitet dich dieses Gefühl der Distanz zu deinem Körper und deiner Lust?", antwort: answers.einkommen });
+  if (answers.situation && answers.situation.length) answersArray.push({ frage: "Wie würdest du deine aktuelle Situation am ehesten beschreiben?", antwort: asText(answers.situation) });
+  if (answers.dringlichkeit) answersArray.push({ frage: "Wie wichtig ist es dir, dieses Thema innerhalb der nächsten 30 Tage anzugehen?", antwort: answers.dringlichkeit });
+  if (answers.bisherigerVersuch && answers.bisherigerVersuch.length) answersArray.push({ frage: "Was beschreibt deine bisherigen Versuche am ehesten, mehr Verbindung zu deinem Körper und deiner Sexualität aufzubauen?", antwort: asText(answers.bisherigerVersuch) });
+  if (answers.gesundheit) answersArray.push({ frage: "Wie viel investierst du im Durchschnitt monatlich in deine persönliche Weiterentwicklung & dein Wohlbefinden?", antwort: answers.gesundheit });
+  if (answers.bereitschaft) answersArray.push({ frage: "Was trifft am ehesten auf dich zu?", antwort: answers.bereitschaft });
+  if (answers.investitionsbereitschaft) answersArray.push({ frage: "Bist du bereit, in dich zu investieren und dich zu verändern?", antwort: answers.investitionsbereitschaft });
+
+  return answersArray;
+}
+
+// ═══════════════════════════════════════════════════
+// VIDEO-TRACKING-BACKEND MELDEN (identisch zum System in video1-8.html)
+// ═══════════════════════════════════════════════════
+// Der Typ darf das Tracking nie anhalten: wirft die Berechnung (z.B. weil ein
+// Frageblock fehlt), geht das Ereignis trotzdem raus - ohne Typ statt gar nicht.
+function typNummerSicher() {
+  try {
+    if (typeof berechneTyp !== 'function') return null;
+    var t = berechneTyp();
+    return t ? t.nr : null;
+  } catch (e) { return null; }
+}
+
+function trackToVideoDashboard(status, antworten) {
+  const payload = {
+    kunde: { name: TRACK_KUNDE_NAME, id: TRACK_KUNDE_ID },
+    besucher_id: window.MX_VISITOR_ID,
+    status,
+    antworten,
+    query_parameter: getQueryParameter(),
+    // Kanal-Kontext (src/msg/cmp aus visitor.js). Ohne dieses Feld landet jede
+    // Anmeldung im Dashboard ohne Herkunft — man sieht Leads, aber nicht, welche
+    // Anzeige oder welche WhatsApp-Nachricht sie gebracht hat.
+    kanal: window.MX_KANAL || {},
+    // Der Profil-Typ als eigenes Feld, nicht nur als Frage/Antwort-Paar: sonst
+    // laesst sich im Dashboard nicht nach Typ filtern, und genau das ist die
+    // Frage, die der Funnel beantworten soll — welcher Typ kommt ueber welche
+    // Anzeige. Null, solange die Typ-Fragen noch nicht beantwortet sind.
+    profil_typ: typNummerSicher(),
+    zeitstempel: new Date().toISOString()
+  };
+  fetch(TRACK_WEBHOOK_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  }).catch(() => {});
+}
+
+// ═══════════════════════════════════════════════════
+// PARTIAL LEAD CAPTURE
+// ═══════════════════════════════════════════════════
+// ═══════════════════════════════════
+// LEAD-UEBERGABE (Mautic + Meta)
+// ═══════════════════════════════════
+// Stand 02.09.2026. Vorher lief beides erst nach Schritt 15. Wer zwischen
+// Schritt 3 und 15 abbrach, hatte E-Mail und Telefon laengst abgegeben, stand
+// aber in keinem Mautic-Segment und kam bei Meta nie als Lead an. Der Weg dorthin
+// ist lang: dreizehn Fragen zwischen Kontaktdaten und Uebergabe.
+//
+// Deshalb zwei Stufen. `teil` direkt nach den Kontaktdaten, `voll` nach dem
+// Absenden. `mautic-lead` sucht vor dem Schreiben nach der E-Mail und bearbeitet
+// den vorhandenen Kontakt, der zweite Aufruf legt also keine Dublette an, sondern
+// ergaenzt Score und Profil-Typ.
+
+// Meta-Ereignis-ID: derselbe Wert geht an den Browser-Pixel UND an die Conversions
+// API. Meta wirft das Duplikat weg. Ohne gemeinsame ID zaehlt jeder Lead doppelt,
+// und der CPL im Werbekonto ist nur noch halb so hoch wie in Wirklichkeit.
+function metaEreignisId(name) {
+  const roh = (window.MX_VISITOR_ID || 'anon') + '|' + name + '|' + Date.now();
+  return 'mx-' + roh.replace(/[^a-zA-Z0-9|]/g, '').slice(0, 60);
+}
+
+function keks(name) {
+  // Ohne regulaeren Ausdruck: ein Rueckstrich in einer Zeichenkette geht in
+  // HTML, Bau-Skript und Editor mehrfach durch die Haende und verschwindet
+  // dabei still. Zerlegen ist hier das robustere Mittel.
+  const teile = ('; ' + document.cookie).split('; ' + name + '=');
+  return teile.length === 2 ? teile.pop().split(';').shift() : '';
+}
+
+// Der Klick-Parameter aus der Anzeige. Meta legt `_fbc` nur an, wenn das Pixel den
+// Aufruf mit `fbclid` selbst gesehen hat. Kommt die Frau ueber einen Umweg
+// (Weiterleitung, WhatsApp-Vorschau), fehlt das Cookie, und der Klick waere nicht
+// zuordenbar. Deshalb notfalls selbst aus der URL bauen.
+function fbcWert() {
+  const ausKeks = keks('_fbc');
+  if (ausKeks) return ausKeks;
+  const fbclid = new URLSearchParams(window.location.search).get('fbclid');
+  return fbclid ? 'fb.1.' + Date.now() + '.' + fbclid : '';
+}
+
+let metaGemeldet = {};
+
+// Meldet ein Ereignis an Meta, im Browser und serverseitig. Serverseitig, weil der
+// Browser-Pixel von Adblockern und iOS-Trackingschutz verschluckt wird; im Browser,
+// weil die Server-Meldung ohne die Pixel-Cookies schlechter zuordnet.
+function meldeAnMeta(ereignis, zusatz) {
+  if (metaGemeldet[ereignis]) return;
+  metaGemeldet[ereignis] = true;
+
+  const eventId = metaEreignisId(ereignis);
+  const inhalt = Object.assign({ content_name: KUNDE_NAME + ' Typ-Funnel' }, zusatz || {});
+
+  if (typeof fbq === 'function') {
+    try { fbq('track', ereignis, inhalt, { eventID: eventId }); } catch (e) {}
+  }
+
+  fetch('/.netlify/functions/meta-capi', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      ereignis: ereignis,
+      event_id: eventId,
+      email: answers.email || '',
+      telefon: answers.phone || '',
+      vorname: answers.name || '',
+      besucher_id: window.MX_VISITOR_ID,
+      fbp: keks('_fbp'),
+      fbc: fbcWert(),
+      quelle_url: window.location.href,
+      score: typeof inhalt.value === 'number' ? inhalt.value : undefined,
+      stufe: inhalt.status,
+      profil_typ: inhalt.profil_typ
+    })
+  }).catch(function () {});
+}
+
+// Legt den Kontakt in Mautic an. Rueckgabe ist das Versprechen auf die Mautic-ID,
+// die der Absende-Zweig fuer die Buchungs-Bruecke braucht.
+function anMautic(stufe, extra) {
+  const namensteile = (answers.name || '').trim().split(/\s+/);
+  return fetch('/.netlify/functions/mautic-lead', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(Object.assign({
+      vorname: namensteile[0] || '',
+      nachname: namensteile.slice(1).join(' '),
+      email: answers.email || '',
+      telefon: answers.phone || '',
+      besucher_id: window.MX_VISITOR_ID,
+      kanal: window.MX_KANAL || {},
+      stufe: stufe
+    }, extra || {}))
+  }).then(function (r) { return r.json(); })
+    .catch(function () { return { ok: false, grund: 'Netzwerkfehler' }; });
+}
+
+// Stufe 1, direkt nach den Kontaktdaten auf Schritt 2.
+function uebergebeLeadFrueh() {
+  anMautic('teil');
+  // `Lead` ist bewusst hier, nicht am Ende: fuer Meta ist der Lead entstanden, als
+  // die Frau ihre Daten hergegeben hat. Das vollstaendige Formular kommt danach als
+  // eigenes Ereignis `CompleteRegistration`.
+  meldeAnMeta('Lead', { status: 'teil' });
+  // Damit im Dashboard ab hier ein Name statt einer anonymen Kennung steht.
+  const ident = [{ frage: 'Dein Vorname', antwort: answers.name || '' }];
+  if (answers.email) ident.push({ frage: 'Deine E-Mail', antwort: answers.email });
+  trackToVideoDashboard('identifiziert', ident);
+}
+
+function sendPartialLead() {
+  if (partialSent) return;
+  partialSent = true;
+
+  const payload = {
+    kunde: { name: KUNDE_NAME, id: KUNDE_ID },
+    typ: 'partial',
+    antworten: collectAnswers(),
+    query_parameter: getQueryParameter(),
+    zeitstempel: new Date().toISOString()
+  };
+
+  fetch(WEBHOOK_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  }).catch(() => {});
+}
+
+// ═══════════════════════════════════════════════════
+// LEAD SCORE
+// ═══════════════════════════════════════════════════
+// In v1 stand hier ein Platzhalter: maxScore 21, gezählt wurde ausschliesslich die
+// Dringlichkeit, im Code stand "müssten Sie an die tatsächlichen Frage-Werte
+// anpassen". Das Formular fragt elf Schritte ab — davon flossen zehn nirgendwo ein.
+// Jede Frau mit Dringlichkeit 5 sah im CRM gleich aus, egal ob sie 1.000 €/Monat
+// oder gar nichts in sich investiert.
+//
+// Skala: MAX_SCORE = regulärer Programmpreis (12.400 €, Stand der Angebotsseite).
+// Ein Score ist damit direkt als "erwarteter Wert dieser Anfrage" lesbar, statt als
+// abstrakte Punktzahl.
+//
+// Gewichtung (Summe 100):
+//   Dringlichkeit           30  — will sie es JETZT lösen
+//   Investitionsbereitschaft 25 — Budget-Realität + explizite Bereitschaft
+//   Schmerz                  25 — wie hoch ist der Druck
+//   Fit / Vorgeschichte      20 — Dauer des Problems + bisherige Versuche
+//
+// Bewusst NICHT gewichtet: Berufsgruppe und Beziehungsstatus. Beide sagen nichts
+// über Kaufbereitschaft, sortieren aber verlässlich Frauen aus, die zahlen würden
+// (ICP-Kriterium ist "kann und will investieren", nicht "hat den richtigen Job").
+// Sie werden weiter erhoben, weil sie fürs Gespräch relevant sind.
+
+// ═══════════════════════════════════════════════════
+// PROFIL-TYP (Alexandras Auswertung, Doc vom 21.08.2026)
+// ═══════════════════════════════════════════════════
+// Sechs Fragen zaehlen. Beruf und Dringlichkeit NICHT: Beruf wuerde
+// Unternehmerinnen automatisch zu Typ 1 machen — das Ergebnis waere eine
+// Selbstbestaetigung des Filters statt einer Messung. Dringlichkeit ist ein
+// Sales-Filter, kein Typ-Signal.
+//
+// Die POSITION der gewaehlten Antwort ist die Zuordnung: erste Antwort -> Typ 1.
+// Die Reihenfolge der Optionen im HTML darf deshalb nie sortiert werden.
+const TYP_FRAGEN = ['intimitaet', 'hindernis', 'wunsch', 'bisherigerVersuch', 'kurzgewirkt', 'kern'];
+
+const TYP_NAMEN = {
+  1: 'Die Performance-Queen',
+  2: 'Die Kopf-Gefangene',
+  3: 'Die Harmonie-Geberin',
+  4: 'Die Unsichtbare',
+  5: 'Die Suchende'
+};
+
+function antwortPosition(key) {
+  const wert = answers[key];
+  if (!wert) return -1;
+  const box = document.getElementById('q-' + key);
+  if (!box) return -1;
+  const optionen = box.querySelectorAll('.upgrade-option');
+  for (let i = 0; i < optionen.length; i++) {
+    const on = optionen[i].getAttribute('onclick') || '';
+    const m = on.match(/,\s*'((?:[^'\\]|\\.)*)'\s*,\s*this/);
+    if (m && m[1].replace(/\\'/g, "'") === wert) return i;
+  }
+  return -1;
+}
+
+function berechneTyp() {
+  const punkte = [0, 0, 0, 0, 0];
+  TYP_FRAGEN.forEach(function (key) {
+    const pos = antwortPosition(key);
+    if (pos >= 0 && pos < 5) punkte[pos]++;
+  });
+  const max = Math.max.apply(null, punkte);
+  if (max === 0) return null;
+  const spitze = punkte.filter(function (p) { return p === max; }).length;
+  // Gleichstand: Frage 8 (Kern) entscheidet — sie fragt die Selbstdeutung ab und
+  // trennt am stabilsten. Fehlt auch die, gewinnt der erste Hoechstwert.
+  let idx;
+  if (spitze > 1) {
+    const kern = antwortPosition('kern');
+    idx = (kern >= 0 && kern < 5) ? kern : punkte.indexOf(max);
+  } else {
+    idx = punkte.indexOf(max);
+  }
+  return { nr: idx + 1, name: TYP_NAMEN[idx + 1], punkte: punkte };
+}
+
+const MAX_SCORE = 12400;
+
+const DRINGLICHKEIT_SCORES = {
+  'Es belastet mich extrem – ich will das endlich klären.': 1.0,
+  'Sehr wichtig, es beeinträchtigt meine Lebensqualität und Beziehung.': 0.8,
+  'Wäre schön, aber ich habe gerade viel Stress im Job.': 0.3,
+  'Ich schaue mich nur mal um.': 0.05
+};
+
+// Monatliches Invest in die eigene Entwicklung. 150 €/Monat aufwärts ist die
+// Schwelle, ab der eine vierstellige Einmalzahlung realistisch verhandelbar ist.
+const INVEST_SCORES = {
+  'Aktuell nichts': 0.05,
+  'Unter 50€/Monat': 0.15,
+  '50€–150€/Monat': 0.4,
+  '150€–300€/Monat': 0.7,
+  '300€–1.000€/Monat': 0.9,
+  'Mehr als 1.000€/Monat': 1.0
+};
+
+const BEREITSCHAFT_SCORES = {
+  'Ja, klar. Ich will ja Veränderung.': 1.0,
+  'Nein. Ich will, dass alles so bleibt, wie es ist.': 0.0
+};
+
+// Mehrfachauswahl. Der stärkste gewählte Schmerz zählt, nicht die Summe — wer sechs
+// Kästchen anklickt, hat nicht sechsmal so viel Druck. "Eigentlich ist alles okay"
+// zieht bewusst nach unten: das ist ein Neugier-Lead, kein Anfrage-Lead.
+const SCHMERZ_SCORES = {
+  'Meine Partnerschaft steht kurz vor dem Aus': 1.0,
+  'Ich habe Schmerzen beim Sex': 0.95,
+  'Ich vermeide Sex komplett': 0.9,
+  'Ich komme nicht zum Höhepunkt': 0.75,
+  'Ich bin unglücklich, weiß aber nicht warum': 0.6,
+  'Eigentlich ist alles okay': 0.1
+};
+
+const DAUER_SCORES = {
+  'Erst seit Kurzem (ein paar Monate)': 0.4,
+  'Schon seit ein paar Jahren': 0.85,
+  'Eigentlich schon mein Leben lang': 1.0,
+  'Keine Angabe': 0.3
+};
+
+// Wer schon investiert hat und trotzdem feststeckt, ist der beste Lead: das Problem
+// ist bestätigt, der Weg über Selbstlernen ist ausprobiert und gescheitert.
+const VERSUCH_SCORES = {
+  'Versucht, mich mit Atemübungen oder Tipps aus Podcasts irgendwie zu entspannen, um den Kopf frei zu kriegen.': 0.9,
+  'Feste "Date-Nights" im Kalender geplant, damit wir im Alltag überhaupt dazu kommen.': 0.8,
+  'Neue Sachen im Bett vorgeschlagen, damit es wenigstens für meinen Partner wieder spannender wird.': 0.7,
+  'Schöne Wäsche gekauft oder das Licht ausgemacht, damit ich mich nicht so unwohl fühle.': 0.6,
+  'Einfach abgewartet, bis wir im Urlaub sind, oder vorher ein Glas Wein getrunken, um lockerer zu werden.': 0.35
+};
+
+function bestesAus(tabelle, wert) {
+  if (!wert) return 0;
+  const liste = Array.isArray(wert) ? wert : [wert];
+  let max = 0;
+  liste.forEach(function (v) {
+    const s = tabelle[v];
+    if (typeof s === 'number' && s > max) max = s;
+  });
+  return max;
+}
+
+function calculateLeadScore() {
+  const anteile = {
+    dringlichkeit: (DRINGLICHKEIT_SCORES[answers.dringlichkeit] || 0) * 30,
+    // Budget-Realität und erklärte Bereitschaft je zur Hälfte: "ja, ich will
+    // investieren" ohne jedes Budget ist eine Absichtserklärung, kein Signal.
+    investitionsbereitschaft:
+      ((INVEST_SCORES[answers.gesundheit] || 0) * 0.5 +
+       (BEREITSCHAFT_SCORES[answers.investitionsbereitschaft] || 0) * 0.5) * 25,
+    schmerz: bestesAus(SCHMERZ_SCORES, answers.situation) * 25,
+    fit:
+      ((DAUER_SCORES[answers.einkommen] || 0) * 0.5 +
+       bestesAus(VERSUCH_SCORES, answers.bisherigerVersuch) * 0.5) * 20
+  };
+
+  const prozent = Object.keys(anteile).reduce(function (s, k) { return s + anteile[k]; }, 0);
+  const total = Math.round((prozent / 100) * MAX_SCORE);
+  const kategorie = prozent >= 75 ? 'heiß' : prozent >= 50 ? 'warm' : 'kalt';
+
+  return {
+    total: total,
+    maxScore: MAX_SCORE,
+    prozent: Math.round(prozent),
+    kategorie: kategorie,
+    breakdown: anteile
+  };
+}
+
+// ═══════════════════════════════════════════════════
+// SUBMIT QUIZ
+// ═══════════════════════════════════════════════════
+// Sperre gegen Mehrfach-Absenden. Gemessen am 02.09.2026: wer den Absende-Knopf
+// zweimal antippt, weil die Seite waehrend des Netzaufrufs noch stillsteht, loest
+// den ganzen Zweig erneut aus. Mautic haelt das aus (es sucht vorher nach der
+// E-Mail), das Dashboard nicht: dieselbe Anmeldung stuende mehrfach in den Zahlen.
+let absendeLaeuft = false;
+
+async function submitQuiz() {
+  if (absendeLaeuft) return;
+  if (!answers.investitionsbereitschaft) {
+    alert('Bitte beantworte die letzte Frage, bevor du absenden kannst.');
+    return;
+  }
+  if (document.querySelector('#step-17 .upgrade-option') && !upgradeChoice) {
+    alert('Bitte wähle noch aus, ob du das kostenfreie Erstgespräch möchtest.');
+    return;
+  }
+
+  absendeLaeuft = true;
+
+  const leadScoreData = calculateLeadScore();
+
+  const typErgebnis = berechneTyp();
+  const payload = {
+    kunde: {
+      name: KUNDE_NAME,
+      id: KUNDE_ID
+    },
+    typ: 'complete',
+    antworten: collectAnswers(),
+    query_parameter: getQueryParameter(),
+    profil_typ: (typErgebnis && typErgebnis.nr) || null,
+    profil_typ_name: (typErgebnis && typErgebnis.name) || null,
+    score: leadScoreData.total,
+    max_score: leadScoreData.maxScore,
+    score_prozent: leadScoreData.prozent,
+    score_kategorie: leadScoreData.kategorie,
+    zeitstempel: new Date().toISOString()
+  };
+
+  console.log('Sending payload:', payload);
+
+  try {
+    const response = await fetch(WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if (response.ok) {
+      const name = (answers.name || '').split(' ')[0];
+      document.getElementById('success-name').textContent = name ? name + ', dein Platz ist gesichert!' : 'Auf dem Weg zu dir!';
+      document.getElementById('step-11').style.display = 'none';
+      document.getElementById('progress-wrap').style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+      document.getElementById('errorMsgSubmit').style.display = 'none';
+
+      // Ab hier greift dasselbe Tracking-System wie auf den Video-Seiten:
+      // besucher_id (aus visitor.js, localStorage) ist bereits gesetzt,
+      // Name wird jetzt gemerged, damit der anonyme Verlauf ab der Video-Seite
+      // demselben Datensatz zugeordnet wird statt neu anzufangen.
+      if (name) {
+        const ident = [{ frage: 'Dein Vorname', antwort: name }];
+        // E-Mail ist der Schlüssel, über den der Calendly-Webhook später die
+        // Buchung diesem Datensatz zuordnet.
+        if (answers.email) ident.push({ frage: 'Deine E-Mail', antwort: answers.email });
+        trackToVideoDashboard('identifiziert', ident);
+      }
+      trackToVideoDashboard('formular_abgeschickt', collectAnswers().concat([
+        { frage: 'Score', antwort: leadScoreData.total },
+        { frage: 'Score (%)', antwort: leadScoreData.prozent },
+        { frage: 'Kategorie', antwort: leadScoreData.kategorie }
+      ]));
+
+      // -- Kontakt in Christians Mautic nachtragen -----------------------
+      // Zweiter von zwei Aufrufen. Der erste lief schon auf Schritt 2, direkt nach
+      // den Kontaktdaten (siehe `uebergebeLeadFrueh`). `mautic-lead` sucht vorher
+      // nach der E-Mail und bearbeitet den vorhandenen Kontakt, hier kommen also
+      // nur Score und Profil-Typ dazu, und der Abbrecher-Tag geht wieder ab.
+      //
+      // Warum ueberhaupt hier und nicht ueber n8n: der dortige Workflow ("Netlify")
+      // verwirft im allerersten Node jede Anmeldung ohne utm_campaign_id, also allen
+      // organischen und allen WhatsApp-Traffic. Er antwortet ausserdem sofort mit
+      // "Workflow got started" und kann die Mautic-ID gar nicht zurueckgeben. Ohne
+      // die ID tippt die Frau im Buchungstool Name, Telefon und E-Mail ein zweites
+      // Mal (Buchungs-Bruecke, siehe visitor.js).
+      const mauticLaeuft = anMautic('voll', {
+        score: leadScoreData.total,
+        // Fuer typ-spezifische Mail-Strecken: ohne dieses Feld kann Mautic
+        // nicht nach Typ segmentieren.
+        profil_typ: (typErgebnis && typErgebnis.nr) || null
+      });
+
+      // -- Vollstaendige Anmeldung an Meta -------------------------------
+      // `Lead` ist auf Schritt 2 schon gemeldet. Hier kommt das zweite, staerkere
+      // Signal: sie hat alle fuenfzehn Schritte durch. Der Wert ist der Lead Score,
+      // gerechnet als erwarteter Wert der Anfrage, damit Meta auf Wert optimieren
+      // kann statt auf Stueckzahl.
+      meldeAnMeta('CompleteRegistration', {
+        status: 'voll',
+        value: leadScoreData.total,
+        currency: 'EUR',
+        profil_typ: (typErgebnis && typErgebnis.nr) || null
+      });
+
+      // ── Zugangsfrist ab JETZT rechnen ──────────────────────────────────────
+      // Die Anmeldung ist der fachlich richtige Startpunkt für "dein Zugang läuft
+      // ab in …". Würde die Frist erst beim ersten Aufruf einer Videoseite starten,
+      // wäre jede Frau ausgesperrt, die die Seite vor Tagen schon einmal offen
+      // hatte — im Vegan-Mind-Funnel war das der Fehler, der frisch Angemeldete
+      // sofort zurückgeworfen hat.
+      try {
+        localStorage.setItem(
+          window.MX_CONFIG.FRIST_KEY,
+          String(Date.now() + window.MX_CONFIG.FRIST_STUNDEN * 3600 * 1000)
+        );
+      } catch (e) {}
+
+      // ── Weiterleitung zur Angebotsseite ───────────────────────────────────
+      // Kanal-Tracking-Regel 3: Herkunft durchreichen, sonst sieht bezahlter
+      // Traffic ab dieser Seite organisch aus. Regel 6: E-Mail und Telefon NICHT
+      // in die URL — oto.html liest beides aus localStorage (gleiche Origin),
+      // sonst landen sie in Browser-Verlauf, Server-Logs, Clarity-Aufzeichnungen
+      // und im Referrer an den Buchungsanbieter.
+      // ── Auf die Mautic-ID warten, aber gedeckelt ───────────────────────────
+      // Eine hängende oder langsame Mautic-Instanz darf die Frau nicht auf dem
+      // Erfolgsbildschirm festhalten. Kommt binnen 2,5 s nichts, geht es ohne ID
+      // weiter — der Kontakt wird trotzdem angelegt, nur die Vorbefüllung des
+      // Buchungstools fehlt dann bei dieser einen Besucherin.
+      const mauticErgebnis = await Promise.race([
+        mauticLaeuft,
+        new Promise(function (fertig) {
+          setTimeout(function () { fertig({ ok: false, grund: 'Zeitlimit' }); }, 2500);
+        })
+      ]);
+
+      if (mauticErgebnis && mauticErgebnis.ok && mauticErgebnis.lead_id) {
+        // Genau der Speicherplatz, den visitor.js liest (LEAD_ID_KEY = "mx_lead_id").
+        // Von dort holt die Buchungs-Brücke die ID Tage später wieder — auch nach
+        // Neuladen und auch dann, wenn Netlify die URL-Parameter beim Umschreiben
+        // von './video4.html' auf '/video4' wegwirft.
+        try { localStorage.setItem('mx_lead_id', mauticErgebnis.lead_id); } catch (e) {}
+        window.MX_LEAD_ID = mauticErgebnis.lead_id;
+      } else {
+        console.warn('Mautic-ID nicht erhalten:', mauticErgebnis && mauticErgebnis.grund);
+      }
+
+      const ziel = new URL(REDIRECT_URL, window.location.href);
+      // Der Profil-Typ wandert als Parameter mit; oto.html blendet damit den
+      // passenden Ergebnistext oben ein. Faellt er weg, zeigt oto.html den
+      // Standard — die Seite bricht nie, sie wird nur unpersoenlich.
+      if (typErgebnis && typErgebnis.nr) {
+        ziel.searchParams.set('typ', String(typErgebnis.nr));
+        try { localStorage.setItem('mx_profil_typ', String(typErgebnis.nr)); } catch (e) {}
+      }
+      if (name) ziel.searchParams.set('name', name);
+      const eingang = new URLSearchParams(window.location.search);
+      ['src', 'msg', 'cmp', 'lead_id', 'c_id'].forEach(function (k) {
+        const v = eingang.get(k);
+        if (v) ziel.searchParams.set(k, v);
+      });
+      // Die frisch erzeugte ID gewinnt gegen eine eventuell aus dem Link mitgereichte:
+      // sie gehört zu genau diesem Kontakt, die alte kann aus einem fremden Versand stammen.
+      if (window.MX_LEAD_ID) ziel.searchParams.set('lead_id', window.MX_LEAD_ID);
+      setTimeout(function () { window.location.href = ziel.toString(); }, 1500);
+    } else {
+      // Sperre wieder auf: der Absendeversuch ist gescheitert, sie muss es
+      // noch einmal versuchen koennen. Ohne das waere der Knopf tot und die
+      // Anmeldung verloren, obwohl sie alle fuenfzehn Schritte hinter sich hat.
+      absendeLaeuft = false;
+      document.getElementById('errorMsgSubmit').style.display = 'block';
+      console.error('Webhook error:', response.status);
+    }
+  } catch (err) {
+    absendeLaeuft = false;
+    document.getElementById('errorMsgSubmit').style.display = 'block';
+    console.error('Network error:', err);
+  }
+}
+
+// ═══════════════════════════════════════════════════
+// ENTER = WEITER (löst den Haupt-Button des aktiven Schritts aus)
+// ═══════════════════════════════════════════════════
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Enter' || e.shiftKey) return;
+  const activeStep = document.querySelector('.step.active');
+  if (!activeStep) return;
+  const btn = activeStep.querySelector('.btn-submit');
+  if (!btn) return;
+  e.preventDefault();
+  btn.click();
+});
+
+// ═══════════════════════════════════════════════════
+// SEITENAUFRUF MELDEN
+// ═══════════════════════════════════════════════════
+// Fehlte in v1 komplett: gemeldet wurde erst das ABGESCHICKTE Formular. Damit war
+// jede Frau unsichtbar, die die Seite geöffnet und bei Schritt 3 aufgegeben hat —
+// eine Opt-in-Quote liess sich gar nicht berechnen, nur die absolute Zahl der
+// Anmeldungen. Regel 4 des Kanal-Trackings: der Kanal-Klick zaehlt ausschliesslich
+// an diesem Ereignis.
+trackToVideoDashboard('seite_geoeffnet', [{ frage: 'Seite', antwort: 'Opt-in / Anmeldung' }]);
+
+if (window.MX_JUST_IDENTIFIED) {
+  const identBeimOeffnen = [{ frage: 'Seite', antwort: 'Opt-in / Anmeldung' }];
+  if (window.MX_KNOWN_NAME) identBeimOeffnen.push({ frage: 'Dein Vorname', antwort: window.MX_KNOWN_NAME });
+  trackToVideoDashboard('identifiziert', identBeimOeffnen);
+}
+
+// Init
+goToStep(1);
+</script>
+
+
+
+</body></html>

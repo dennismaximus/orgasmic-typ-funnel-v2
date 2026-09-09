@@ -1,0 +1,3 @@
+# Neuer Funnel — nichts indexieren.
+User-agent: *
+Disallow: /

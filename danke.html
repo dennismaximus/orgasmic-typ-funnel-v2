@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dein Termin steht — Live ORGASMIC</title>
+  <meta name="description" content="Dein Exploration Call ist gebucht. Hier erfährst du, was dich erwartet und wie du dich vorbereitest.">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --navy:        #1a2642;
+      --navy-mid:    #1e3158;
+      --cream:       #f5f0e8;
+      --cream-dark:  #ede6d4;
+      --gold:        #c9a44c;
+      --gold-light:  #dfc07a;
+      --gold-pale:   #f0e4c0;
+      --rose:        #c07860;
+      --text-dark:   #1a1a2e;
+      --text-mid:    #5a5a6a;
+      --text-light:  #f0ece2;
+      --gruen:       #4a8f6f;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:var(--cream);color:var(--text-dark);
+      font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+      font-size:16px;line-height:1.7;overflow-x:hidden;
+    }
+    .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+    section{padding:52px 0}
+    h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-height:1.22}
+    h1{font-size:40px}
+    h2{font-size:30px;margin-bottom:14px}
+    h3{font-size:21px;margin-bottom:8px}
+    p{margin-bottom:14px}
+    .mid{color:var(--text-mid)}
+    .zentriert{text-align:center}
+
+    /* ── Kopf ── */
+    .kopf{background:var(--navy);color:var(--text-light);padding:46px 0 40px;text-align:center;position:relative}
+    .kopf::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold)}
+    .haken{width:56px;height:56px;border-radius:50%;background:rgba(201,164,76,.16);border:1px solid var(--gold);
+      display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+    .haken svg{width:26px;height:26px;stroke:var(--gold);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .kopf h1{color:#fff;margin-bottom:10px}
+    .kopf p{color:rgba(240,236,226,.8);margin:0}
+
+    /* ── Terminkarte ── */
+    .termin{background:#fff;border:1px solid var(--gold);border-radius:14px;padding:26px;margin:-26px auto 0;
+      position:relative;z-index:2;max-width:520px;box-shadow:0 8px 28px rgba(26,38,66,.12);text-align:center}
+    .termin-label{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);font-weight:600;margin-bottom:10px}
+    .termin-zeit{font-family:'Cormorant Garamond',serif;font-size:27px;color:var(--navy);line-height:1.3;margin-bottom:6px}
+    .termin-sub{font-size:14px;color:var(--text-mid);margin:0}
+    .kal-knoepfe{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+    .kal-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:0 16px;
+      border-radius:8px;border:1px solid var(--navy);background:#fff;color:var(--navy);
+      font-size:14px;font-weight:600;text-decoration:none;cursor:pointer;font-family:inherit;transition:.15s}
+    .kal-btn:hover{background:var(--navy);color:#fff}
+
+    /* ── Video ── */
+    .video-box{max-width:660px;margin:0 auto}
+    .video-box video{width:100%;aspect-ratio:16/9;display:block;border-radius:12px;border:1px solid rgba(201,164,76,.45);background:#000}
+    .video-unter{font-size:13px;color:var(--text-mid);text-align:center;margin:10px 0 0}
+
+    /* ── Schritte ── */
+    .schritt{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--cream-dark);
+      border-radius:12px;padding:22px;margin-bottom:14px}
+    .schritt-nr{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:var(--navy);color:var(--gold-pale);
+      display:flex;align-items:center;justify-content:center;font-weight:600;font-size:15px;font-family:'Cormorant Garamond',serif}
+    .schritt-inhalt{min-width:0}
+    .schritt h3{margin-bottom:5px}
+    .schritt p:last-child{margin-bottom:0}
+
+    /* ── Ablauf ── */
+    .ablauf{border-left:2px solid var(--gold);padding-left:22px;margin-left:6px}
+    .ablauf-punkt{position:relative;padding-bottom:24px}
+    .ablauf-punkt:last-child{padding-bottom:0}
+    .ablauf-punkt::before{content:'';position:absolute;left:-28px;top:7px;width:10px;height:10px;border-radius:50%;
+      background:var(--gold);border:2px solid var(--cream)}
+    .ablauf-punkt h3{font-size:19px}
+    .ablauf-punkt p:last-child{margin-bottom:0}
+
+    /* ── Aufgabe ── */
+    .aufgabe{background:var(--navy);color:var(--text-light);border-radius:14px;padding:30px 26px}
+    .aufgabe h2{color:#fff}
+    .aufgabe .mid{color:rgba(240,236,226,.75)}
+    .frage-karte{background:rgba(255,255,255,.07);border:1px solid rgba(201,164,76,.35);border-radius:10px;
+      padding:16px 18px;margin-top:12px}
+    .frage-karte p{margin:0;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold-pale);font-style:italic}
+
+    /* ── Sicherheit ── */
+    .sicher{background:#fff;border:1px solid var(--cream-dark);border-left:3px solid var(--gruen);
+      border-radius:12px;padding:24px}
+    .sicher h3{color:var(--gruen)}
+    .sicher ul{margin:0;padding-left:20px}
+    .sicher li{margin-bottom:8px}
+    .sicher li:last-child{margin-bottom:0}
+
+    /* ── Stimmen ── */
+    .stimmen{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .stimme{background:#fff;border:1px solid var(--cream-dark);border-radius:12px;padding:20px}
+    .stimme p{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--navy);line-height:1.45;margin-bottom:10px}
+    .stimme span{font-size:12px;color:var(--text-mid);letter-spacing:.04em}
+
+    /* ── Absage ── */
+    .absage{background:var(--cream-dark);border-radius:12px;padding:24px;text-align:center}
+    .absage p:last-child{margin-bottom:0}
+
+    /* ── FAQ ── */
+    .faq details{background:#fff;border:1px solid var(--cream-dark);border-radius:10px;margin-bottom:9px;overflow:hidden}
+    .faq summary{padding:15px 44px 15px 18px;cursor:pointer;font-weight:500;font-size:15.5px;
+      list-style:none;position:relative;min-height:44px;display:flex;align-items:center}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:'';position:absolute;right:18px;top:50%;width:8px;height:8px;
+      border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);
+      transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+    .faq details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+    .faq details[open] summary{border-bottom:1px solid var(--cream-dark)}
+    .faq .antwort{padding:16px 18px;color:var(--text-mid);font-size:15px}
+    .faq .antwort p:last-child{margin-bottom:0}
+
+    .fuss{background:var(--navy);color:rgba(240,236,226,.6);padding:30px 0;text-align:center;font-size:13px}
+    .fuss a{color:rgba(240,236,226,.8)}
+    .trenner{width:50px;height:1px;background:var(--gold);margin:0 auto 22px}
+
+    @media (max-width:767px), (pointer:coarse){
+      body{font-size:15px}
+      .wrap{padding:0 16px}
+      section{padding:36px 0}
+      h1{font-size:29px}
+      h2{font-size:24px}
+      h3{font-size:18px}
+      .kopf{padding:34px 0 34px}
+      .termin{padding:22px 18px;margin-top:-20px}
+      .termin-zeit{font-size:22px}
+      .schritt{padding:18px;gap:13px}
+      .stimmen{grid-template-columns:1fr}
+      .aufgabe{padding:24px 18px}
+      .kal-btn{width:100%}
+      /* min-height wirkt nicht auf inline-Elemente — die Fusszeilen-Links sind
+         genau das. Ohne inline-flex bleiben sie 16px hoch und verfehlen das
+         44px-Tippziel, obwohl die Regel dasteht. */
+      a,button,summary{min-height:44px}
+      .fuss a{display:inline-flex;align-items:center;min-height:44px;padding:0 8px}
+    }
+  </style>
+</head>
+<body>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '884943434243515');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=884943434243515&ev=PageView&noscript=1"
+/></noscript>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xrfqd262dn");
+</script>
+<script src="./config.js"></script>
+<script src="./visitor.js"></script>
+
+<div id="lpStage"><div id="lp-root">
+
+<!-- ══ KOPF ══ -->
+<header class="kopf" data-section="Bestätigung">
+  <div class="wrap">
+    <div class="haken"><svg viewBox="0 0 24 24"><polyline points="4,12 10,18 20,6"></polyline></svg></div>
+    <h1 id="begruessung">Dein Termin steht.</h1>
+    <p>Du bekommst gleich eine Bestätigung per E-Mail und WhatsApp.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="termin" data-section="Terminkarte">
+    <div class="termin-label">Dein Exploration Call</div>
+    <div class="termin-zeit" id="terminZeit">Der Termin, den du gerade gebucht hast</div>
+    <p class="termin-sub" id="terminSub">Per Zoom &middot; ca. 45&ndash;60 Minuten &middot; kostenfrei</p>
+    <div class="kal-knoepfe" id="kalKnoepfe" hidden>
+      <button class="kal-btn" id="btnIcs">In meinen Kalender eintragen</button>
+      <a class="kal-btn" id="btnGoogle" target="_blank" rel="noopener">Google Kalender</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ VIDEO ══ -->
+<section data-section="Video">
+  <div class="wrap">
+    <div class="video-box">
+      <video id="dankeVideo"
+             src="./call-video.mp4"
+             poster="./call-video-poster.jpg"
+             controls playsinline preload="none">
+        Dein Browser kann das Video nicht abspielen &mdash;
+        <a href="./call-video.mp4">hier direkt öffnen</a>.
+      </video>
+      <p class="video-unter">Alexandra erklärt dir in 2 Minuten, wie das Gespräch abläuft</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DREI SCHRITTE ══ -->
+<section style="background:var(--cream-dark)" data-section="Drei Schritte">
+  <div class="wrap">
+    <div class="zentriert" style="margin-bottom:26px">
+      <div class="trenner"></div>
+      <h2>Drei kleine Dinge, jetzt gleich</h2>
+      <p class="mid" style="max-width:520px;margin:0 auto">Sie kosten dich zusammen keine fünf Minuten &mdash; und sie
+        entscheiden darüber, wie viel du aus dem Gespräch mitnimmst.</p>
+    </div>
+
+    <div class="schritt">
+      <div class="schritt-nr">1</div>
+      <div class="schritt-inhalt">
+        <h3>Trag dir den Termin fest ein</h3>
+        <p class="mid" style="margin:0">Nicht &bdquo;merken&ldquo; &mdash; wirklich eintragen, mit Erinnerung. Und blocke dir
+          die halbe Stunde davor gleich mit. Du sollst nicht aus einem Termin in dieses Gespräch hetzen.</p>
+      </div>
+    </div>
+
+    <div class="schritt">
+      <div class="schritt-nr">2</div>
+      <div class="schritt-inhalt">
+        <h3>Nimm unsere WhatsApp-Nachricht an</h3>
+        <p class="mid" style="margin:0">Wir melden uns in den nächsten Stunden bei dir. Dort bekommst du deinen
+          Zoom-Link, die Erinnerung und einen direkten Draht zu uns, falls doch etwas dazwischenkommt.</p>
+      </div>
+    </div>
+
+    <div class="schritt">
+      <div class="schritt-nr">3</div>
+      <div class="schritt-inhalt">
+        <h3>Beantworte uns zwei Fragen</h3>
+        <p class="mid" style="margin:0">Sie kommen gleich per WhatsApp. Zwei bis drei Sätze reichen &mdash; sie sorgen
+          dafür, dass wir im Gespräch nicht bei null anfangen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DIE ZWEI FRAGEN ══ -->
+<section data-section="Die zwei Fragen">
+  <div class="wrap">
+    <div class="aufgabe">
+      <h2>Die zwei Fragen</h2>
+      <p class="mid">Du kannst sie jetzt schon für dich beantworten. Schreib sie uns per WhatsApp, sobald unsere
+        Nachricht da ist &mdash; oder bring sie einfach im Kopf mit.</p>
+      <div class="frage-karte">
+        <p>&bdquo;Was ist gerade dein größter Schmerz, wenn es um Nähe und Intimität geht?&ldquo;</p>
+      </div>
+      <div class="frage-karte">
+        <p>&bdquo;Wie würde es sich anfühlen, wenn das gelöst wäre?&ldquo;</p>
+      </div>
+      <p class="mid" style="margin:16px 0 0;font-size:14px">Du musst nichts Schönes schreiben und nichts sortieren.
+        Ein paar ehrliche Sätze sind mehr wert als eine perfekte Antwort.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABLAUF ══ -->
+<section style="background:var(--cream-dark)" data-section="Ablauf">
+  <div class="wrap">
+    <div class="zentriert" style="margin-bottom:28px">
+      <div class="trenner"></div>
+      <h2>So läuft das Gespräch ab</h2>
+    </div>
+    <div class="ablauf">
+      <div class="ablauf-punkt">
+        <h3>1. Wir hören dir zu</h3>
+        <p class="mid">Zu Beginn sind wir einfach nur für dich da. Wir hören dir zu und schauen ganz in Ruhe und ohne
+          Druck, wo du gerade stehst.</p>
+      </div>
+      <div class="ablauf-punkt">
+        <h3>2. Deine persönliche Analyse &amp; Typbestimmung</h3>
+        <p class="mid">Wir schauen, welcher Typ du bist, wo dein Thema wirklich herkommt, und benennen die Blockade beim
+          Namen. Meistens sind es zwei bis drei &mdash; und sie hängen zusammen. Du wirst verstehen, warum dein
+          Schutzpanzer so stark war und warum bisher nichts geholfen hat.</p>
+      </div>
+      <div class="ablauf-punkt">
+        <h3>3. Dein konkreter Weg</h3>
+        <p class="mid">Wir zeigen dir, wie eine erfüllte Sexualität für genau deinen Typ aussieht &mdash; und in welcher
+          Reihenfolge du vorgehen darfst. Welcher Schritt zuerst kommen muss, und warum die anderen ohne ihn nicht
+          wirken können. <strong>Das nimmst du in jedem Fall mit. Ob wir danach zusammenarbeiten oder nicht.</strong></p>
+      </div>
+      <div class="ablauf-punkt">
+        <h3>4. Unser gemeinsamer Weg?</h3>
+        <p class="mid">Erst ganz am Ende sprechen wir darüber, ob du den Weg allein gehen willst oder gemeinsam mit uns.
+          Wir vergeben pro Monat nur eine begrenzte Zahl an Plätzen. Ob du dazugehören willst, entscheidest du am Ende
+          des Gesprächs &mdash; ganz ohne Druck.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SICHERHEIT ══ -->
+<section data-section="Sicherheit">
+  <div class="wrap">
+    <div class="sicher">
+      <h3>Was in diesem Gespräch nicht passiert</h3>
+      <ul class="mid">
+        <li>Du musst über nichts sprechen, worüber du nicht sprechen willst. Wirklich über nichts.</li>
+        <li>Es gibt keine Übungen, nichts Körperliches, nichts, wobei du dich zeigen musst.</li>
+        <li>Niemand drängt dich zu einer Entscheidung. Wenn es nicht passt, sagen wir dir das selbst.</li>
+        <li>Nichts von dem, was du erzählst, verlässt dieses Gespräch.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STIMMEN ══ -->
+<section style="background:var(--cream-dark)" data-section="Stimmen">
+  <div class="wrap">
+    <div class="zentriert" style="margin-bottom:24px">
+      <div class="trenner"></div>
+      <h2>Frauen, die diesen Schritt gemacht haben</h2>
+    </div>
+    <div class="stimmen">
+      <div class="stimme">
+        <p>&bdquo;Ich habe wirklich sehr viel Traumatherapie hinter mir, sehr viel innere Kinderarbeit. Das schafft man
+          nicht in einer Einzeltherapie.&ldquo;</p>
+        <span>Teilnehmerin, Retreat</span>
+      </div>
+      <div class="stimme">
+        <p>&bdquo;Es fühlt sich total geschützt an und sicher. Man kann sich fallen lassen.&ldquo;</p>
+        <span>Teilnehmerin, 6-Monats-Begleitung</span>
+      </div>
+      <div class="stimme">
+        <p>&bdquo;Ich war so skeptisch, ich hatte so große Zweifel. Und wusste trotzdem gleichzeitig: ich brauch's, ich
+          will es.&ldquo;</p>
+        <span>Teilnehmerin</span>
+      </div>
+      <div class="stimme">
+        <p>&bdquo;Die Lust ist definitiv zurück. Und bei mir ist gar nichts kaputt.&ldquo;</p>
+        <span>Teilnehmerin, nach 6 Monaten</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABSAGE ══ -->
+<section data-section="Wenn etwas dazwischenkommt">
+  <div class="wrap">
+    <div class="absage">
+      <h3>Falls doch etwas dazwischenkommt</h3>
+      <p class="mid">Dann schreib uns bitte kurz per WhatsApp und wir finden einen neuen Termin. Wir halten diese Zeit
+        für dich frei, und der Platz geht sonst jemandem verloren, die auch wartet.</p>
+      <p class="mid" style="font-size:14px"><strong>Verschieben ist völlig in Ordnung. Einfach nicht kommen ist es nicht.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section style="background:var(--cream-dark)" data-section="FAQ">
+  <div class="wrap">
+    <div class="zentriert" style="margin-bottom:26px">
+      <div class="trenner"></div>
+      <h2>Häufige Fragen</h2>
+    </div>
+    <div class="faq">
+
+      <details>
+        <summary>Kostet das Gespräch etwas?</summary>
+        <div class="antwort"><p>Nein. Das Gespräch ist kostenfrei, und es entstehen dir daraus auch keine
+          Verpflichtungen. Wir nehmen uns die Zeit, weil wir vorher wissen wollen, ob wir dir überhaupt helfen können.</p></div>
+      </details>
+
+      <details>
+        <summary>Ist das ein Verkaufsgespräch?</summary>
+        <div class="antwort"><p>Der größte Teil ist es nicht &mdash; die ersten drei Schritte drehen sich nur um dich und
+          deine Situation. Am Ende sprechen wir darüber, ob eine Zusammenarbeit passt. Wenn nicht, sagen wir dir das
+          ehrlich und du gehst trotzdem mit deiner Analyse und deinem nächsten Schritt raus.</p></div>
+      </details>
+
+      <details>
+        <summary>Mit wem spreche ich?</summary>
+        <div class="antwort"><p>Mit einer Frau aus unserem Team, die selbst durch diesen Weg gegangen ist und seit
+          Jahren mit Frauen zu diesem Thema arbeitet. Du bekommst ihren Namen vorher per WhatsApp, damit du weißt, wer
+          dir gegenübersitzt.</p></div>
+      </details>
+
+      <details>
+        <summary>Muss ich meine Kamera anmachen?</summary>
+        <div class="antwort"><p>Wir freuen uns sehr, wenn du sie anmachst &mdash; es macht das Gespräch persönlicher und
+          wir können besser einschätzen, wie es dir geht. Müssen tust du aber nichts. Wenn du dich ohne Kamera wohler
+          fühlst, sag es einfach zu Beginn.</p></div>
+      </details>
+
+      <details>
+        <summary>Was, wenn ich anfange zu weinen oder nicht weiterreden kann?</summary>
+        <div class="antwort"><p>Dann ist das völlig in Ordnung, und es passiert öfter, als du denkst. Wir arbeiten seit
+          Jahren mit diesem Thema und halten den Raum dafür. Es gibt keinen Zeitdruck und du musst nichts
+          &bdquo;durchziehen&ldquo;.</p></div>
+      </details>
+
+      <details>
+        <summary>Muss ich über meine Vergangenheit sprechen?</summary>
+        <div class="antwort"><p>Nur so viel, wie du selbst möchtest. Wir stellen keine Fragen, die dich in etwas
+          hineinziehen, und wir bohren nicht nach. Du entscheidest in jedem Moment, was du erzählst.</p></div>
+      </details>
+
+      <details>
+        <summary>Wie lange dauert das Gespräch?</summary>
+        <div class="antwort"><p>Plane 45 bis 60 Minuten ein. Blocke dir am besten eine gute Stunde, damit du danach nicht
+          sofort weiterhetzen musst &mdash; oft wirkt so ein Gespräch noch eine Weile nach.</p></div>
+      </details>
+
+      <details>
+        <summary>Muss ich mich vorbereiten?</summary>
+        <div class="antwort"><p>Nur die zwei Fragen weiter oben. Sonst nichts. Sorge dafür, dass du ungestört bist und
+          niemand mithört &mdash; das ist die wichtigste Vorbereitung.</p></div>
+      </details>
+
+      <details>
+        <summary>Sollte mein Partner dabei sein?</summary>
+        <div class="antwort"><p>Nein, dieses erste Gespräch ist nur für dich. Es geht um deinen Zugang zu dir selbst,
+          und darüber spricht es sich freier allein. Wie du deinen Partner später einbeziehst, ist Teil dessen, was wir
+          gemeinsam anschauen.</p></div>
+      </details>
+
+      <details>
+        <summary>Ich habe schon so vieles versucht. Warum sollte das anders sein?</summary>
+        <div class="antwort"><p>Genau deshalb sind die meisten Frauen hier &mdash; sie haben Therapie, Bücher, Kurse und
+          Seminare hinter sich. Der Unterschied liegt selten an der Methode, sondern an der Reihenfolge: fast alle
+          fangen bei Schritt drei an, weil ihnen Schritt eins nie jemand gezeigt hat. Genau das klären wir im Gespräch.</p></div>
+      </details>
+
+      <details>
+        <summary>Bin ich zu alt dafür? Ist es zu spät?</summary>
+        <div class="antwort"><p>Nein. Unsere Teilnehmerinnen sind zwischen Ende zwanzig und Mitte sechzig. Manche kommen
+          nach dreißig Jahren Beziehung, manche nach jahrelangem Alleinsein. Der Körper verlernt das nicht &mdash; er hat
+          es nur weggelegt.</p></div>
+      </details>
+
+      <details>
+        <summary>Wird das Gespräch aufgezeichnet?</summary>
+        <div class="antwort"><p>Nur wenn du ausdrücklich zustimmst &mdash; und dann ausschließlich für dich, damit du es
+          dir später nochmal anhören kannst. Ohne dein Ja wird nichts aufgezeichnet.</p></div>
+      </details>
+
+      <details>
+        <summary>Was passiert nach dem Gespräch?</summary>
+        <div class="antwort"><p>Du hast deine Analyse und weißt, welcher Schritt bei dir als Erstes kommt. Wenn eine
+          Zusammenarbeit passt und du das möchtest, besprechen wir, wie sie aussehen könnte. Wenn nicht, bleibt dir die
+          Analyse trotzdem.</p></div>
+      </details>
+
+      <details>
+        <summary>Ich habe den Zoom-Link nicht bekommen &mdash; was tun?</summary>
+        <div class="antwort"><p>Schau bitte zuerst im Spam-Ordner nach. Wenn dort nichts ist, schreib uns kurz per
+          WhatsApp, dann schicken wir ihn dir direkt. Bitte warte damit nicht bis kurz vor dem Termin.</p></div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<footer class="fuss" data-section="Fußzeile">
+  <div class="wrap">
+    <p style="margin-bottom:6px">Live ORGASMIC &middot; Alexandra &amp; Christian Wennmacher</p>
+    <p style="margin:0"><a href="https://liveorgasmic.de/impressum" target="_blank" rel="noopener">Impressum</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://liveorgasmic.de/datenschutz" target="_blank" rel="noopener">Datenschutz</a></p>
+  </div>
+</footer>
+
+</div><!-- /#lp-root --></div><!-- /#lpStage -->
+
+<script>
+(function () {
+  'use strict';
+  var P = new URLSearchParams(window.location.search);
+
+  // ── Persönliche Ansprache ────────────────────────────────────────────────
+  // Der Name kommt aus dem Link oder aus dem, was visitor.js beim Opt-in
+  // gespeichert hat. Ohne Namen bleibt die neutrale Überschrift stehen —
+  // "Dein Termin steht, undefined." wäre schlimmer als gar kein Name.
+  var name = P.get('name') || P.get('vorname') || window.MX_KNOWN_NAME || '';
+  name = String(name).trim().split(' ')[0];
+  if (name && /^[A-Za-zÄÖÜäöüß\-]{2,}$/.test(name)) {
+    document.getElementById('begruessung').textContent = 'Dein Termin steht, ' + name + '.';
+  }
+
+  // ── Termin anzeigen ──────────────────────────────────────────────────────
+  // Den Termin WÖRTLICH wiederholen ist der wirksamste Einzelhebel für die
+  // Erscheinquote: was man schwarz auf weiß gelesen hat, verschwimmt nicht.
+  //
+  // ⚠ Welche Parameter Easy!Appointments beim Weiterleiten anhängt, ist noch
+  // nicht bestätigt (siehe BUCHUNG_ID_PARAM in config.js — dieselbe offene
+  // Frage an Christian). Deshalb werden mehrere übliche Namen geprüft. Kommt
+  // keiner an, bleibt der neutrale Satz stehen und die Seite sieht trotzdem
+  // vollständig aus.
+  var roh = P.get('datum') || P.get('date') || P.get('start') || P.get('appointment_start') || '';
+  var zeit = P.get('zeit') || P.get('time') || '';
+  var wann = null;
+  if (roh) {
+    var s = roh.trim(), z = (zeit || '').trim();
+    // Easy!Appointments liefert TT/MM/JJJJ (belegt am 25.08.2026 an einer echten
+    // Buchung: ?name=…&date=26%2F08%2F2026&time=09%3A00). Genau dieses Format
+    // kann `new Date()` NICHT lesen — es interpretiert Schrägstrich-Daten als
+    // MM/TT/JJJJ und macht aus dem 26.08. entweder den 8. eines 26. Monats oder
+    // "Invalid Date". Deshalb hier von Hand zerlegen, bevor Date überhaupt drankommt.
+    var teile = s.match(/^(\d{1,2})[\/.](\d{1,2})[\/.](\d{4})$/);
+    if (teile) {
+      var stunde = 0, minute = 0;
+      var zt = z.match(/^(\d{1,2}):(\d{2})/);
+      if (zt) { stunde = +zt[1]; minute = +zt[2]; }
+      wann = new Date(+teile[3], +teile[2] - 1, +teile[1], stunde, minute);
+    } else {
+      // ISO (JJJJ-MM-TT) und Zeitstempel gehen direkt.
+      if (z && s.indexOf('T') < 0 && s.indexOf(':') < 0) s += 'T' + z;
+      var d = new Date(s.replace(' ', 'T'));
+      if (!isNaN(d.getTime())) wann = d;
+    }
+    if (wann && isNaN(wann.getTime())) wann = null;
+  }
+
+  if (wann) {
+    var TAGE  = ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
+    var MONAT = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+    var hh = String(wann.getHours()).padStart(2, '0');
+    var mm = String(wann.getMinutes()).padStart(2, '0');
+    document.getElementById('terminZeit').textContent =
+      TAGE[wann.getDay()] + ', ' + wann.getDate() + '. ' + MONAT[wann.getMonth()] +
+      ' ' + wann.getFullYear() + ' um ' + hh + ':' + mm + ' Uhr';
+    document.getElementById('terminSub').textContent =
+      'Per Zoom · ca. 45–60 Minuten · kostenfrei · Zeitzone: ' +
+      Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+    // Kalender-Knöpfe nur zeigen, wenn ein echtes Datum vorliegt.
+    var ende = new Date(wann.getTime() + 60 * 60000);
+    var stempel = function (x) { return x.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z'; };
+    var TITEL = 'Exploration Call mit Live ORGASMIC';
+    var TEXT  = 'Dein persönliches Gespräch. Sorge dafür, dass du ungestört bist.';
+
+    document.getElementById('kalKnoepfe').hidden = false;
+    document.getElementById('btnGoogle').href =
+      'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(TITEL) +
+      '&dates=' + stempel(wann) + '/' + stempel(ende) + '&details=' + encodeURIComponent(TEXT);
+
+    document.getElementById('btnIcs').addEventListener('click', function () {
+      var ics = [
+        'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Live ORGASMIC//DE','BEGIN:VEVENT',
+        'UID:' + Date.now() + '@orgasmic.live',
+        'DTSTAMP:' + stempel(new Date()),
+        'DTSTART:' + stempel(wann),
+        'DTEND:'   + stempel(ende),
+        'SUMMARY:' + TITEL,
+        'DESCRIPTION:' + TEXT,
+        'BEGIN:VALARM','TRIGGER:-PT60M','ACTION:DISPLAY','DESCRIPTION:' + TITEL,'END:VALARM',
+        'END:VEVENT','END:VCALENDAR'
+      ].join('\r\n');
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
+      a.download = 'exploration-call.ics';
+      a.click();
+      URL.revokeObjectURL(a.href);
+      melde('kalender_eintrag', 'ICS heruntergeladen');
+    });
+    document.getElementById('btnGoogle').addEventListener('click', function () {
+      melde('kalender_eintrag', 'Google Kalender');
+    });
+  }
+
+  // ── Tracking ─────────────────────────────────────────────────────────────
+  function melde(status, detail) {
+    if (!window.MX_CONFIG || !window.MX_CONFIG.TRACK_URL) return;
+    try {
+      fetch(window.MX_CONFIG.TRACK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          kunde: { name: window.MX_CONFIG.KUNDE_NAME, id: window.MX_CONFIG.KUNDE_ID },
+          besucher_id: window.MX_VISITOR_ID,
+          status: status,
+          antworten: [{ frage: 'Seite', antwort: 'Danke-Seite' },
+                      { frage: 'Detail', antwort: detail || '' }],
+          query_parameter: window.location.search,
+          kanal: window.MX_KANAL || {},
+          profil_typ: Number(P.get('typ')) || null,
+          zeitstempel: new Date().toISOString()
+        })
+      }).catch(function () {});
+    } catch (e) {}
+  }
+
+  melde('termin_gebucht', wann ? wann.toISOString() : 'ohne Datum');
+  // Schedule ist das Ereignis, auf das Meta optimieren soll — hier ist der
+  // Termin tatsächlich zustande gekommen, nicht schon beim Klick auf den Button.
+  if (typeof fbq === 'function') fbq('track', 'Schedule');
+
+  // Wie weit wird gelesen? Wer die FAQ öffnet, hat offene Fragen — und wer
+  // offene Fragen hat und sie nicht beantwortet bekommt, erscheint seltener.
+  document.querySelectorAll('.faq details').forEach(function (d) {
+    d.addEventListener('toggle', function () {
+      if (d.open) melde('faq_geoeffnet', d.querySelector('summary').textContent.trim());
+    }, { once: true });
+  });
+
+  var videoGestartet = false;
+  var v = document.getElementById('dankeVideo');
+  if (v) v.addEventListener('play', function () {
+    if (!videoGestartet) { videoGestartet = true; melde('video_gestartet', 'Danke-Video'); }
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Christian & Alexandra — 8-Tage Video-Tracking Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a1f3a; --navy-light: #252b4a; --cream: #f9f5ef;
+    --gold: #c9a84c; --gold-light: #e8c97a;
+    --text-mid: #4a4f6a; --text-light: #8a8fa8; --border: rgba(201,168,76,0.25);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--navy); min-height: 100vh; }
+  header { background: var(--navy); padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; }
+  .brand { font-family: 'Cormorant Garamond', serif; color: var(--gold); font-weight: 700; letter-spacing: .05em; text-transform: uppercase; font-size: 15px; }
+  main { max-width: 1400px; margin: 0 auto; padding: 40px 20px 80px; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-size: 28px; margin-bottom: 8px; }
+  .sub { color: var(--text-mid); font-size: 13px; margin-bottom: 32px; }
+
+  .login-box { max-width: 360px; margin: 80px auto; background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 28px; text-align: center; }
+  .login-box h2 { font-family: 'Cormorant Garamond', serif; font-size: 20px; margin-bottom: 16px; }
+  .login-box input { width: 100%; padding: 12px 14px; border: 1px solid var(--border); background: var(--cream); color: var(--navy); border-radius: 8px; font-size: 15px; margin-bottom: 12px; font-family: inherit; }
+  .login-box button { width: 100%; padding: 13px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--navy); border: none; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; font-family: inherit; }
+  .login-error { color: #c0392b; font-size: 12px; margin-top: 10px; display: none; }
+  .login-error.show { display: block; }
+
+  .table-scroll { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); background: #fff; }
+  table { width: 100%; border-collapse: collapse; min-width: 1200px; }
+  thead th { text-align: left; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--text-mid); background: var(--cream); padding: 12px 14px; white-space: nowrap; }
+  tbody td { padding: 12px 14px; font-size: 13px; border-top: 1px solid var(--border); vertical-align: top; }
+  tbody tr:hover { background: rgba(201,168,76,0.05); }
+  .name-cell { font-weight: 700; white-space: nowrap; }
+  .badge-yes { display: inline-block; background: rgba(201,168,76,0.15); color: var(--navy); border: 1px solid var(--gold); border-radius: 999px; padding: 3px 10px; font-size: 11px; font-weight: 700; }
+  .badge-no { display: inline-block; background: var(--cream); color: var(--text-light); border-radius: 999px; padding: 3px 10px; font-size: 11px; font-weight: 700; }
+  .badge-booked { display: inline-block; background: #1f7a4d; color: #fff; border-radius: 999px; padding: 3px 10px; font-size: 11px; font-weight: 700; }
+
+  .progress-track { width: 90px; height: 6px; background: var(--cream); border-radius: 999px; overflow: hidden; margin-bottom: 4px; }
+  .progress-fill { height: 100%; background: var(--gold); }
+  .progress-label { font-size: 10.5px; color: var(--text-mid); }
+  .badge-speed { display: inline-block; background: var(--navy); color: #fff; border-radius: 4px; padding: 1px 6px; font-size: 10px; font-weight: 700; }
+
+  .empty { text-align: center; color: var(--text-light); padding: 60px 0; font-size: 14px; }
+  .refresh-row { display: flex; justify-content: flex-end; margin-bottom: 12px; }
+  .refresh-row button { background: none; border: 1px solid var(--border); border-radius: 8px; padding: 8px 16px; font-size: 12px; cursor: pointer; font-family: inherit; color: var(--navy); }
+</style>
+</head>
+<body>
+
+<header><div class="brand">Live ORGASMIC · 8-Tage Video-Dashboard</div></header>
+
+<main>
+  <div id="login-view" class="login-box" style="display:none;">
+    <h2>Zugang zum Dashboard</h2>
+    <input type="password" id="password-input" placeholder="Passwort" autocomplete="current-password">
+    <button id="login-btn">Einloggen</button>
+    <div class="login-error" id="login-error">Falsches Passwort.</div>
+  </div>
+
+  <div id="dashboard-view" style="display:none;">
+    <h1>Leads &amp; Video-Fortschritt (Tag 1–8)</h1>
+    <p class="sub">Pro Person: Termin-Status (✓ Gebucht kommt aus Calendly, „Nur geklickt“ = abgesprungen), gesehener Fortschritt pro Tag, letzte Aktivität.</p>
+    <div class="refresh-row"><button id="refresh-btn">↻ Aktualisieren</button></div>
+    <div class="table-scroll"><div id="table-wrap"></div></div>
+  </div>
+</main>
+
+<script>
+  const API_URL = '/.netlify/functions/dashboard-data';
+  const STORAGE_KEY = 'ca_video_8tage_dashboard_password';
+
+  const loginView = document.getElementById('login-view');
+  const dashboardView = document.getElementById('dashboard-view');
+  const passwordInput = document.getElementById('password-input');
+  const loginBtn = document.getElementById('login-btn');
+  const loginError = document.getElementById('login-error');
+  const tableWrap = document.getElementById('table-wrap');
+  const refreshBtn = document.getElementById('refresh-btn');
+
+  function fmtDate(iso) {
+    if (!iso) return '–';
+    const d = new Date(iso);
+    return d.toLocaleDateString('de-DE') + ', ' + d.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
+  }
+
+  function renderTable(leads) {
+    if (!leads.length) {
+      tableWrap.innerHTML = '<div class="empty">Noch keine Leads erfasst.</div>';
+      return;
+    }
+    const videoKeys = Array.from({ length: 8 }, (_, i) => 'Tag ' + (i + 1));
+    let rows = leads.map((lead) => {
+      // Unterscheidung ist entscheidend: geklickt ≠ gebucht. "Gebucht" kommt aus dem
+      // Calendly-Webhook, "geklickt" nur vom Button auf der Seite.
+      let wunsch;
+      if (lead.termin_abgesagt) {
+        wunsch = '<span class="badge-no" style="color:#c0392b;">Abgesagt</span>';
+      } else if (lead.termin_gebucht) {
+        const wann = lead.termin_startet_am ? '<div class="progress-label">' + fmtDate(lead.termin_startet_am) + '</div>' : '';
+        wunsch = '<span class="badge-booked">✓ Gebucht</span>' + wann;
+      } else if (lead.erstgespraech_gewuenscht) {
+        wunsch = '<span class="badge-yes" title="Hat auf Calendly geklickt, aber (noch) nicht gebucht">Nur geklickt</span>';
+      } else {
+        wunsch = '<span class="badge-no">Nein</span>';
+      }
+      const waBadge = lead.whatsapp_kontakt
+        ? ' <span class="badge-speed" title="Hat auf WhatsApp geklickt">WA</span>' : '';
+      const videoCells = videoKeys.map((vk) => {
+        const gestartet = lead.video_gestartet?.[vk];
+        const beendet = lead.video_beendet?.[vk];
+        const startEndLine = (gestartet || beendet)
+          ? `<div class="progress-label" style="margin-top:2px;">${gestartet ? 'Start ' + fmtDate(gestartet) : ''}${gestartet && beendet ? ' · ' : ''}${beendet ? 'Ende ' + fmtDate(beendet) : ''}</div>`
+          : '';
+        const vf = lead.video_fortschritt?.[vk];
+        if (vf) {
+          const speedBadge = vf.geschwindigkeit && vf.geschwindigkeit !== '1x'
+            ? ' <span class="badge-speed">' + vf.geschwindigkeit + '</span>' : '';
+          return `<td>
+            <div class="progress-track"><div class="progress-fill" style="width:${vf.prozent}%"></div></div>
+            <div class="progress-label">${vf.prozent}% (${vf.sekunden}s)${speedBadge}</div>
+            ${startEndLine}
+          </td>`;
+        }
+        const geoeffnet = lead.video_geoeffnet?.[vk];
+        if (geoeffnet) return `<td><span class="progress-label">Geöffnet (${fmtDate(geoeffnet)})</span>${startEndLine}</td>`;
+        if (startEndLine) return `<td><span class="progress-label">— kein %-Fortschritt —</span>${startEndLine}</td>`;
+        return '<td><span class="progress-label">— nicht gesehen —</span></td>';
+      }).join('');
+      const quelleBadge = lead.quelle === 'personalisierter_link'
+        ? ' <span class="badge-speed" title="Kam über personalisierten Link (Ads/E-Mail/WhatsApp)">🔗</span>' : '';
+      const nameDisplay = lead.name
+        ? lead.name + quelleBadge
+        : `<span class="progress-label">Anonym · ${(lead.besucher_id || '').slice(0, 8)}</span>${quelleBadge}`;
+      return `<tr>
+        <td class="name-cell">${nameDisplay}</td>
+        <td>${wunsch}${waBadge}</td>
+        ${videoCells}
+        <td>${fmtDate(lead.letzte_aktivitaet)}</td>
+      </tr>`;
+    }).join('');
+
+    const headCells = videoKeys.map((vk) => `<th>${vk}</th>`).join('');
+    tableWrap.innerHTML = `<table>
+      <thead><tr><th>Name</th><th>Termin</th>${headCells}<th>Letzte Aktivität</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+  }
+
+  async function loadData(password) {
+    const res = await fetch(`${API_URL}?password=${encodeURIComponent(password)}`);
+    if (!res.ok) throw new Error('Unauthorized');
+    const data = await res.json();
+    renderTable(data.leads || []);
+  }
+
+  async function tryLogin(password) {
+    try {
+      await loadData(password);
+      sessionStorage.setItem(STORAGE_KEY, password);
+      loginView.style.display = 'none';
+      dashboardView.style.display = 'block';
+      loginError.classList.remove('show');
+    } catch {
+      loginError.classList.add('show');
+      loginView.style.display = 'block';
+      dashboardView.style.display = 'none';
+    }
+  }
+
+  loginBtn.addEventListener('click', () => tryLogin(passwordInput.value.trim()));
+  passwordInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') tryLogin(passwordInput.value.trim()); });
+  refreshBtn.addEventListener('click', () => {
+    const pw = sessionStorage.getItem(STORAGE_KEY);
+    if (pw) loadData(pw);
+  });
+
+  const savedPassword = sessionStorage.getItem(STORAGE_KEY);
+  if (savedPassword) { tryLogin(savedPassword); } else { loginView.style.display = 'block'; }
+</script>
+
+</body>
+</html>

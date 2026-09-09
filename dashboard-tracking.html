@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Live ORGASMIC — 8-Tage-Challenge · Tracking-Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Raleway', sans-serif; background: #0E0E11; color: #fff; min-height: 100vh; }
+  header { background: #161619; padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(63,63,71,0.6); }
+  .brand { font-weight: 800; letter-spacing: .1em; text-transform: uppercase; font-size: 14px; }
+  main { max-width: 1180px; margin: 0 auto; padding: 40px 20px 80px; }
+  h1 { font-family:'Playfair Display', serif; font-size: 28px; margin-bottom: 8px; }
+  .sub { color:#888; font-size: 13px; margin-bottom: 28px; }
+
+  .login-box { max-width: 360px; margin: 80px auto; background:#161619; border:1px solid rgba(63,63,71,0.6); border-radius: 14px; padding: 28px; text-align: center; }
+  .login-box h2 { font-family:'Playfair Display', serif; font-size: 20px; margin-bottom: 16px; }
+  .login-box input { width: 100%; padding: 12px 14px; border: 1px solid #3F3F47; background:#0E0E11; color:#fff; border-radius: 8px; font-size: 15px; margin-bottom: 12px; font-family: inherit; }
+  .login-box button { width: 100%; padding: 13px; background: #8F1D4E; color: #fff; border: none; border-radius: 8px; font-weight: 700; font-size: 15px; cursor: pointer; font-family: inherit; }
+  .login-error { color:#e53e3e; font-size: 12px; margin-top: 10px; display:none; }
+  .login-error.show { display:block; }
+
+  /* ── Tabs ── */
+  .tabs { display:flex; gap:6px; border-bottom:1px solid rgba(63,63,71,0.6); margin-bottom:24px; flex-wrap:wrap; }
+  .tab { background:none; border:none; border-bottom:2px solid transparent; color:#888; font-family:inherit; font-size:13px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; padding:12px 16px; cursor:pointer; }
+  .tab:hover { color:#fff; }
+  .tab.active { color:#fff; border-bottom-color:#8F1D4E; }
+  .tab-panel { display:none; }
+  .tab-panel.active { display:block; }
+
+  table { width: 100%; border-collapse: collapse; background:#161619; border-radius: 12px; overflow:hidden; }
+  thead th { text-align: left; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: #888; background: #0E0E11; padding: 12px 16px; }
+  tbody td { padding: 14px 16px; font-size: 14px; border-top: 1px solid rgba(63,63,71,0.6); vertical-align: top; }
+  tbody tr:hover { background: #1c1c20; }
+  .name-cell { font-weight: 700; }
+  .badge-yes { display:inline-block; background:rgba(143,29,78,0.2); color:#fff; border:1px solid #8F1D4E; border-radius:999px; padding:3px 10px; font-size:11px; font-weight:700; }
+  .badge-no { display:inline-block; background:#0E0E11; color:#888; border-radius:999px; padding:3px 10px; font-size:11px; font-weight:700; }
+
+  .progress-track { width: 120px; height: 6px; background:#0E0E11; border-radius: 999px; overflow:hidden; margin-bottom:4px; }
+  .progress-fill { height:100%; background:#8F1D4E; }
+  .progress-label { font-size: 11px; color:#888; }
+  .badge-speed { display:inline-block; background:#fff; color:#0E0E11; border-radius:4px; padding:1px 6px; font-size:10px; font-weight:700; }
+
+  /* ── Kanal-Badges ── */
+  .kanal { display:inline-block; border-radius:999px; padding:3px 10px; font-size:11px; font-weight:700; letter-spacing:.03em; border:1px solid; white-space:nowrap; }
+  .k-whatsapp { color:#4ade80; border-color:rgba(74,222,128,.45); background:rgba(74,222,128,.10); }
+  .k-mail     { color:#7dd3fc; border-color:rgba(125,211,252,.45); background:rgba(125,211,252,.10); }
+  .k-ads      { color:#f0abfc; border-color:rgba(240,171,252,.45); background:rgba(240,171,252,.10); }
+  .k-linkedin { color:#93c5fd; border-color:rgba(147,197,253,.45); background:rgba(147,197,253,.10); }
+  .k-sms      { color:#fcd34d; border-color:rgba(252,211,77,.45); background:rgba(252,211,77,.10); }
+  .k-organisch,.k-sonstiges,.k-unbekannt { color:#9ca3af; border-color:rgba(156,163,175,.4); background:rgba(156,163,175,.08); }
+  .kanal-vermutet { opacity:.6; font-style:italic; }
+
+  /* ── Kennzahlen-Karten ── */
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin-bottom:22px; }
+  .stat { background:#161619; border:1px solid rgba(63,63,71,0.6); border-radius:12px; padding:16px 18px; }
+  .stat-num { font-family:'Playfair Display',serif; font-size:26px; font-weight:800; line-height:1.1; }
+  .stat-lab { font-size:11px; color:#888; text-transform:uppercase; letter-spacing:.06em; margin-top:6px; }
+  .stat.accent .stat-num { color:#8F1D4E; }
+  .stat.warn .stat-num { color:#fcd34d; }
+
+  .empty { text-align:center; color:#888; padding: 60px 0; font-size: 14px; }
+  .toolbar { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom: 12px; flex-wrap:wrap; }
+  .toolbar-right { display:flex; gap:8px; align-items:center; margin-left:auto; }
+  button.ghost { background:none; border:1px solid #3F3F47; border-radius:8px; padding:8px 16px; font-size: 12px; cursor:pointer; font-family:inherit; color:#fff; }
+  button.ghost:hover { border-color:#8F1D4E; }
+  select { background:#0E0E11; color:#fff; border:1px solid #3F3F47; border-radius:8px; padding:8px 12px; font-family:inherit; font-size:12px; }
+  .hint { font-size:12px; color:#888; line-height:1.6; background:#161619; border:1px solid rgba(63,63,71,0.6); border-left:3px solid #8F1D4E; border-radius:8px; padding:14px 16px; margin-bottom:20px; }
+  .hint code { background:#0E0E11; padding:2px 6px; border-radius:4px; font-size:11px; }
+  .row-kalt { background:rgba(252,211,77,.04); }
+</style>
+</head>
+<body>
+
+<header><div class="brand">Live ORGASMIC · 8-Tage-Challenge · Tracking-Dashboard</div></header>
+
+<main>
+  <div id="login-view" class="login-box" style="display:none;">
+    <h2>Zugang zum Dashboard</h2>
+    <input type="password" id="password-input" placeholder="Passwort" autocomplete="current-password">
+    <button id="login-btn">Einloggen</button>
+    <div class="login-error" id="login-error">Falsches Passwort.</div>
+  </div>
+
+  <div id="dashboard-view" style="display:none;">
+    <h1>Leads &amp; Video-Fortschritt</h1>
+    <p class="sub">Pro Person: über welchen Kanal gekommen, Erstgespräch-Wunsch, gesehener Video-Fortschritt, letzte Aktivität.</p>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="leads">Leads &amp; Fortschritt</button>
+      <button class="tab" data-tab="kanaele">Kanäle</button>
+      <button class="tab" data-tab="splittest">Splittest A/B</button>
+      <button class="tab" data-tab="nichtklicker">Nicht geklickt</button>
+    </div>
+
+    <!-- ── TAB: Leads ── -->
+    <div class="tab-panel active" id="panel-leads">
+      <div class="toolbar">
+        <select id="kanal-filter"><option value="">Alle Kanäle</option></select>
+        <div class="toolbar-right">
+          <button class="ghost" id="refresh-btn">↻ Aktualisieren</button>
+        </div>
+      </div>
+      <div id="table-wrap"></div>
+    </div>
+
+    <!-- ── TAB: Kanäle ── -->
+    <div class="tab-panel" id="panel-kanaele">
+      <div class="hint">
+        Zählt jeden Seitenaufruf, der über einen gekennzeichneten Link kam (<code>?src=whatsapp</code>).
+        Aufrufe ohne Kennzeichnung landen unter „unbekannt“ — das sind Links, die ohne
+        <code>src</code>-Parameter verschickt wurden, oder direkte Aufrufe.
+      </div>
+      <div id="kanal-stats" class="stats"></div>
+      <div id="kanal-table-wrap"></div>
+    </div>
+
+    <!-- ── TAB: Splittest ── -->
+    <div class="tab-panel" id="panel-splittest">
+      <div class="hint">
+        Die Startseite <code>/</code> verteilt jeden neuen Besucher per Zufall auf
+        <strong>A</strong> (Mehrschritt-Formular mit Qualifizierungsfragen) oder
+        <strong>B</strong> (Langform-Landingpage). Die Zuweisung bleibt bestehen, wer
+        zurückkommt sieht dieselbe Seite. Besucher unter „ohne Variante“ stammen aus der
+        Zeit vor dem Splittest oder sind direkt auf einer Unterseite eingestiegen.
+        <br><br>
+        <strong>Ein Unterschied ist erst ab etwa 100 Anmeldungen je Variante belastbar.</strong>
+        Darunter schwanken die Quoten stärker als der Effekt, den sie messen sollen.
+      </div>
+      <div id="ab-stats" class="stats"></div>
+      <div id="ab-table-wrap"></div>
+    </div>
+
+    <!-- ── TAB: Nicht-Klicker ── -->
+    <div class="tab-panel" id="panel-nichtklicker">
+      <div class="hint">
+        Abgleich der hinterlegten Versandliste gegen die tatsächlich eingegangenen Klicks.
+        Die Versandliste kommt aus dem <strong>Link-Generator</strong> (<code>link-generator.html</code>) —
+        ohne hinterlegte Liste kann das System nicht wissen, wer die Nachricht überhaupt bekommen hat.
+      </div>
+      <div class="toolbar">
+        <select id="kampagne-select"></select>
+        <div class="toolbar-right">
+          <button class="ghost" id="export-btn">↓ Nicht-Klicker als CSV</button>
+        </div>
+      </div>
+      <div id="versand-stats" class="stats"></div>
+      <div id="versand-table-wrap"></div>
+    </div>
+  </div>
+</main>
+
+<script>
+  const API_URL = '/.netlify/functions/dashboard-data';
+  const STORAGE_KEY = 'maximus_dashboard_password';
+  // Acht Tage statt drei Videos — die Labels muessen WORTGLEICH zu VIDEO_LABEL
+  // in videoX.html sein, sonst bleibt die Spalte leer, obwohl Daten da sind.
+  const VIDEO_KEYS = ['Tag 1', 'Tag 2', 'Tag 3', 'Tag 4', 'Tag 5', 'Tag 6', 'Tag 7', 'Tag 8'];
+
+  let DATEN = { leads: [], versand: [] };
+
+  const loginView = document.getElementById('login-view');
+  const dashboardView = document.getElementById('dashboard-view');
+  const passwordInput = document.getElementById('password-input');
+  const loginBtn = document.getElementById('login-btn');
+  const loginError = document.getElementById('login-error');
+  const tableWrap = document.getElementById('table-wrap');
+  const refreshBtn = document.getElementById('refresh-btn');
+  const kanalFilter = document.getElementById('kanal-filter');
+  const kampagneSelect = document.getElementById('kampagne-select');
+  const exportBtn = document.getElementById('export-btn');
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, (c) =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  function fmtDate(iso) {
+    if (!iso) return '–';
+    const d = new Date(iso);
+    return d.toLocaleDateString('de-DE') + ', ' + d.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
+  }
+
+  function kanalBadge(kanal, vermutet) {
+    const k = kanal || 'unbekannt';
+    const cls = 'kanal k-' + k + (vermutet ? ' kanal-vermutet' : '');
+    const titel = vermutet
+      ? 'Aus dem Referrer geraten, nicht im Link gekennzeichnet'
+      : 'Im Link gekennzeichnet (?src=)';
+    return `<span class="${cls}" title="${esc(titel)}">${esc(k)}${vermutet ? ' ?' : ''}</span>`;
+  }
+
+  // Für den Abgleich Versandliste ↔ Klicks: die besucher_id eines Leads aus personalisiertem
+  // Link ist "crm_<lead_id>" (siehe visitor.js). Daraus lässt sich die lead_id zurückrechnen.
+  function leadIdAusBesucher(besucherId) {
+    const s = String(besucherId || '');
+    return s.startsWith('crm_') ? s.slice(4) : null;
+  }
+
+  // ═══ TAB: Leads ═══
+  function renderTable(leads) {
+    if (!leads.length) {
+      tableWrap.innerHTML = '<div class="empty">Keine Leads für diese Auswahl.</div>';
+      return;
+    }
+    const rows = leads.map((lead) => {
+      const wunsch = lead.erstgespraech_gewuenscht
+        ? '<span class="badge-yes">Ja</span>'
+        : '<span class="badge-no">Nein</span>';
+
+      const videoCells = VIDEO_KEYS.map((vk) => {
+        // Start/Ende-Zeitstempel — zusätzliche, vom %-Wert unabhängige Prüf-Ebene
+        const gestartet = lead.video_gestartet?.[vk];
+        const beendet = lead.video_beendet?.[vk];
+        const startEndLine = (gestartet || beendet)
+          ? `<div class="progress-label" style="margin-top:2px;">${gestartet ? 'Start ' + fmtDate(gestartet) : ''}${gestartet && beendet ? ' · ' : ''}${beendet ? 'Ende ' + fmtDate(beendet) : ''}</div>`
+          : '';
+
+        const vf = lead.video_fortschritt?.[vk];
+        if (vf) {
+          const speedBadge = vf.geschwindigkeit && vf.geschwindigkeit !== '1x'
+            ? ' <span class="badge-speed">' + esc(vf.geschwindigkeit) + '</span>' : '';
+          return `<td>
+            <div class="progress-track"><div class="progress-fill" style="width:${vf.prozent}%"></div></div>
+            <div class="progress-label">${vf.prozent}% (${esc(vf.sekunden)}s angesehen)${speedBadge}</div>
+            ${startEndLine}
+          </td>`;
+        }
+        const geoeffnet = lead.video_geoeffnet?.[vk];
+        if (geoeffnet) {
+          return `<td><span class="progress-label">Geöffnet (${fmtDate(geoeffnet)}) — kein %-Tracking</span>${startEndLine}</td>`;
+        }
+        if (startEndLine) {
+          return `<td><span class="progress-label">— kein %-Fortschritt —</span>${startEndLine}</td>`;
+        }
+        return '<td><span class="progress-label">— nicht gesehen —</span></td>';
+      }).join('');
+
+      const quelleBadge = lead.quelle === 'personalisierter_link'
+        ? ' <span class="badge-speed" title="Kam über personalisierten Link (Ads/E-Mail/WhatsApp)">🔗</span>' : '';
+      const nameDisplay = lead.name
+        ? esc(lead.name) + quelleBadge
+        : `<span class="progress-label">Anonym · ${esc((lead.besucher_id || '').slice(0, 8))}</span>${quelleBadge}`;
+
+      // Kanal-Zelle: erster Kanal + wie oft insgesamt geklickt + welche Nachricht zuletzt
+      const letzterKlick = (lead.klicks || []).slice(-1)[0];
+      const kanalHaupt = lead.erst_kanal || lead.letzter_kanal || null;
+      const zaehler = lead.kanal_zaehler || {};
+      const klicksGesamt = Object.values(zaehler).reduce((a, b) => a + b, 0);
+      const kanalDetail = [];
+      if (klicksGesamt > 1) kanalDetail.push(klicksGesamt + ' Aufrufe');
+      if (letzterKlick?.nachricht) kanalDetail.push('zuletzt Nachricht ' + esc(letzterKlick.nachricht));
+      if (lead.kampagnen?.length) kanalDetail.push(esc(lead.kampagnen.join(', ')));
+
+      const kanalCell = `<td>
+        ${kanalBadge(kanalHaupt, letzterKlick?.vermutet && !lead.erst_kanal)}
+        ${kanalDetail.length ? `<div class="progress-label" style="margin-top:4px;">${kanalDetail.join(' · ')}</div>` : ''}
+      </td>`;
+
+      return `<tr>
+        <td class="name-cell">${nameDisplay}</td>
+        ${kanalCell}
+        <td>${wunsch}</td>
+        ${videoCells}
+        <td>${fmtDate(lead.letzte_aktivitaet)}</td>
+      </tr>`;
+    }).join('');
+
+    tableWrap.innerHTML = `<table>
+      <thead><tr><th>Name</th><th>Kanal</th><th>Erstgespräch</th><th>T1</th><th>T2</th><th>T3</th><th>T4</th><th>T5</th><th>T6</th><th>T7</th><th>T8</th><th>Letzte Aktivität</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+  }
+
+  function aktiveLeads() {
+    const f = kanalFilter.value;
+    if (!f) return DATEN.leads;
+    return DATEN.leads.filter((l) => (l.erst_kanal || l.letzter_kanal || 'unbekannt') === f);
+  }
+
+  function fuelleKanalFilter() {
+    const kanaele = new Set();
+    DATEN.leads.forEach((l) => kanaele.add(l.erst_kanal || l.letzter_kanal || 'unbekannt'));
+    const vorher = kanalFilter.value;
+    kanalFilter.innerHTML = '<option value="">Alle Kanäle</option>' +
+      [...kanaele].sort().map((k) => `<option value="${esc(k)}">${esc(k)}</option>`).join('');
+    if ([...kanaele].includes(vorher)) kanalFilter.value = vorher;
+  }
+
+  // ═══ TAB: Kanäle ═══
+  function renderKanaele() {
+    const proKanal = {};
+    DATEN.leads.forEach((lead) => {
+      const k = lead.erst_kanal || lead.letzter_kanal || 'unbekannt';
+      if (!proKanal[k]) proKanal[k] = { personen: 0, aufrufe: 0, gestartet: 0, durchgeschaut: 0 };
+      proKanal[k].personen++;
+      proKanal[k].aufrufe += Object.values(lead.kanal_zaehler || {}).reduce((a, b) => a + b, 0);
+      // "gestartet" = mindestens ein echter Play-Klick auf irgendeinem Video
+      if (Object.keys(lead.video_gestartet || {}).length) proKanal[k].gestartet++;
+      // "durchgeschaut" = irgendein Video zu mindestens 80 % gesehen (echte Watch-Time, nicht Position)
+      const maxProzent = Math.max(0, ...Object.values(lead.video_fortschritt || {}).map((v) => v.prozent || 0));
+      if (maxProzent >= 80) proKanal[k].durchgeschaut++;
+    });
+
+    const eintraege = Object.entries(proKanal).sort((a, b) => b[1].personen - a[1].personen);
+    const statsEl = document.getElementById('kanal-stats');
+    const wrapEl = document.getElementById('kanal-table-wrap');
+
+    if (!eintraege.length) {
+      statsEl.innerHTML = '';
+      wrapEl.innerHTML = '<div class="empty">Noch keine Aufrufe erfasst.</div>';
+      return;
+    }
+
+    const gesamtPersonen = DATEN.leads.length;
+    const gesamtGestartet = DATEN.leads.filter((l) => Object.keys(l.video_gestartet || {}).length).length;
+    statsEl.innerHTML = `
+      <div class="stat"><div class="stat-num">${gesamtPersonen}</div><div class="stat-lab">Personen gesamt</div></div>
+      <div class="stat accent"><div class="stat-num">${gesamtGestartet}</div><div class="stat-lab">Video gestartet</div></div>
+      <div class="stat"><div class="stat-num">${gesamtPersonen ? Math.round(gesamtGestartet / gesamtPersonen * 100) : 0}%</div><div class="stat-lab">Öffnen → Start</div></div>`;
+
+    wrapEl.innerHTML = `<table>
+      <thead><tr><th>Kanal</th><th>Personen</th><th>Aufrufe</th><th>Video gestartet</th><th>≥80% gesehen</th></tr></thead>
+      <tbody>${eintraege.map(([k, v]) => `<tr>
+        <td>${kanalBadge(k, false)}</td>
+        <td>${v.personen}</td>
+        <td>${v.aufrufe}</td>
+        <td>${v.gestartet} <span class="progress-label">(${v.personen ? Math.round(v.gestartet / v.personen * 100) : 0}%)</span></td>
+        <td>${v.durchgeschaut} <span class="progress-label">(${v.personen ? Math.round(v.durchgeschaut / v.personen * 100) : 0}%)</span></td>
+      </tr>`).join('')}</tbody>
+    </table>`;
+  }
+
+  // ═══ TAB: Splittest A/B ═══
+  function hatEvent(lead, status) {
+    return (lead.events || []).some((e) => e.status === status);
+  }
+
+  function hatSeite(lead, seitenName) {
+    return (lead.events || []).some((e) =>
+      e.status === 'seite_geoeffnet' &&
+      (e.antworten || []).some((a) => a.frage === 'Seite' && a.antwort === seitenName));
+  }
+
+  function renderSplittest() {
+    const gruppen = { A: [], B: [], 'ohne Variante': [] };
+    DATEN.leads.forEach((lead) => {
+      const v = lead.variante === 'A' || lead.variante === 'B' ? lead.variante : 'ohne Variante';
+      gruppen[v].push(lead);
+    });
+
+    const zeilen = Object.entries(gruppen).map(([name, leads]) => {
+      const besucher = leads.length;
+      // Der Abschluss ist das einzige Ereignis, das beide Varianten gleich melden —
+      // A ueber das eigene Formular, B ueber den abgefangenen GHL-Absendeklick.
+      const anmeldungen = leads.filter((l) => hatEvent(l, 'formular_abgeschlossen')).length;
+      const oto = leads.filter((l) => hatSeite(l, 'OTO / Angebot')).length;
+      const termin = leads.filter((l) => hatEvent(l, 'termin_klick')).length;
+      return { name, besucher, anmeldungen, oto, termin };
+    }).filter((z) => z.besucher > 0);
+
+    const statsEl = document.getElementById('ab-stats');
+    const wrapEl = document.getElementById('ab-table-wrap');
+
+    if (!zeilen.length) {
+      statsEl.innerHTML = '';
+      wrapEl.innerHTML = '<div class="empty">Noch keine Besucher erfasst.</div>';
+      return;
+    }
+
+    const quote = (teil, ganz) => (ganz ? Math.round((teil / ganz) * 1000) / 10 : 0);
+    const a = zeilen.find((z) => z.name === 'A');
+    const b = zeilen.find((z) => z.name === 'B');
+
+    let fuehrung = 'Noch keine Aussage möglich';
+    if (a && b && a.besucher && b.besucher) {
+      const qa = quote(a.anmeldungen, a.besucher);
+      const qb = quote(b.anmeldungen, b.besucher);
+      const genug = a.anmeldungen >= 100 && b.anmeldungen >= 100;
+      const vorn = qa === qb ? 'Gleichstand' : (qa > qb ? 'A führt' : 'B führt');
+      fuehrung = genug ? vorn : vorn + ' (noch zu wenig Daten)';
+    }
+
+    statsEl.innerHTML = `
+      <div class="stat"><div class="stat-num">${a ? a.besucher : 0}</div><div class="stat-lab">Besucher A</div></div>
+      <div class="stat"><div class="stat-num">${b ? b.besucher : 0}</div><div class="stat-lab">Besucher B</div></div>
+      <div class="stat accent"><div class="stat-num">${fuehrung}</div><div class="stat-lab">Anmeldequote</div></div>`;
+
+    wrapEl.innerHTML = `<table>
+      <thead><tr><th>Variante</th><th>Besucher</th><th>Anmeldungen</th><th>Anmeldequote</th><th>OTO erreicht</th><th>Termin geklickt</th></tr></thead>
+      <tbody>${zeilen.map((z) => `<tr>
+        <td><strong>${esc(z.name)}</strong></td>
+        <td>${z.besucher}</td>
+        <td>${z.anmeldungen}</td>
+        <td>${quote(z.anmeldungen, z.besucher)}%</td>
+        <td>${z.oto} <span class="progress-label">(${quote(z.oto, z.anmeldungen)}% der Anmeldungen)</span></td>
+        <td>${z.termin} <span class="progress-label">(${quote(z.termin, z.besucher)}%)</span></td>
+      </tr>`).join('')}</tbody>
+    </table>`;
+  }
+
+  // ═══ TAB: Nicht-Klicker ═══
+  function aktuelleKampagne() {
+    return DATEN.versand.find((v) => v.kampagne === kampagneSelect.value) || null;
+  }
+
+  // Baut pro Empfänger den Status: nie geklickt / geklickt ohne Start / gestartet.
+  // Das ist die Follow-up-Priorisierung für den Setter.
+  function bewerteEmpfaenger(liste) {
+    const leadsNachId = new Map();
+    DATEN.leads.forEach((l) => {
+      const id = leadIdAusBesucher(l.besucher_id);
+      if (id) leadsNachId.set(id, l);
+    });
+
+    return liste.map((e) => {
+      const lead = leadsNachId.get(String(e.lead_id)) || null;
+      const geklickt = Boolean(lead);
+      const gestartet = geklickt && Object.keys(lead.video_gestartet || {}).length > 0;
+      const maxProzent = geklickt
+        ? Math.max(0, ...Object.values(lead.video_fortschritt || {}).map((v) => v.prozent || 0))
+        : 0;
+      let status = 'nicht_geklickt';
+      if (gestartet) status = 'gestartet';
+      else if (geklickt) status = 'geklickt_ohne_start';
+      return { ...e, lead, geklickt, gestartet, maxProzent, status };
+    });
+  }
+
+  function renderVersand() {
+    const statsEl = document.getElementById('versand-stats');
+    const wrapEl = document.getElementById('versand-table-wrap');
+    const kampagne = aktuelleKampagne();
+
+    if (!kampagne) {
+      statsEl.innerHTML = '';
+      wrapEl.innerHTML = `<div class="empty">
+        Noch keine Versandliste hinterlegt.<br><br>
+        Links im <strong>Link-Generator</strong> erzeugen und dort auf „Versandliste ans Dashboard senden“ klicken —
+        danach erscheint hier, wer die Nachricht bekommen und nicht geklickt hat.
+      </div>`;
+      return;
+    }
+
+    const bewertet = bewerteEmpfaenger(kampagne.empfaenger || []);
+    const versendet = bewertet.length;
+    const geklickt = bewertet.filter((e) => e.geklickt).length;
+    const gestartet = bewertet.filter((e) => e.gestartet).length;
+    const nichtGeklickt = versendet - geklickt;
+
+    statsEl.innerHTML = `
+      <div class="stat"><div class="stat-num">${versendet}</div><div class="stat-lab">Versendet</div></div>
+      <div class="stat accent"><div class="stat-num">${geklickt}</div><div class="stat-lab">Geklickt (${versendet ? Math.round(geklickt / versendet * 100) : 0}%)</div></div>
+      <div class="stat"><div class="stat-num">${gestartet}</div><div class="stat-lab">Video gestartet</div></div>
+      <div class="stat warn"><div class="stat-num">${nichtGeklickt}</div><div class="stat-lab">Nicht geklickt → Follow-up</div></div>`;
+
+    // Reihenfolge = Handlungsreihenfolge: nie geklickt zuerst (kaltester Nachfass-Bedarf),
+    // dann geklickt ohne Start, dann die Aktiven.
+    const rang = { nicht_geklickt: 0, geklickt_ohne_start: 1, gestartet: 2 };
+    bewertet.sort((a, b) => rang[a.status] - rang[b.status] || String(a.name).localeCompare(String(b.name)));
+
+    const statusLabel = {
+      nicht_geklickt: '<span class="badge-no">nie geöffnet</span>',
+      geklickt_ohne_start: '<span class="kanal k-sms">geöffnet, kein Play</span>',
+      gestartet: '<span class="badge-yes">Video gestartet</span>',
+    };
+
+    wrapEl.innerHTML = `<table>
+      <thead><tr><th>Name</th><th>Kontakt</th><th>Nachricht</th><th>Status</th><th>Fortschritt</th><th>Versendet</th></tr></thead>
+      <tbody>${bewertet.map((e) => `<tr class="${e.status === 'nicht_geklickt' ? 'row-kalt' : ''}">
+        <td class="name-cell">${esc(e.name || '—')} <span class="progress-label">#${esc(e.lead_id)}</span></td>
+        <td><span class="progress-label">${esc(e.telefon || e.email || '—')}</span></td>
+        <td><span class="progress-label">${e.nachricht ? 'Nr. ' + esc(e.nachricht) : '–'}</span></td>
+        <td>${statusLabel[e.status]}</td>
+        <td>${e.maxProzent ? e.maxProzent + '%' : '<span class="progress-label">–</span>'}</td>
+        <td><span class="progress-label">${fmtDate(e.versendet_am)}</span></td>
+      </tr>`).join('')}</tbody>
+    </table>`;
+  }
+
+  function fuelleKampagnen() {
+    const vorher = kampagneSelect.value;
+    if (!DATEN.versand.length) {
+      kampagneSelect.innerHTML = '<option value="">— keine Versandliste —</option>';
+      return;
+    }
+    kampagneSelect.innerHTML = DATEN.versand.map((v) =>
+      `<option value="${esc(v.kampagne)}">${esc(v.kampagne)} · ${(v.empfaenger || []).length} Empfänger${v.kanal ? ' · ' + esc(v.kanal) : ''}</option>`
+    ).join('');
+    if (DATEN.versand.some((v) => v.kampagne === vorher)) kampagneSelect.value = vorher;
+  }
+
+  function exportCsv() {
+    const kampagne = aktuelleKampagne();
+    if (!kampagne) return;
+    const bewertet = bewerteEmpfaenger(kampagne.empfaenger || []).filter((e) => !e.geklickt);
+    if (!bewertet.length) {
+      alert('Alle Empfänger dieser Kampagne haben geklickt — keine Nicht-Klicker zum Export.');
+      return;
+    }
+    // Semikolon-getrennt: deutsches Excel öffnet Komma-CSV sonst in einer einzigen Spalte.
+    const zeilen = [['lead_id', 'name', 'telefon', 'email', 'nachricht', 'versendet_am']];
+    bewertet.forEach((e) => zeilen.push([e.lead_id, e.name || '', e.telefon || '', e.email || '', e.nachricht || '', e.versendet_am || '']));
+    const csv = zeilen.map((r) => r.map((z) => `"${String(z).replace(/"/g, '""')}"`).join(';')).join('\r\n');
+    // BOM voranstellen, sonst zerlegt Excel Umlaute.
+    const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8;' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `nicht-geklickt_${kampagne.kampagne}.csv`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  // ═══ Laden & Steuerung ═══
+  function renderAlles() {
+    fuelleKanalFilter();
+    fuelleKampagnen();
+    renderTable(aktiveLeads());
+    renderKanaele();
+    renderSplittest();
+    renderVersand();
+  }
+
+  async function loadData(password) {
+    const res = await fetch(`${API_URL}?password=${encodeURIComponent(password)}`);
+    if (!res.ok) throw new Error('Unauthorized');
+    const data = await res.json();
+    DATEN = { leads: data.leads || [], versand: data.versand || [] };
+    renderAlles();
+  }
+
+  async function tryLogin(password) {
+    try {
+      await loadData(password);
+      sessionStorage.setItem(STORAGE_KEY, password);
+      loginView.style.display = 'none';
+      dashboardView.style.display = 'block';
+      loginError.classList.remove('show');
+    } catch {
+      loginError.classList.add('show');
+      loginView.style.display = 'block';
+      dashboardView.style.display = 'none';
+    }
+  }
+
+  document.querySelectorAll('.tab').forEach((tab) => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach((t) => t.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach((p) => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  kanalFilter.addEventListener('change', () => renderTable(aktiveLeads()));
+  kampagneSelect.addEventListener('change', renderVersand);
+  exportBtn.addEventListener('click', exportCsv);
+  loginBtn.addEventListener('click', () => tryLogin(passwordInput.value.trim()));
+  passwordInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') tryLogin(passwordInput.value.trim()); });
+  refreshBtn.addEventListener('click', () => {
+    const pw = sessionStorage.getItem(STORAGE_KEY);
+    if (pw) loadData(pw);
+  });
+
+  const savedPassword = sessionStorage.getItem(STORAGE_KEY);
+  if (savedPassword) {
+    tryLogin(savedPassword);
+  } else {
+    loginView.style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

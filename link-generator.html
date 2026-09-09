@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Link-Generator — Live ORGASMIC 8-Tage-Challenge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Raleway:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family:'Raleway',sans-serif; background:#0E0E11; color:#fff; min-height:100vh; }
+  header { background:#161619; padding:18px 32px; border-bottom:1px solid rgba(63,63,71,0.6); display:flex; justify-content:space-between; align-items:center; }
+  .brand { font-weight:800; letter-spacing:.1em; text-transform:uppercase; font-size:14px; }
+  main { max-width:1180px; margin:0 auto; padding:40px 20px 80px; }
+  h1 { font-family:'Playfair Display',serif; font-size:28px; margin-bottom:8px; }
+  .sub { color:#888; font-size:13px; margin-bottom:28px; line-height:1.6; }
+  h2 { font-family:'Playfair Display',serif; font-size:19px; margin-bottom:14px; }
+
+  .card { background:#161619; border:1px solid rgba(63,63,71,0.6); border-radius:14px; padding:24px; margin-bottom:20px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; }
+  label { display:block; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:#888; margin-bottom:6px; font-weight:700; }
+  input, select, textarea { width:100%; padding:11px 13px; border:1px solid #3F3F47; background:#0E0E11; color:#fff; border-radius:8px; font-size:14px; font-family:inherit; }
+  textarea { resize:vertical; line-height:1.6; }
+  input:focus, select:focus, textarea:focus { outline:none; border-color:#8F1D4E; }
+  .field { margin-bottom:14px; }
+  .field-hint { font-size:11px; color:#666; margin-top:5px; line-height:1.5; }
+
+  button { font-family:inherit; cursor:pointer; border-radius:8px; font-weight:700; }
+  .btn-primary { background:#8F1D4E; color:#fff; border:none; padding:13px 26px; font-size:14px; }
+  .btn-primary:hover { background:#a52259; }
+  .btn-primary:disabled { background:#3F3F47; cursor:not-allowed; }
+  .btn-ghost { background:none; border:1px solid #3F3F47; color:#fff; padding:9px 16px; font-size:12px; }
+  .btn-ghost:hover { border-color:#8F1D4E; }
+  .btn-mini { background:none; border:1px solid #3F3F47; color:#fff; padding:4px 10px; font-size:11px; border-radius:6px; }
+  .btn-mini:hover { border-color:#8F1D4E; }
+  .actions { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-top:6px; }
+
+  table { width:100%; border-collapse:collapse; background:#161619; border-radius:12px; overflow:hidden; }
+  thead th { text-align:left; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:#888; background:#0E0E11; padding:11px 14px; }
+  tbody td { padding:12px 14px; font-size:13px; border-top:1px solid rgba(63,63,71,0.6); vertical-align:top; }
+  tbody tr:hover { background:#1c1c20; }
+  .mono { font-family:ui-monospace,Menlo,Consolas,monospace; font-size:11px; color:#9ca3af; word-break:break-all; }
+  .msg-preview { font-size:12px; color:#ccc; line-height:1.6; white-space:pre-wrap; max-width:380px; }
+
+  .hint { font-size:12px; color:#aaa; line-height:1.7; background:#161619; border:1px solid rgba(63,63,71,0.6); border-left:3px solid #8F1D4E; border-radius:8px; padding:15px 17px; margin-bottom:22px; }
+  .hint code { background:#0E0E11; padding:2px 6px; border-radius:4px; font-size:11px; }
+  .hint strong { color:#fff; }
+  .warn { border-left-color:#fcd34d; }
+  .status { font-size:13px; padding:12px 15px; border-radius:8px; margin-top:14px; display:none; }
+  .status.show { display:block; }
+  .status.ok { background:rgba(74,222,128,.1); border:1px solid rgba(74,222,128,.4); color:#4ade80; }
+  .status.err { background:rgba(229,62,62,.1); border:1px solid rgba(229,62,62,.4); color:#f87171; }
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:20px; }
+  .stat { background:#0E0E11; border:1px solid rgba(63,63,71,0.6); border-radius:10px; padding:14px 16px; }
+  .stat-num { font-family:'Playfair Display',serif; font-size:24px; font-weight:800; }
+  .stat-lab { font-size:11px; color:#888; text-transform:uppercase; letter-spacing:.06em; margin-top:4px; }
+  #ergebnis-card { display:none; }
+</style>
+</head>
+<body>
+
+<header><div class="brand">Live ORGASMIC · 8-Tage-Challenge · Link-Generator</div></header>
+
+<main>
+  <h1>Personalisierte Tracking-Links erzeugen</h1>
+  <p class="sub">
+    Empfängerliste einfügen → fertige Links, fertige Nachrichten und die Versandliste fürs Dashboard.<br>
+    Ohne personalisierten Link ist im Dashboard nur „irgendwer war da“ sichtbar — mit Link steht der Name dran.
+  </p>
+
+  <div class="hint">
+    <strong>Was hier wirklich getrackt wird:</strong> Nicht der Klick <em>innerhalb</em> von WhatsApp — den gibt WhatsApp nicht heraus —
+    sondern das Öffnen der Seite direkt danach. Praktisch dasselbe, nur eine Sekunde später.
+    Die WhatsApp-Linkvorschau führt kein JavaScript aus und erzeugt deshalb <strong>keinen</strong> Fake-Klick.
+  </div>
+
+  <!-- ── 1. Konfiguration ── -->
+  <div class="card">
+    <h2>1 · Kampagne konfigurieren</h2>
+    <div class="grid">
+      <div class="field">
+        <label for="basis-url">Ziel-Seite (Basis-URL)</label>
+        <input id="basis-url" type="text" placeholder="https://deine-seite.netlify.app/video1.html">
+        <div class="field-hint">Die Seite, auf der der Empfänger landen soll.</div>
+      </div>
+      <div class="field">
+        <label for="kanal">Kanal</label>
+        <select id="kanal">
+          <option value="whatsapp">WhatsApp</option>
+          <option value="mail">E-Mail</option>
+          <option value="sms">SMS</option>
+          <option value="linkedin">LinkedIn</option>
+          <option value="ads">Ads</option>
+        </select>
+        <div class="field-hint">Wird als <code>?src=</code> angehängt.</div>
+      </div>
+      <div class="field">
+        <label for="nachricht-nr">Nachricht Nr. (Sequenz)</label>
+        <input id="nachricht-nr" type="text" value="1" placeholder="1">
+        <div class="field-hint">Wird als <code>?msg=</code> angehängt — zeigt, welche Nachricht den Klick ausgelöst hat.</div>
+      </div>
+      <div class="field">
+        <label for="kampagne">Kampagnen-/Batch-Name</label>
+        <input id="kampagne" type="text" placeholder="z.B. wa-sequenz-august">
+        <div class="field-hint">Schlüssel für den Nicht-Klicker-Abgleich. Pro Versand eindeutig.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 2. Empfänger ── -->
+  <div class="card">
+    <h2>2 · Empfänger einfügen</h2>
+    <div class="field">
+      <label for="daten">Liste (aus Excel/CRM kopieren oder CSV einfügen)</label>
+      <textarea id="daten" rows="9" placeholder="name;telefon;email;lead_id
+Anna Müller;+49 151 12345678;anna@example.de;13629
+Tobias Weber;+49 170 9876543;tobias@example.de;13630"></textarea>
+      <div class="field-hint">
+        Erste Zeile = Spaltenüberschriften. Erkannt werden: <code>name</code>/<code>vorname</code>,
+        <code>telefon</code>/<code>handy</code>, <code>email</code>/<code>mail</code>,
+        <code>lead_id</code>/<code>id</code>/<code>c_id</code>. Trennzeichen (<code>;</code>, <code>,</code>, Tab) wird automatisch erkannt.
+      </div>
+    </div>
+    <div class="field">
+      <label for="datei">…oder CSV-Datei wählen</label>
+      <input id="datei" type="file" accept=".csv,.txt,.tsv">
+    </div>
+    <div class="field">
+      <label for="vorlage">Nachrichten-Vorlage</label>
+      <textarea id="vorlage" rows="5">Hey {{vorname}}, hier ist dein Zugang zu Video {{msg}}:
+{{link}}
+
+Sag mir kurz Bescheid, wenn du es gesehen hast.</textarea>
+      <div class="field-hint">Platzhalter: <code>{{vorname}}</code>, <code>{{name}}</code>, <code>{{link}}</code>, <code>{{msg}}</code>.</div>
+    </div>
+    <div class="actions">
+      <button class="btn-primary" id="generieren-btn">Links erzeugen</button>
+      <label style="display:flex;align-items:center;gap:7px;text-transform:none;letter-spacing:0;font-size:12px;color:#aaa;margin:0;font-weight:500;">
+        <input type="checkbox" id="name-im-link" checked style="width:auto;"> Vorname im Link mitgeben (<code>?name=</code>)
+      </label>
+    </div>
+    <div class="status" id="parse-status"></div>
+  </div>
+
+  <!-- ── 3. Ergebnis ── -->
+  <div class="card" id="ergebnis-card">
+    <h2>3 · Ergebnis</h2>
+    <div class="stats" id="ergebnis-stats"></div>
+    <div class="actions" style="margin-bottom:18px;">
+      <button class="btn-ghost" id="csv-btn">↓ Links als CSV</button>
+      <button class="btn-ghost" id="copy-all-btn">⧉ Alle Links kopieren</button>
+    </div>
+    <div id="ergebnis-tabelle"></div>
+
+    <div style="margin-top:28px;border-top:1px solid rgba(63,63,71,0.6);padding-top:22px;">
+      <h2>4 · Versandliste ans Dashboard senden</h2>
+      <p class="sub" style="margin-bottom:16px;">
+        Erst dadurch kann das Dashboard zeigen, <strong>wer nicht geklickt hat</strong>.
+        Ohne diesen Schritt sieht es nur die, die kommen.
+      </p>
+      <div class="grid">
+        <div class="field">
+          <label for="api-basis">Dashboard-Adresse</label>
+          <input id="api-basis" type="text" placeholder="https://deine-seite.netlify.app">
+          <div class="field-hint">Leer lassen, wenn diese Seite schon auf dem Deployment liegt.</div>
+        </div>
+        <div class="field">
+          <label for="dash-pw">Dashboard-Passwort</label>
+          <input id="dash-pw" type="password" placeholder="Passwort">
+          <div class="field-hint">Dasselbe wie im Dashboard-Login. Wird nicht gespeichert.</div>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn-primary" id="push-btn">Versandliste senden</button>
+      </div>
+      <div class="status" id="push-status"></div>
+    </div>
+  </div>
+
+  <div class="hint warn">
+    <strong>Datenschutz:</strong> In den Links steht keine Telefonnummer und keine E-Mail —
+    Empfänger ohne CRM-ID bekommen eine aus ihren Kontaktdaten berechnete Kurz-ID
+    (gleiche Person = gleiche ID, aus der ID lässt sich die Nummer nicht zurückrechnen).
+    Der Vorname ist optional abschaltbar.
+  </div>
+</main>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  let ZEILEN = [];   // eingelesene Empfänger
+  let ERGEBNIS = []; // erzeugte Links
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, (c) =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  function zeigeStatus(el, text, ok) {
+    el.textContent = text;
+    el.className = 'status show ' + (ok ? 'ok' : 'err');
+  }
+
+  // ── Stabile, nicht rückrechenbare Kurz-ID aus Kontaktdaten ──
+  // Nötig, damit der Nicht-Klicker-Abgleich auch ohne CRM-ID funktioniert: dieselbe Person
+  // muss bei jedem erneuten Generieren dieselbe ID bekommen. Zwei FNV-1a-Läufe mit
+  // verschiedenen Startwerten, damit der Wertebereich groß genug bleibt und bei einigen
+  // tausend Empfängern keine zwei Personen zufällig dieselbe ID bekommen.
+  function kurzId(text) {
+    function fnv(str, seed) {
+      let h = seed;
+      for (let i = 0; i < str.length; i++) {
+        h ^= str.charCodeAt(i);
+        h = Math.imul(h, 16777619) >>> 0;
+      }
+      return h;
+    }
+    const a = fnv(text, 2166136261).toString(36);
+    const b = fnv(text, 1099511628).toString(36);
+    return (a + b).slice(0, 12);
+  }
+
+  function normTelefon(t) {
+    // Muss dieselbe Nummer IMMER auf denselben String bringen — die deterministische
+    // Kurz-ID wird daraus gehasht. Ohne echte Normalisierung bekommt dieselbe Person
+    // je nach Schreibweise im Export ("+49 170…" vs "0170…") zwei verschiedene IDs,
+    // zaehlt doppelt und faellt beim Nicht-Klicker-Abgleich durchs Raster.
+    var LAND = '49'; // DACH-Standard; Nummern mit eigenem + bleiben unangetastet
+    var s = String(t || '').replace(/[^\d+]/g, '');
+    if (!s) return '';
+    if (s.slice(0, 2) === '00') s = '+' + s.slice(2);              // 0049… → +49…
+    else if (s[0] === '0') s = '+' + LAND + s.slice(1);            // 0170… → +49170…
+    else if (s[0] !== '+') s = '+' + (s.slice(0, LAND.length) === LAND ? s : LAND + s);
+    s = s.replace(new RegExp('^\\+' + LAND + '0+'), '+' + LAND); // +490170… → +49170…
+    return s;
+  }
+
+  // ── CSV/Tabellen-Parser ──
+  function trennzeichenErkennen(zeile) {
+    const kandidaten = [';', '\t', ','];
+    let best = ';', max = 0;
+    kandidaten.forEach((k) => {
+      const n = zeile.split(k).length;
+      if (n > max) { max = n; best = k; }
+    });
+    return best;
+  }
+
+  function zeileSplitten(zeile, sep) {
+    // Beachtet Anführungszeichen, damit ein Komma im Namen die Spalten nicht verschiebt.
+    const out = [];
+    let feld = '', inQuote = false;
+    for (let i = 0; i < zeile.length; i++) {
+      const c = zeile[i];
+      if (c === '"') {
+        if (inQuote && zeile[i + 1] === '"') { feld += '"'; i++; }
+        else inQuote = !inQuote;
+      } else if (c === sep && !inQuote) {
+        out.push(feld.trim()); feld = '';
+      } else {
+        feld += c;
+      }
+    }
+    out.push(feld.trim());
+    return out;
+  }
+
+  function spalteFinden(kopf, namen) {
+    for (let i = 0; i < kopf.length; i++) {
+      const k = kopf[i].toLowerCase().replace(/[^a-zä-ü_]/g, '');
+      if (namen.includes(k)) return i;
+    }
+    return -1;
+  }
+
+  function parseDaten(text) {
+    const zeilen = text.trim().split(/\r?\n/).filter((z) => z.trim());
+    if (zeilen.length < 2) return { fehler: 'Mindestens eine Überschriftenzeile und eine Datenzeile nötig.' };
+
+    const sep = trennzeichenErkennen(zeilen[0]);
+    const kopf = zeileSplitten(zeilen[0], sep);
+
+    const iName = spalteFinden(kopf, ['name', 'vorname', 'firstname', 'fullname', 'kontakt']);
+    const iTel = spalteFinden(kopf, ['telefon', 'handy', 'mobil', 'phone', 'nummer', 'telefonnummer']);
+    const iMail = spalteFinden(kopf, ['email', 'mail', 'emailadresse', 'e-mail']);
+    const iId = spalteFinden(kopf, ['leadid', 'lead_id', 'id', 'cid', 'c_id', 'contactid', 'kontaktid', 'crmid']);
+
+    if (iName === -1 && iTel === -1 && iMail === -1) {
+      return { fehler: 'Keine erkennbare Spalte gefunden. Erwartet mindestens name, telefon oder email in der ersten Zeile.' };
+    }
+
+    const daten = [];
+    for (let z = 1; z < zeilen.length; z++) {
+      const f = zeileSplitten(zeilen[z], sep);
+      const name = iName > -1 ? f[iName] || '' : '';
+      const telefon = iTel > -1 ? f[iTel] || '' : '';
+      const email = iMail > -1 ? f[iMail] || '' : '';
+      let leadId = iId > -1 ? (f[iId] || '').trim() : '';
+
+      if (!name && !telefon && !email) continue;
+      if (!leadId) {
+        // Keine CRM-ID vorhanden → deterministisch aus den Kontaktdaten ableiten.
+        const basis = normTelefon(telefon) || email.toLowerCase() || name.toLowerCase();
+        leadId = kurzId(basis);
+      }
+      daten.push({ name, telefon, email, lead_id: leadId });
+    }
+    if (!daten.length) return { fehler: 'Keine verwertbaren Datenzeilen gefunden.' };
+    return { daten };
+  }
+
+  // ── Links bauen ──
+  function baueLinks() {
+    const basisUrl = $('basis-url').value.trim();
+    const kanal = $('kanal').value;
+    const msg = $('nachricht-nr').value.trim();
+    const kampagne = $('kampagne').value.trim().toLowerCase().replace(/[^a-z0-9_-]/g, '-');
+    const vorlage = $('vorlage').value;
+    const nameImLink = $('name-im-link').checked;
+
+    if (!basisUrl) return { fehler: 'Ziel-Seite (Basis-URL) fehlt.' };
+    if (!kampagne) return { fehler: 'Kampagnen-Name fehlt — ohne ihn ist später kein Nicht-Klicker-Abgleich möglich.' };
+
+    let url;
+    try { url = new URL(basisUrl); } catch { return { fehler: 'Basis-URL ist keine gültige Adresse (mit https:// beginnen).' }; }
+
+    const ergebnis = ZEILEN.map((z) => {
+      const u = new URL(url.toString());
+      u.searchParams.set('lead_id', z.lead_id);
+      if (nameImLink && z.name) u.searchParams.set('name', z.name.split(' ')[0]);
+      u.searchParams.set('src', kanal);
+      if (msg) u.searchParams.set('msg', msg);
+      u.searchParams.set('cmp', kampagne);
+      const link = u.toString();
+
+      const vorname = (z.name || '').split(' ')[0];
+      const nachricht = vorlage
+        .replace(/\{\{vorname\}\}/g, vorname)
+        .replace(/\{\{name\}\}/g, z.name || '')
+        .replace(/\{\{link\}\}/g, link)
+        .replace(/\{\{msg\}\}/g, msg || '');
+
+      // wa.me öffnet WhatsApp direkt mit vorgefertigtem Text — nur sinnvoll bei Kanal WhatsApp
+      // und vorhandener Nummer. Der Versand selbst passiert manuell in WhatsApp.
+      const tel = normTelefon(z.telefon).replace(/^\+/, '');
+      const waLink = (kanal === 'whatsapp' && tel)
+        ? `https://wa.me/${tel}?text=${encodeURIComponent(nachricht)}` : null;
+
+      return { ...z, link, nachricht, waLink, msg, kampagne, kanal };
+    });
+
+    return { ergebnis };
+  }
+
+  function renderErgebnis() {
+    const stats = $('ergebnis-stats');
+    const mitTelefon = ERGEBNIS.filter((e) => normTelefon(e.telefon)).length;
+    const ohneCrmId = ZEILEN.filter((z) => z.lead_id.length === 12).length;
+    stats.innerHTML = `
+      <div class="stat"><div class="stat-num">${ERGEBNIS.length}</div><div class="stat-lab">Links erzeugt</div></div>
+      <div class="stat"><div class="stat-num">${mitTelefon}</div><div class="stat-lab">mit Telefonnummer</div></div>
+      <div class="stat"><div class="stat-num">${ohneCrmId}</div><div class="stat-lab">ohne CRM-ID (berechnet)</div></div>`;
+
+    $('ergebnis-tabelle').innerHTML = `<table>
+      <thead><tr><th>Name</th><th>Link</th><th>Nachricht</th><th></th></tr></thead>
+      <tbody>${ERGEBNIS.map((e, i) => `<tr>
+        <td><strong>${esc(e.name || '—')}</strong><div class="mono">#${esc(e.lead_id)}</div></td>
+        <td><div class="mono">${esc(e.link)}</div></td>
+        <td><div class="msg-preview">${esc(e.nachricht)}</div></td>
+        <td style="white-space:nowrap;">
+          <button class="btn-mini" data-copy="${i}">⧉ Text</button>
+          ${e.waLink ? `<a href="${esc(e.waLink)}" target="_blank" rel="noopener"><button class="btn-mini">↗ WhatsApp</button></a>` : ''}
+        </td>
+      </tr>`).join('')}</tbody>
+    </table>`;
+
+    document.querySelectorAll('[data-copy]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        navigator.clipboard.writeText(ERGEBNIS[+btn.dataset.copy].nachricht);
+        const alt = btn.textContent;
+        btn.textContent = '✓ kopiert';
+        setTimeout(() => { btn.textContent = alt; }, 1400);
+      });
+    });
+
+    $('ergebnis-card').style.display = 'block';
+  }
+
+  // ── Aktionen ──
+  $('datei').addEventListener('change', (e) => {
+    const f = e.target.files[0];
+    if (!f) return;
+    const r = new FileReader();
+    r.onload = () => { $('daten').value = r.result; };
+    r.readAsText(f, 'UTF-8');
+  });
+
+  $('generieren-btn').addEventListener('click', () => {
+    const p = parseDaten($('daten').value);
+    if (p.fehler) return zeigeStatus($('parse-status'), p.fehler, false);
+    ZEILEN = p.daten;
+
+    const b = baueLinks();
+    if (b.fehler) return zeigeStatus($('parse-status'), b.fehler, false);
+    ERGEBNIS = b.ergebnis;
+
+    zeigeStatus($('parse-status'), `${ERGEBNIS.length} Empfänger eingelesen und Links erzeugt.`, true);
+    renderErgebnis();
+    $('ergebnis-card').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  $('csv-btn').addEventListener('click', () => {
+    const zeilen = [['lead_id', 'name', 'telefon', 'email', 'link', 'nachricht']];
+    ERGEBNIS.forEach((e) => zeilen.push([e.lead_id, e.name, e.telefon, e.email, e.link, e.nachricht]));
+    const csv = zeilen.map((r) => r.map((z) => `"${String(z || '').replace(/"/g, '""')}"`).join(';')).join('\r\n');
+    // BOM, sonst zerlegt deutsches Excel die Umlaute.
+    const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8;' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `links_${ERGEBNIS[0]?.kampagne || 'kampagne'}.csv`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+  });
+
+  $('copy-all-btn').addEventListener('click', () => {
+    navigator.clipboard.writeText(ERGEBNIS.map((e) => `${e.name}\t${e.link}`).join('\n'));
+    const b = $('copy-all-btn');
+    b.textContent = '✓ kopiert';
+    setTimeout(() => { b.textContent = '⧉ Alle Links kopieren'; }, 1500);
+  });
+
+  $('push-btn').addEventListener('click', async () => {
+    const pw = $('dash-pw').value.trim();
+    if (!pw) return zeigeStatus($('push-status'), 'Dashboard-Passwort fehlt.', false);
+    if (!ERGEBNIS.length) return zeigeStatus($('push-status'), 'Erst Links erzeugen.', false);
+
+    const basis = $('api-basis').value.trim().replace(/\/$/, '');
+    const url = `${basis}/.netlify/functions/versand?password=${encodeURIComponent(pw)}`;
+
+    $('push-btn').disabled = true;
+    try {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          kampagne: ERGEBNIS[0].kampagne,
+          kanal: ERGEBNIS[0].kanal,
+          versendet_am: new Date().toISOString(),
+          empfaenger: ERGEBNIS.map((e) => ({
+            lead_id: e.lead_id, name: e.name, telefon: e.telefon,
+            email: e.email, nachricht: e.msg,
+          })),
+        }),
+      });
+      const daten = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(daten.error || `Fehler ${res.status}`);
+      zeigeStatus($('push-status'),
+        `Versandliste gespeichert: ${daten.neu} neu, ${daten.gesamt} Empfänger in Kampagne „${daten.kampagne}“. Im Dashboard jetzt unter „Nicht geklickt“ sichtbar.`, true);
+    } catch (err) {
+      zeigeStatus($('push-status'),
+        `Konnte nicht senden: ${err.message}. Passwort prüfen — und bei lokal geöffneter Datei die Dashboard-Adresse eintragen.`, false);
+    } finally {
+      $('push-btn').disabled = false;
+    }
+  });
+
+  // Läuft diese Seite bereits auf dem Deployment, ist die API-Basis dieselbe Domain.
+  if (location.protocol.startsWith('http')) {
+    $('api-basis').value = location.origin;
+    $('basis-url').value = location.origin + '/video1.html';
+  }
+</script>
+
+</body>
+</html>

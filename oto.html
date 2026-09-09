@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inner Circle Extended Upgrades™ — Live ORGASMIC Transformation</title>
+  <meta name="description" content="Bewirb dich jetzt für 1 von 5 limitierten Inner Circle Extended Upgrades™ – und komme in 30 Tagen endlich wieder in deinem Körper an.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { overflow-x: hidden; max-width: 100%; }
+    img { max-width: 100%; height: auto; }
+
+    :root {
+      --navy:        #1a2642;
+      --navy-mid:    #1e3158;
+      --cream:       #f5f0e8;
+      --cream-dark:  #ede6d4;
+      --gold:        #c9a44c;
+      --gold-light:  #dfc07a;
+      --gold-pale:   #f0e4c0;
+      --rose:        #c07860;
+      --text-dark:   #1a1a2e;
+      --text-mid:    #5a5a6a;
+      --text-light:  #f0ece2;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background: var(--cream);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    /* ── NOTIFICATION BARS ── */
+    /* ── KOPFLEISTE ──
+       Dieselbe blaue Leiste wie auf Formular, Danke und den acht Videoseiten.
+       Sie fehlte hier als einziger Seite - die Marke setzte erst im Fuss ein. */
+    .mx-kopf {
+      background: var(--navy);
+      padding: 1rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem;
+      position: sticky; top: 0; z-index: 95;
+    }
+    .mx-kopf .mx-logo { height: 26px; width: auto; display: block; }
+    .mx-kopf .mx-gruss {
+      color: var(--gold); font-size: 0.75rem; letter-spacing: 0.05em; white-space: nowrap;
+      overflow: hidden; text-overflow: ellipsis;
+    }
+
+    .notif-combined {
+      background: #b8923c;
+      color: #fff;
+      text-align: center;
+      padding: 9px 24px;
+      font-size: 11px;
+      line-height: 1.5;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--cream);
+      text-align: center;
+      padding: 56px 24px 48px;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 20px;
+      border: 1px solid rgba(0,0,0,0.12);
+      padding: 5px 18px;
+      border-radius: 50px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4.5vw, 52px);
+      font-weight: 500;
+      color: var(--text-dark);
+      line-height: 1.2;
+      max-width: 740px;
+      margin: 0 auto 18px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--navy);
+    }
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(21px, 3vw, 34px);
+      font-style: italic;
+      color: var(--navy);
+      max-width: 620px;
+      margin: 0 auto 18px;
+      line-height: 1.3;
+    }
+    .hero-meta {
+      font-size: 13px;
+      color: var(--text-mid);
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    /* ── VIDEO ── */
+    .video-wrap {
+      max-width: 620px;
+      margin: 0 auto 28px;
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      background: #0a0e1a;
+      cursor: pointer;
+      position: relative;
+    }
+    .video-inner {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(160deg, #0c1220 0%, #1a2642 60%, #0a0e1a 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      min-height: 260px;
+      transition: opacity 0.2s;
+    }
+    .video-inner:hover { opacity: 0.9; }
+    .play-ring {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      border: 2px solid rgba(201,164,76,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .video-inner:hover .play-ring {
+      transform: scale(1.08);
+      border-color: var(--gold);
+    }
+    .play-ring svg {
+      width: 28px;
+      height: 28px;
+      fill: white;
+      margin-left: 4px;
+    }
+    .video-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 17px;
+      opacity: 0.85;
+    }
+
+    /* ── QUOTE ── */
+    .hero-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 17px;
+      color: var(--text-mid);
+      max-width: 480px;
+      margin: 0 auto 32px;
+      line-height: 1.55;
+    }
+
+    /* ── CTA BUTTONS ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      background: linear-gradient(135deg, #d4aa52 0%, #b8903a 100%);
+      color: white;
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 17px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.02em;
+      line-height: 1.35;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 18px rgba(201,164,76,0.45);
+      text-align: center;
+      max-width: 100%;
+      white-space: normal;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 26px rgba(201,164,76,0.55);
+    }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--text-mid);
+      font-size: 13px;
+      padding: 11px 26px;
+      border-radius: 50px;
+      text-decoration: none;
+      border: 1.5px solid rgba(0,0,0,0.18);
+      transition: border-color 0.2s, color 0.2s;
+      max-width: 100%;
+      white-space: normal;
+      text-align: center;
+    }
+    .btn-secondary:hover {
+      border-color: var(--navy);
+      color: var(--navy);
+    }
+    .btn-optout {
+      display: inline-block;
+      background: none;
+      border: none;
+      color: var(--text-mid);
+      font-size: 11.5px;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      opacity: 0.6;
+      margin-top: 2px;
+      max-width: 100%;
+      white-space: normal;
+      text-align: center;
+    }
+    .btn-optout:hover { opacity: 1; }
+    .btn-optout.light { color: rgba(240,236,226,0.7); }
+    .cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-group .btn-primary,
+    .cta-group .btn-secondary {
+      width: 100%;
+    }
+
+    @media (max-width: 480px) {
+      .btn-primary  { font-size: 13px; padding: 15px 20px; }
+      .btn-secondary { font-size: 12.5px; padding: 10px 18px; }
+    }
+
+    /* ── URGENCY LINE ── */
+    .urgency-line {
+      text-align: center;
+      font-size: 12.5px;
+      color: var(--text-mid);
+      margin-top: 14px;
+      font-style: italic;
+    }
+
+    /* ── PRICE BANNER ── */
+    .price-banner {
+      background: var(--navy);
+      text-align: center;
+      padding: 52px 24px;
+      color: var(--text-light);
+    }
+    .price-banner .price-old {
+      font-size: 13px;
+      opacity: 0.55;
+      margin-bottom: 10px;
+      text-decoration: line-through;
+      letter-spacing: 0.04em;
+    }
+    .price-banner h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(24px, 4vw, 46px);
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      color: #fff;
+    }
+    .price-banner h2 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .price-note {
+      font-size: 14px;
+      color: var(--gold-light);
+      margin-bottom: 28px;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── COUNTDOWN ── */
+    .countdown-wrap {
+      margin: 28px auto;
+      max-width: 340px;
+    }
+    .countdown-label {
+      font-size: 12px;
+      opacity: 0.6;
+      margin-bottom: 10px;
+      letter-spacing: 0.08em;
+    }
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      align-items: center;
+    }
+    .cd-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 64px;
+    }
+    .cd-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px;
+      width: 64px;
+      text-align: center;
+      padding: 6px 0;
+    }
+    .cd-unit {
+      font-size: 10px;
+      opacity: 0.5;
+      margin-top: 6px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .cd-sep {
+      font-size: 36px;
+      opacity: 0.4;
+      padding: 0 6px;
+      padding-bottom: 16px;
+      font-weight: 300;
+    }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+    .section-cream    { background: var(--cream); padding: 80px 24px; }
+    .section-cream-alt { background: var(--cream-dark); padding: 80px 24px; }
+    .section-navy     { background: var(--navy); padding: 80px 24px; color: var(--text-light); }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .photo-placeholder {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, #d6c9b5 0%, #bfb09a 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: rgba(0,0,0,0.3);
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(24px, 3.8vw, 44px);
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    .section-title.center { text-align: center; max-width: 620px; margin-left: auto; margin-right: auto; }
+    .section-title.italic { font-style: italic; }
+    .section-title.gold   { color: var(--gold-light); }
+    .section-title.light  { color: #fff; }
+    .section-title.mb40   { margin-bottom: 40px; }
+
+    .body-text {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-mid);
+      margin-bottom: 16px;
+    }
+    .body-text.light { color: rgba(240,236,226,0.75); }
+
+    .subline {
+      font-size: 14px;
+      color: var(--text-mid);
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.65;
+      text-align: center;
+    }
+    .subline.light { color: rgba(240,236,226,0.6); }
+
+    /* ── COMMUNITY CALLOUT ── */
+    .community-callout {
+      background: var(--cream-dark);
+      border-radius: 12px;
+      padding: 40px 36px;
+      max-width: 720px;
+      margin: 0 auto 44px;
+      text-align: center;
+    }
+    .community-callout h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 3vw, 30px);
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 18px;
+      line-height: 1.25;
+    }
+    .community-callout p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-mid);
+      margin-bottom: 14px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .community-callout p:last-of-type { margin-bottom: 0; }
+    .community-callout .quote-block {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 17px;
+      color: var(--navy);
+      border-left: 3px solid var(--gold);
+      padding-left: 20px;
+      text-align: left;
+      margin: 20px auto;
+      max-width: 500px;
+    }
+
+    /* ── FEATURES GRID ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      max-width: 960px;
+      margin: 0 auto 44px;
+    }
+    .feat-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 8px;
+      padding: 24px 18px;
+      text-align: center;
+    }
+    .feat-card .feat-icon {
+      font-size: 22px;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .feat-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+    .feat-card p {
+      font-size: 12px;
+      line-height: 1.55;
+      color: rgba(240,236,226,0.65);
+    }
+
+    /* ── ZUGANG SECTION ── */
+    .zugang-section {
+      background: var(--cream);
+      padding: 52px 24px;
+      text-align: center;
+    }
+    .zugang-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(20px, 3vw, 34px);
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+
+    /* ── FÜR WEN ── */
+    .fuerwen-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .fw-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 8px;
+      padding: 28px 18px;
+      text-align: center;
+    }
+    .fw-card .fw-icon {
+      width: 38px;
+      height: 38px;
+      border: 1.5px solid rgba(201,164,76,0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+      font-size: 15px;
+      color: var(--gold);
+    }
+    .fw-card p {
+      font-size: 13px;
+      line-height: 1.5;
+      color: rgba(240,236,226,0.8);
+    }
+
+    /* ── STATS ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .stat-card {
+      background: rgba(201,164,76,0.07);
+      border: 1px solid rgba(201,164,76,0.18);
+      border-radius: 10px;
+      padding: 30px 24px;
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 54px;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .stat-text { font-size: 13px; line-height: 1.55; color: var(--text-mid); }
+
+    /* ── BEFORE / AFTER ── */
+    .ba-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      max-width: 860px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .ba-col h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+    .ba-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .ba-list li {
+      display: flex;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--text-mid);
+    }
+    .ba-list li .mrk { flex-shrink: 0; font-size: 16px; line-height: 1.3; }
+    .mrk.x  { color: #c0392b; }
+    .mrk.ok { color: #27ae60; }
+
+    /* ── BOOKING ── */
+    .booking-card {
+      background: white;
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 580px;
+      margin: 36px auto 0;
+      color: var(--text-dark);
+      text-align: left;
+    }
+    .booking-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+    .booking-card .bk-sub {
+      font-size: 13px;
+      color: var(--text-mid);
+      margin-bottom: 20px;
+    }
+    .cal-mock {
+      background: #f7f7f7;
+      border-radius: 8px;
+      padding: 18px;
+      font-size: 12px;
+      text-align: center;
+      color: var(--text-mid);
+    }
+    .cal-mock strong { font-size: 13px; display: block; margin-bottom: 10px; }
+    .cal-slots {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .cal-slot {
+      background: var(--gold);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 4px;
+      font-size: 12px;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      transition: opacity 0.2s;
+    }
+    .cal-slot:hover { opacity: 0.85; }
+    .warning-box {
+      background: #fffbee;
+      border: 1px solid #f0d060;
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-size: 12px;
+      color: #806010;
+      margin-top: 14px;
+      display: flex;
+      gap: 8px;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 780px;
+      margin: 40px auto 44px;
+    }
+    .testi-card {
+      background: white;
+      border-radius: 10px;
+      padding: 26px 22px;
+      border: 1px solid rgba(0,0,0,0.06);
+      text-align: left;
+    }
+    .testi-card .quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 16px;
+      color: var(--navy);
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .stars { color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 14px; }
+    .reviewer { display: flex; gap: 12px; align-items: center; }
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #d6c9b5, #bfb09a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: white;
+      flex-shrink: 0;
+    }
+    .rev-name { font-size: 13px; font-weight: 600; color: var(--text-dark); }
+    .rev-age  { font-size: 12px; color: #999; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      padding: 52px 24px;
+      text-align: center;
+      color: rgba(240,236,226,0.45);
+      font-size: 12px;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(240,236,226,0.55);
+      margin-bottom: 4px;
+    }
+    .footer-tagline {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: rgba(240,236,226,0.28);
+      margin-bottom: 18px;
+    }
+    .footer-links { display: flex; gap: 18px; justify-content: center; margin-top: 10px; flex-wrap: wrap; }
+    .footer-links a {
+      color: rgba(240,236,226,0.38);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(240,236,226,0.75); }
+
+    .divider { height: 1px; max-width: 280px; margin: 32px auto; }
+    .divider.dark  { background: rgba(0,0,0,0.08); }
+    .divider.light { background: rgba(255,255,255,0.08); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 820px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .fuerwen-grid  { grid-template-columns: repeat(2, 1fr); }
+      .two-col       { grid-template-columns: 1fr; gap: 32px; }
+      .ba-grid       { grid-template-columns: 1fr; }
+      .testi-grid    { grid-template-columns: 1fr; }
+      .stats-grid    { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .fuerwen-grid  { grid-template-columns: 1fr; }
+      .booking-card  { padding: 24px 20px; }
+      .community-callout { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '884943434243515');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=884943434243515&ev=PageView&noscript=1"
+/></noscript>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xrfqd262dn");
+</script>
+<script src="./config.js"></script>
+<script src="./visitor.js"></script>
+<!-- Chat-Widget mit aktivem Terminangebot (Call 11.08.2026) — abschaltbar ueber MX_CONFIG.CHAT.aktiv -->
+<script src="./chat-widget.js" defer></script>
+
+<!-- ── KOPFLEISTE UND GOLDENE ZEILE: RAUS am 07.09.2026 ──────────────────────
+     Beide Balken trugen zusammen rund 115 px ueber dem Ergebnis und haben den
+     Buchungsknopf aus dem ersten Bildschirm gedrueckt. Auf Sebastians Ansage
+     entfernt. Rueckweg: `oto.html.vor-balken-raus.bak`.
+     Der Link auf Tag 1 stand NUR in der goldenen Zeile und war damit der
+     einzige Weg von hier in die Video-Serie. Er steht jetzt unter dem
+     Ergebnis-Block weiter, siehe `#tag1-zeile` - sonst waere die Serie, fuer
+     die sich die Frau gerade angemeldet hat, von dieser Seite nicht erreichbar.
+     ────────────────────────────────────────────────────────────────────────── -->
+
+<!-- ── HERO ── -->
+
+<!-- ══ PROFIL-TYP ══════════════════════════════════════════════════════════
+     Blendet sich nur ein, wenn ein Typ vorliegt (?typ=1..5 aus dem Formular
+     oder localStorage). Ohne Typ bleibt der Block unsichtbar und die Seite
+     sieht aus wie vorher — sie darf nie an einem fehlenden Parameter haengen.
+     Texte: Alexandras Doc vom 21.08.2026, woertlich uebernommen.
+════════════════════════════════════════════════════════════════════════════ -->
+<section class="typ-sektion" id="typErgebnis" hidden data-section="Dein Profil-Typ">
+  <div class="typ-innen">
+    <div class="typ-kicker">Dein Ergebnis &middot; 1 von 5 Pleasure-Blockaden-Typen</div>
+    <h2 class="typ-name" id="typName"></h2>
+    <p class="typ-text" id="typText"><span id="typKurz"></span><span class="typ-mehr" id="typRest"></span></p>
+    <button type="button" class="typ-schalter" id="typSchalter" hidden>Weiterlesen</button>
+    <p class="typ-vision" id="typVision" hidden></p>
+    <div class="typ-trenner"></div>
+    <ul class="typ-schritte" id="typSchritte" hidden></ul>
+    <p class="typ-bridge">Zu wissen, welcher Typ du bist, ver&auml;ndert f&uuml;r sich genommen noch nichts.
+      Was es ver&auml;ndert, ist zu wissen, was f&uuml;r genau diesen Typ funktioniert &mdash;
+      und in welcher Reihenfolge.</p>
+  </div>
+</section>
+
+<!-- ══ FRUEHER KNOPF ═══════════════════════════════════════════════════════
+     Eingesetzt am 07.09.2026. Gemessen vorher: der erste Buchungsknopf stand
+     bei 1713 px, also gut zwei Bildschirme unter dem Rand (375 x 812). Wer
+     nicht scrollt, sieht auf der Angebotsseite nie einen Knopf.
+     Steht ausserhalb der Typ-Sektion, weil die ohne ?typ= ausgeblendet ist.
+     Der nackte Link wird von visitor.js auf MX_CONFIG.BOOKING_URL gehoben,
+     genau wie die vier Knoepfe weiter unten.
+     ═══════════════════════════════════════════════════════════════════════ -->
+<section class="frueh-cta" data-section="Knopf oben">
+  <a href="https://booking.orgasmic.live" target="_blank" rel="noopener" class="btn-primary">
+    ✨ Ja, ich will mich um 1 von 5 Plätzen bewerben
+  </a>
+  <p class="frueh-cta-zeile">60 Sekunden. Kostenfrei. Unverbindlich.</p>
+</section>
+
+<!-- Titel und Liste "Was bei dir zuerst dran ist" werden zur Laufzeit hierher
+     gehaengt, nicht mehr direkt unter den Brueckensatz. Damit steht der Knopf
+     ueber der Liste statt darunter: gemessen 897 px vorher, die Liste allein
+     traegt rund 200 px. Ohne Typ bleibt der Halter leer und faellt zusammen. -->
+<div class="typ-nachtrag" id="typNachtrag"></div>
+
+<div class="tag1-zeile" id="tag1-zeile">
+  <a href="./video1.html" id="notif-video-link">Deine Video-Serie ist freigeschaltet &middot; zu Tag 1 &rarr;</a>
+</div>
+
+<style>
+.frueh-cta { background: var(--cream, #f5f0e8); padding: 0 24px 26px; text-align: center; }
+.frueh-cta .btn-primary { display: inline-flex; align-items: center; justify-content: center;
+  max-width: 620px; width: 100%; }
+.frueh-cta-zeile { font-size: 12px; color: var(--text-mid, #5a5a6a); margin: 10px 0 0; letter-spacing: .02em; }
+.typ-nachtrag { background: var(--cream, #f5f0e8); padding: 0 24px; text-align: center;
+  border-bottom: 1px solid rgba(201,164,76,.35); }
+.typ-nachtrag:empty { display: none; border-bottom: 0; }
+.tag1-zeile { background: var(--cream, #f5f0e8); text-align: center; padding: 0 24px 22px;
+  border-bottom: 1px solid rgba(201,164,76,.35); }
+.tag1-zeile a { font-size: 13px; color: var(--text-mid, #5a5a6a); text-decoration: underline;
+  text-underline-offset: 3px; display: inline-block; min-height: 44px; line-height: 44px; }
+.typ-nachtrag .typ-schritte { padding-bottom: 26px; }
+@media (max-width: 767px), (pointer: coarse) {
+  .frueh-cta { padding: 0 18px 20px; }
+}
+</style>
+
+<style>
+.typ-sektion { background: var(--cream, #f5f0e8); padding: 34px 24px 22px; }
+.typ-sektion[hidden] { display: none; }
+.typ-innen { max-width: 700px; margin: 0 auto; text-align: center; }
+.typ-kicker { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: var(--rose, #c07860); font-weight: 700; margin-bottom: 10px; }
+.typ-name { font-family: Georgia, 'Times New Roman', serif; font-size: 27px; line-height: 1.2; color: var(--navy, #1a2642); margin: 0 0 14px; font-weight: 400; font-style: italic; }
+.typ-text { font-size: 15px; line-height: 1.65; color: var(--text-mid, #5a5a6a); margin: 0 auto; max-width: 620px; text-align: left; }
+/* Der Rest des Textes liegt hinter dem Schalter. Alexandras Copy bleibt
+   vollstaendig - sichtbar sind nur die zwei Saetze, die die Frau erkennen
+   lassen, dass es um sie geht. */
+.typ-mehr { display: none; }
+.typ-text.offen .typ-mehr { display: inline; }
+.typ-schalter { background: none; border: 0; padding: 6px 4px; margin-top: 8px; font: inherit; font-size: 13px; font-weight: 600; color: var(--rose, #c07860); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.typ-vision { font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-size: 16px;
+  line-height: 1.6; color: var(--navy, #1a2642); max-width: 620px; margin: 18px auto 0;
+  padding: 16px 20px; background: rgba(201,164,76,.10); border-left: 3px solid var(--gold, #c9a44c);
+  text-align: left; }
+.typ-vision[hidden] { display: none; }
+/* Flache Geraete (iPhone SE und aehnlich): nur Abstaende und Schriftgrad
+   zusammenziehen, kein Text weglassen. Alexandras Zielbild-Satz drueckt den
+   Knopf sonst unter die Kante, gemessen am 07.09.2026: 922 px bei 667 px Hoehe. */
+@media (max-height: 700px) {
+  .typ-sektion { padding: 18px 24px 14px; }
+  .typ-name { font-size: 20px; margin-bottom: 10px; }
+  .typ-text { font-size: 13.5px; line-height: 1.55; }
+  .typ-vision { font-size: 14px; line-height: 1.5; padding: 12px 14px; margin-top: 12px; }
+  .typ-trenner { margin: 12px auto; }
+  .typ-bridge { font-size: 13px; line-height: 1.5; }
+  .frueh-cta { padding-bottom: 16px; }
+}
+.typ-trenner { width: 44px; height: 1px; background: var(--gold, #c9a44c); margin: 18px auto; }
+.typ-schritte { list-style: none; padding: 0; margin: 16px auto 0; max-width: 600px; text-align: left; }
+.typ-schritte[hidden] { display: none; }
+.typ-schritte li { position: relative; padding: 0 0 0 26px; margin-bottom: 10px;
+  font-size: 14px; line-height: 1.6; color: var(--text-dark, #1a1a2e); }
+.typ-schritte li::before { content: ''; position: absolute; left: 6px; top: .62em;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--gold, #c9a44c); }
+.typ-schritte-titel { font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--rose, #c07860); font-weight: 700; margin-top: 20px; }
+.typ-bridge { font-size: 14px; line-height: 1.6; color: var(--text-dark, #1a1a2e); max-width: 580px; margin: 0 auto; font-weight: 500; }
+
+}
+@media (max-width: 767px), (pointer: coarse) {
+  /* Oben knapp halten: seit die beiden Kopfbalken weg sind, entscheidet dieser
+     Wert darueber, ob der Knopf ganz in den ersten Bildschirm passt (07.09.2026). */
+  .typ-sektion { padding: 14px 18px 18px; }
+  .typ-name { font-size: 21px; }
+  .typ-vision { font-size: 15px; padding: 14px 16px; }
+  .typ-text { font-size: 14px; }
+  .typ-schalter { min-height: 44px; }
+}
+</style>
+
+<script>
+(function () {
+  // Woertlich aus Alexandras Doc. Nicht glaetten - das ist ihre Sprache und sie
+  // trifft die Zielgruppe genauer, als eine Umformulierung es koennte.
+  var TYPEN = {
+    1: { name: 'Die Performance-Queen', text: 'Du bist eine echte Macherin. Im Job und im Alltag hast du alles im Griff, du bist erfolgreich, strukturiert und verl\u00e4sslich. Doch genau diese Superkraft steht dir im Schlafzimmer im Weg. Dein System l\u00e4uft permanent auf Hochtouren, sodass sich Intimit\u00e4t oft wie ein weiteres To-Do auf deiner Liste anf\u00fchlt, das es zu \u201eerledigen\u201c gilt. Du sp\u00fcrst diesen st\u00e4ndigen inneren Druck, funktionieren zu m\u00fcssen, und kannst den \u201eMachen-Modus\u201c einfach nicht abschalten. Dein K\u00f6rper sehnt sich unfassbar danach, die Kontrolle abzugeben, sich fallen zu lassen und einfach nur zu empfangen \u2014 aber dein Verstand l\u00e4sst es (noch) nicht zu. Du bist nicht kaputt und es fehlt dir auch nicht an Leidenschaft. Dein Nervensystem hat in all dem Alltagsstress nur verlernt, wie sich echte, absichtslose Hingabe anf\u00fchlt.',
+         schritte: ['Zuerst raus aus dem Leistungsmodus: eine \u00dcbung, die kein Ziel hat. F\u00fcr dich die schwerste \u2014 und die wichtigste.', 'Dein Nervensystem lernt, dass Loslassen kein Kontrollverlust ist.', 'Lust kommt danach. Nicht als n\u00e4chste Aufgabe, sondern als das, was \u00fcbrig bleibt, wenn die Aufgabe wegf\u00e4llt.'],
+         vision: 'Stell dir vor, du kannst dich einfach hingeben, die Kontrolle abgeben und loslassen – um jede Berührung und jeden Augenblick im Hier und Jetzt ekstatisch zu genießen, völlig egal was das Outcome ist.' },
+    2: { name: 'Die Kopf-Gefangene', text: 'Dein Verstand ist brillant, aber er g\u00f6nnt dir einfach keine Pause. W\u00e4hrend du dir nichts sehnlicher w\u00fcnschst, als den Moment einfach zu genie\u00dfen und voll im Hier und Jetzt zu sein, rattert dein Kopf unerm\u00fcdlich weiter. To-Do-Listen, ungel\u00f6ste Alltagssorgen oder die st\u00e4ndige Selbstbeobachtung ziehen dich immer wieder aus deinem K\u00f6rper heraus. Vielleicht versuchst du, dich durch Atem\u00fcbungen oder den bewussten Willen krampfhaft zu entspannen, doch das baut oft nur noch mehr Druck auf. Deine Sehnsucht ist eine tiefe Verschmelzung, aber diese unsichtbare Barriere zwischen deinem Kopf und deinem Becken verhindert, dass du deine Sinnlichkeit wirklich flie\u00dfen lassen kannst. Dein Weg aus dieser Blockade f\u00fchrt nicht \u00fcber noch mehr Analysieren oder Nachdenken, sondern dar\u00fcber, die Br\u00fccke zur\u00fcck in deinen K\u00f6rper zu finden.',
+         schritte: ['Zuerst der Ausgang aus dem Kopf: Atem und K\u00f6rperwahrnehmung, bevor irgendetwas anderes passiert.', 'Du \u00fcbst nicht, weniger zu denken. Du \u00fcbst, den K\u00f6rper lauter zu machen als den Kopf.', 'F\u00fcnf Minuten am Tag reichen \u2014 die Wirkung kommt aus der Wiederholung, nicht aus der Dauer.'],
+         vision: 'Stell dir vor, dein Kopf wird ganz leise und du bist voll in deinem Körper – du verlierst dein Selbst ein Stück weit, gehst in Lust und Ekstase unter und nimmst den Augenblick voll und ganz wahr.' },
+    3: { name: 'Die Harmonie-Geberin', text: 'Du hast ein riesiges Herz und eine wahnsinnig feine Antenne f\u00fcr die Bed\u00fcrfnisse anderer \u2014 ganz besonders f\u00fcr die deines Partners. Doch auf dem Weg, es allen recht zu machen und f\u00fcr N\u00e4he zu sorgen, hast du dich selbst aus den Augen verloren. Du gibst dich oft hin, weil du die Verbindung nicht verlieren m\u00f6chtest oder Angst hast, egoistisch zu wirken. Das Traurige daran ist: Deine eigene, echte Lust bleibt auf der Strecke. Du sp\u00fcrst dich selbst kaum noch und hast vielleicht im Laufe der Zeit sogar vergessen, was du dir eigentlich tief im Inneren w\u00fcnschst und was dir gut tun w\u00fcrde. Deine gr\u00f6\u00dfte und sch\u00f6nste Aufgabe ist es jetzt, dir selbst wieder die Erlaubnis zu geben, Raum f\u00fcr deinen eigenen Genuss einzunehmen \u2014 v\u00f6llig ohne schlechtes Gewissen.',
+         schritte: ['Zuerst die Frage, die du dir am l\u00e4ngsten nicht gestellt hast: Was will eigentlich ich?', 'Du lernst, Raum einzunehmen, ohne dich egoistisch zu f\u00fchlen \u2014 in Schritten, die dein Partner nicht als R\u00fcckzug erlebt.', 'Erst wenn du wieder sp\u00fcrst, was du willst, kannst du es auch zeigen.'],
+         vision: 'Stell dir vor, du kannst einfach nur empfangen und es geht endlich nur um dich – du weißt genau, was du brauchst und was deine Bedürfnisse sind, und bist ganz leicht und ohne schlechtes Gewissen in deiner eigenen Lust.' },
+    4: { name: 'Die Unsichtbare', text: 'Wenn du ganz ehrlich zu dir bist, f\u00fchlst du dich in deiner eigenen Haut oft unwohl und unsicher. Du neigst dazu, dich in intimen Momenten zu verstecken \u2014 sei es, indem du das Licht ausmachst, oder indem du dich emotional zur\u00fcckziehst. Es f\u00fchlt sich oft so an, als w\u00e4rst du von deiner eigenen Weiblichkeit und Sinnlichkeit abgeschnitten, fast wie bet\u00e4ubt. Vielleicht denkst du heimlich, mit dir oder deinem K\u00f6rper stimme etwas nicht, aber in Wahrheit ist diese Taubheit ein tiefer Schutzmechanismus deines Systems. Deine Seele sehnt sich danach, sich endlich wieder lebendig, attraktiv und vollkommen sicher in dir selbst zu f\u00fchlen. Der Schl\u00fcssel f\u00fcr dich liegt nicht in aufregenderen Techniken, sondern darin, behutsam und liebevoll wieder in deinem eigenen K\u00f6rper \u201eeinzuziehen\u201c.',
+         schritte: ['Zuerst Sicherheit im eigenen K\u00f6rper \u2014 allein, ohne Zuschauer, ohne Bewertung.', 'Dein Nervensystem darf lernen, dass Gesehenwerden nicht gef\u00e4hrlich ist.', 'N\u00e4he kommt danach. In dieser Reihenfolge, nicht davor.'],
+         vision: 'Stell dir vor, du bist hemmungslos und frei und gibst dir selbst die Erlaubnis, deine Lust zu leben – du fühlst dich absolut wohl in deinem Körper, deiner Weiblichkeit sowie Sinnlichkeit und drückst dich ganz frei aus.' },
+    5: { name: 'Die Suchende', text: 'Nach au\u00dfen hin und auf dem Papier ist bei dir eigentlich \u201ealles okay\u201c. Aber tief in dir drin wei\u00dft du, dass da noch so viel mehr sein muss. Du wartest oft passiv darauf, dass der magische Funke von alleine wieder \u00fcberspringt \u2014 vielleicht im Urlaub oder bei einem Glas Wein \u2014 und bist dann frustriert, wenn die Leidenschaft im normalen Alltag direkt wieder verfliegt. Das Schwierigste daran ist: Du wei\u00dft oft gar nicht genau, was du eigentlich willst oder was du brauchst, um diese innere Flamme wieder zu entfachen. Du brauchst keine Standard-Tipps f\u00fcr mehr Romantik, sondern einen v\u00f6llig neuen, tiefgreifenden Impuls. Es geht darum, deine eigene Lust aktiv zu lenken und zu kreieren, anstatt darauf zu warten, dass sie dir zuf\u00e4llig begegnet.',
+         schritte: ['Zuerst genau benennen, was fehlt \u2014 sonst suchst du weiter nach etwas, das keinen Namen hat.', 'Du bekommst kein weiteres Werkzeug, sondern die Reihenfolge, in der die Werkzeuge wirken.', 'Ab da merkst du selbst, was bei dir greift \u2014 und was du weglassen kannst.'],
+         vision: 'Stell dir vor, du weißt genau, wer du bist und was du brauchst – du erfährst deine Sexualität als etwas, das dich in jeder Zelle deines Körpers nährt und dich auf einer tiefen emotionalen und spirituellen Ebene erfüllt.' }
+  };
+
+  // URL zuerst, localStorage als Rueckfall: der Parameter geht verloren, sobald
+  // die Frau die Seite neu laedt oder aus einer Mail zurueckkommt.
+  var nr = new URLSearchParams(window.location.search).get('typ');
+  if (!nr) { try { nr = localStorage.getItem('mx_profil_typ'); } catch (e) {} }
+  var typ = TYPEN[nr];
+  if (!typ) return;                                  // kein Typ -> Block bleibt aus
+
+  // Ueber die Vorlage statt direkt: dann setzt MX_PERSONALISIEREN den Vornamen
+  // ein, sobald einer bekannt ist - und laesst den Satz sonst unveraendert.
+  var visionEl = document.getElementById('typVision');
+  if (visionEl && typ.vision) { visionEl.textContent = typ.vision; visionEl.hidden = false; }
+
+  var nameEl = document.getElementById('typName');
+  nameEl.setAttribute('data-mx-name', '');
+  nameEl.setAttribute('data-mx-vorlage', 'Du bist ' + typ.name.replace(/^Die /, 'die ') + '{,name}.');
+  if (window.MX_PERSONALISIEREN) window.MX_PERSONALISIEREN();
+  else nameEl.textContent = 'Du bist ' + typ.name.replace(/^Die /, 'die ') + '.';
+
+  // Sichtbar bleiben die ersten zwei Saetze - genug, damit die Frau sich
+  // erkennt. Der Rest steht hinter "Weiterlesen", damit die Seite nicht um
+  // 750 Zeichen Flie\u00dftext waechst, bevor das Angebot beginnt.
+  var saetze = typ.text.match(/[^.!?]+[.!?]+(\s|$)/g) || [typ.text];
+  var kurz = saetze.slice(0, 2).join('').trim();
+  var rest = saetze.slice(2).join('').trim();
+  document.getElementById('typKurz').textContent = kurz + (rest ? ' ' : '');
+  document.getElementById('typRest').textContent = rest;
+
+  var schalter = document.getElementById('typSchalter');
+  var absatz = document.getElementById('typText');
+  if (rest) {
+    schalter.hidden = false;
+    schalter.addEventListener('click', function () {
+      var offen = absatz.classList.toggle('offen');
+      schalter.textContent = offen ? 'Weniger anzeigen' : 'Weiterlesen';
+    });
+  }
+
+  // Die drei Schritte dieses Typs. Ohne sie bleibt der Satz darueber ein
+  // Versprechen ohne Einloesung: er kuendigt an, was "fuer genau diesen Typ"
+  // funktioniert, und danach kam bisher fuer alle fuenf dasselbe Angebot.
+  var liste = document.getElementById('typSchritte');
+  if (liste && typ.schritte && typ.schritte.length) {
+    var titel = document.createElement('div');
+    titel.className = 'typ-schritte-titel';
+    titel.textContent = 'Was bei dir zuerst dran ist';
+    liste.innerHTML = '';
+    typ.schritte.forEach(function (t) {
+      var li = document.createElement('li');
+      li.textContent = t;
+      liste.appendChild(li);
+    });
+    // Umgestellt am 07.09.2026: Titel und Liste haengen jetzt UNTER dem Knopf,
+    // nicht mehr direkt unter dem Brueckensatz. Sonst schiebt die Liste den
+    // Knopf aus dem ersten Bildschirm. Faellt der Halter aus, greift der alte
+    // Weg, damit die Liste nie ganz verschwindet.
+    var halter = document.getElementById('typNachtrag');
+    if (halter) {
+      halter.appendChild(titel);
+      halter.appendChild(liste);
+    } else {
+      var bruecke = document.querySelector('.typ-bridge');
+      if (bruecke && bruecke.parentNode) {
+        bruecke.parentNode.insertBefore(titel, bruecke.nextSibling);
+        titel.parentNode.insertBefore(liste, titel.nextSibling);
+      }
+    }
+    liste.hidden = false;
+  }
+
+  document.getElementById('typErgebnis').hidden = false;
+
+  // Fuer Tracking und Dashboard mitgeben, ohne eigenen Aufruf: der Typ steht
+  // damit in jedem Ereignis, das die Seite ohnehin schickt.
+  window.MX_PROFIL_TYP = Number(nr);
+})();
+</script>
+
+<section class="hero">
+  <span class="eyebrow">Noch 2 von 5 Inner Circle Extended Upgrades verfügbar — jetzt in 60 Sekunden bewerben!</span>
+
+  <h1>Bewirb dich jetzt für 1 von 5 limitierten <em>Inner Circle Extended Upgrades™</em> –</h1>
+
+  <p class="hero-sub">und komme in 30 Tagen endlich wieder in deinem Körper an – oder du zahlst keinen Cent.</p>
+
+  <p class="hero-meta">Mit 10 Minuten täglich. Spürbar ab Woche 1. Nur 5 Frauen pro Welle. Zu einmaligen Konditionen. 2 Monate geschenkt. Und mit Geld-Zurück-Garantie.</p>
+
+  <!-- VIDEO — Angebotsvideo Alexandra, selbst gehostet (ausgetauscht 19.08.2026).
+       Vorher stand hier ein Vidalytics-Embed aus der MAXIMUS-Vorlage
+       (bsYf5vrz/BTs2AnpSQgsBhbrg) — fremdes Konto, fremdes Video, dessen
+       Abspielzahlen nie in diesem Dashboard ankamen. Die Datei liegt jetzt neben
+       der Seite: kein Drittanbieter im Ladepfad, keine zweite Zustimmungsfrage.
+       H.264/AAC mit `faststart` — die Quelle aus dem Drive-Ordner war HEVC und
+       hätte in Chrome und Firefox auf vielen Rechnern gar nicht abgespielt. -->
+  <div class="video-wrap">
+    <video id="oto-video"
+           src="./oto-video.mp4"
+           poster="./oto-video-poster.jpg"
+           controls
+           preload="none"
+           playsinline
+           style="width:100%;height:100%;display:block;object-fit:contain;background:#0a0e1a;">
+      Dein Browser kann dieses Video nicht abspielen —
+      <a href="./oto-video.mp4">hier direkt öffnen</a>.
+    </video>
+  </div>
+
+  <p class="hero-quote">
+    „Nach 9 Jahren Taubheit habe ich endlich wieder Weiblichkeit gespürt."<br>
+    <small style="font-size:14px; opacity:0.75;">Sybille G. aus Hamburg</small>
+  </p>
+
+  <div class="cta-group">
+    <a href="https://booking.orgasmic.live" target="_blank" rel="noopener" class="btn-primary">
+      ✨ Ja, ich will mich jetzt um 1 von 5 exklusiven Plätzen bewerben (in 60 Sekunden erledigt)
+    </a>
+    <a href="https://wa.me/4915167098941?text=Hallo%20ich%20habe%20euren%20Post%20gesehen%20und%20bitte%20um%20R%C3%BCckmeldung" class="btn-optout">ich habe noch fragen und möchte auf WhatsApp schreiben</a>
+  </div>
+
+  <p class="urgency-line">Dieses Angebot gilt nur für 5 Teilnehmer und endet spätestens Montag. Sobald die Plätze vergeben sind, schließen wir die Anmeldung.</p>
+</section>
+
+<!-- ── PRICE BANNER ── -->
+<section class="price-banner" id="bewerben">
+  <div class="container">
+    <p class="price-old">Regulärer Invest: 12.400€</p>
+    <h2>Heutiger Invest: Ein Bruchteil<br><em>— mit voller Geld-zurück-Garantie.</em></h2>
+    <p class="price-note">✦ Sichere dir jetzt unsere einmalige Preisersparnis und zusätzliche Magic-Bonis ✦</p>
+
+    <div class="cta-group">
+      <a href="https://booking.orgasmic.live" target="_blank" rel="noopener" class="btn-primary">
+        ✨ Ja, ich will mich jetzt um 1 von 5 exklusiven Plätzen bewerben (in 60 Sekunden erledigt)
+      </a>
+      <a href="https://wa.me/4915167098941?text=Hallo%20ich%20habe%20euren%20Post%20gesehen%20und%20bitte%20um%20R%C3%BCckmeldung" class="btn-secondary" style="color:rgba(240,236,226,0.5);border-color:rgba(255,255,255,0.18);">Warteliste überspringen und Priority-Service anfragen</a>
+      <a href="https://wa.me/4915167098941?text=Hallo%20ich%20habe%20euren%20Post%20gesehen%20und%20bitte%20um%20R%C3%BCckmeldung" class="btn-optout light">ich habe noch fragen und möchte auf WhatsApp schreiben</a>
+    </div>
+
+    <!-- COUNTDOWN -->
+    <div class="countdown-wrap">
+      <p class="countdown-label">⏱ Angebot endet in:</p>
+      <div class="countdown">
+        <div class="cd-block">
+          <div class="cd-num" id="cd-min">09</div>
+          <div class="cd-unit">Protokoll</div>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-block">
+          <div class="cd-num" id="cd-sec">58</div>
+          <div class="cd-unit">Sekunden</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY ONLY 5 ── -->
+<section class="section-cream">
+  <div class="two-col container">
+    <div>
+      <h2 class="section-title">Warum wir nur 5 Teilnehmern pro Monat diese Mitgliedschaft erlauben</h2>
+    </div>
+    <div>
+      <p class="body-text">In den letzten 10 Jahren haben wir bei Live Orgasmic über 1000 Frauen persönlich begleitet, ihre Empfindsamkeit, Lust und Lebendigkeit zurückzugewinnen — ohne Zeit verschwenden oder 100te neue Techniken zu lernen.</p>
+      <p class="body-text">In den letzten Jahren haben wir aus dieser Erfahrung die ORGASMIC Methode entwickelt – ein 4-Schritte-System, das nicht das Symptom, sondern die wahre Ursache bearbeitet.</p>
+      <p class="body-text">Aus diesem Ansatz ist ein Programm entstanden, das wir in den letzten Monaten an eine Auswahl unserer engsten Kundinnen ausgerollt haben.</p>
+      <p class="body-text">Und heute gibt es wieder ein paar freie Plätze!</p>
+      <p class="body-text">Wir wählen bewusst nur 5 neue Frauen aus, weil wir sehr persönlich und intensiv mit jeder einzelnen zusammenarbeiten – und das die Kapazitäten unseres Teams bindet.</p>
+      <p class="body-text">Alexandra begleitet dich eng bei jedem Schritt, integriert die ORGASMIC Methode und strukturiert deinen Alltag, deine Beziehung und deine Sexualität so, dass nachhaltige Verkörperung zur logischen Folge wird.</p>
+      <p class="body-text">Diese Tiefe der Zusammenarbeit braucht Fokus, Zeit und echtes Commitment auf beiden Seiten.</p>
+      <p class="body-text">Die Begrenzung stellt sicher, dass du mit einem Team arbeitest, das deine Geschichte wirklich versteht, schnell wahrnimmt und dich auf hohem Niveau begleitet.</p>
+      <p class="body-text">Denn nur so entsteht das Einzige, was wirklich zählt: eine Verkörperung, die hält – und eine Begleitung, der du vertraust.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── PHOTO + TEXT ── -->
+<section class="section-cream" style="padding-top:0;">
+  <div class="two-col container">
+    <img src="https://static.wixstatic.com/media/b364e5_6dbc2a62d786487c91311e242ac30e95~mv2.jpg/v1/fill/w_800,h_800,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/b364e5_6dbc2a62d786487c91311e242ac30e95~mv2.jpg" alt="Alexandra & Christian" style="width:100%;border-radius:10px;object-fit:cover;">
+    <div>
+      <p class="body-text">Aus diesem Ansatz ist ein Programm entstanden, das wir in den letzten Monaten an eine Auswahl unserer engsten Kundinnen ausgerollt haben.</p>
+      <p class="body-text">Und heute gibt es wieder ein paar freie Plätze! Wir wählen bewusst nur 5 neue Frauen aus, weil wir sehr persönlich und intensiv mit jeder einzelnen zusammenarbeiten – und das die Kapazitäten unseres Teams bindet.</p>
+      <p class="body-text">Alexandra begleitet dich eng bei jedem Schritt, integriert die ORGASMIC Methode und strukturiert deinen Alltag, deine Beziehung und deine Sexualität so, dass nachhaltige Verkörperung zur logischen Folge wird.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURES GRID ── -->
+<section class="section-navy">
+  <div class="container">
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-icon">◈</div>
+        <h3>Live ORGASMIC Transformation™</h3>
+        <p>Das vollständige 6-Monats-Transformationsprogramm – für Frauen, die wirklich bereit sind, neu in ihrem Körper anzukommen.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">▷</div>
+        <h3>Über 100 Video Lektionen</h3>
+        <p>Kein einziger Durchschnittskurs. Du lernst durch die tiefst wissenschaftlich fundierten Transformationsaufnahmen, genau wann du sie brauchst.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">◯</div>
+        <h3>Live Calls mit Facilitators — 3× pro Woche, je 45 Min.</h3>
+        <p>Du bist nie allein mit deinen Challenges. Aktiv geführte Calls – 60 Stunden Expert Presence, ohne Unterbrechung.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">★</div>
+        <h3>Direkter Access auf Alexandra <em style="font-size:11px;font-weight:400;">(Inner Circle Extended exklusiv)</em></h3>
+        <p>Jeden Monat ein Call mit Alexandra. Die monatlichen Calls fokussieren auf das, was dich wirklich voranbringt.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">◈</div>
+        <h3>Die Community &amp; Willkommen Gruppen</h3>
+        <p>Du wirst direkt in den Fokus genommen. Die Community trägt täglich 365 Tage – aktiv, ehrlich, transformativ.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">◯</div>
+        <h3>Welcome Ceremony™ mit Alexandra</h3>
+        <p>Ein einstündiges Einzelgespräch zu deinem geführten Onboarding – dein Standard von Beginn an, mit klarer Richtung.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">▷</div>
+        <h3>Dein Ticket zum Live ORGASMIC Expansion Call</h3>
+        <p>Verfügbar ab Mittwoch, 22. Mai – buchbar für alle aktiven Inner Circle Extended Mitglieder.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">✓</div>
+        <h3>100% Geld-zurück-Garantie</h3>
+        <p>Wenn du nicht gut aufgehoben bist, bekommst du jeden Cent zurück. Ohne Fragen, ohne Kleingedrucktes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 2 MONATE COMMUNITY ── -->
+<section class="section-cream">
+  <div class="container">
+    <div class="community-callout">
+      <h3>2 Monate Extra Zugriff auf Community</h3>
+      <p>Wenn wir dir danach die Möglichkeit geben, bei uns zu starten:</p>
+
+      <div class="quote-block">
+        „2 Monate Extra Zugriff auf die Community<br><br>
+        Veränderung entsteht leichter, wenn du nicht alleine gehst.<br><br>
+        Mit deinem zusätzlichen Monat erhältst du erweiterten Zugang zu unserer geschützten Community – einem Raum voller Frauen, die sich bewusst auf den Weg zu mehr Verbindung, Tiefe und innerer Freiheit machen.<br><br>
+        Hier musst du nichts erklären oder beweisen.<br>
+        Du darfst einfach da sein."
+      </div>
+    </div>
+
+    <div class="cta-group">
+      <a href="https://booking.orgasmic.live" target="_blank" rel="noopener" class="btn-primary">
+        ✨ Ja, ich will mich jetzt um 1 von 5 exklusiven Plätzen bewerben (in 60 Sekunden erledigt)
+      </a>
+      <a href="https://wa.me/4915167098941?text=Hallo%20ich%20habe%20euren%20Post%20gesehen%20und%20bitte%20um%20R%C3%BCckmeldung" class="btn-secondary">Warteliste überspringen und Priority-Service anfragen</a>
+      <a href="https://wa.me/4915167098941?text=Hallo%20ich%20habe%20euren%20Post%20gesehen%20und%20bitte%20um%20R%C3%BCckmeldung" class="btn-optout">ich habe noch fragen und möchte auf WhatsApp schreiben</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── SOFORTIGER ZUGANG ── -->
+<section class="zugang-section">
+  <div class="container">
+    <h2>Sofortiger Zugang zu 5 Days Of Pleasure</h2>
+    <p class="subline" style="margin-bottom:32px;">
+      Du erhältst sofortigen Zugriff auf den passwortgeschützten Teilnehmerbereich von Life Orgasmic und erhältst den kompletten Kurs kostenfrei.
+    </p>
+    <div class="cta-group">
+      <a href="https://booking.orgasmic.live" target="_blank" rel="noopener" class="btn-primary">
+        ✨ Ja, ich will mich jetzt um 1 von 5 exklusiven Plätzen bewerben (in 60 Sekunden erledigt)
+      </a>
+      <a href="https://wa.me/4915167098941?text=Hallo%20ich%20habe%20euren%20Post%20gesehen%20und%20bitte%20um%20R%C3%BCckmeldung" class="btn-secondary">Warteliste überspringen und Priority-Service anfragen</a>
+      <a href="https://wa.me/4915167098941?text=Hallo%20ich%20habe%20euren%20Post%20gesehen%20und%20bitte%20um%20R%C3%BCckmeldung" class="btn-optout">ich habe noch fragen und möchte auf WhatsApp schreiben</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── GIFT SECTION ── -->
+<section class="section-cream-alt" style="text-align:center;">
+  <div class="container">
+    <img src="https://static.wixstatic.com/media/0e5e9b_6f28a08e62524ed58fe906119a839139~mv2.png/v1/fill/w_80,h_80,al_c,q_85,enc_avif,quality_auto/gift%201.png" alt="" style="width:64px;height:64px;margin-bottom:18px;">
+    <h2 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(26px,4vw,44px); margin-bottom:20px; line-height:1.2;">
+      Und zu guter Letzt...<br>Überraschungen &amp; Geschenke
+    </h2>
+    <p class="subline" style="margin-bottom:8px;">Was das genau enthält? Verraten wir nicht!<br>Sonst wäre es ja keine Überraschung mehr…</p>
+    <p class="subline" style="margin-bottom:32px;">Vielleicht ist es … ? Oder auch … ? Oder vielleicht auch … ?<br>Wir freuen uns darauf, Dich zu überraschen!</p>
+
+    <div class="cta-group">
+      <a href="https://booking.orgasmic.live" target="_blank" rel="noopener" class="btn-primary">
+        ✨ Ja, ich will mich jetzt um 1 von 5 exklusiven Plätzen bewerben (in 60 Sekunden erledigt)
+      </a>
+      <a href="https://wa.me/4915167098941?text=Hallo%20ich%20habe%20euren%20Post%20gesehen%20und%20bitte%20um%20R%C3%BCckmeldung" class="btn-secondary">Warteliste überspringen und Priority-Service anfragen</a>
+      <a href="https://wa.me/4915167098941?text=Hallo%20ich%20habe%20euren%20Post%20gesehen%20und%20bitte%20um%20R%C3%BCckmeldung" class="btn-optout">ich habe noch fragen und möchte auf WhatsApp schreiben</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FÜR WEN ── -->
+<section class="section-navy">
+  <div class="container">
+    <h2 class="section-title center gold mb40 italic">Für wen dieses Upgrade gedacht ist</h2>
+
+    <div class="fuerwen-grid">
+      <div class="fw-card">
+        <div class="fw-icon"><img src="https://static.wixstatic.com/media/0e5e9b_fe8bc89389754118b9a119dde645d72d~mv2.png/v1/fill/w_48,h_48,al_c,q_85,enc_avif,quality_auto/icon.png" alt="" style="width:24px;height:24px;"></div>
+        <p>Schwierigkeiten hast, wirklich abzuschalten</p>
+      </div>
+      <div class="fw-card">
+        <div class="fw-icon"><img src="https://static.wixstatic.com/media/0e5e9b_fe8bc89389754118b9a119dde645d72d~mv2.png/v1/fill/w_48,h_48,al_c,q_85,enc_avif,quality_auto/icon.png" alt="" style="width:24px;height:24px;"></div>
+        <p>Dir mehr Tiefe und Verbindung wünschst</p>
+      </div>
+      <div class="fw-card">
+        <div class="fw-icon"><img src="https://static.wixstatic.com/media/0e5e9b_fe8bc89389754118b9a119dde645d72d~mv2.png/v1/fill/w_48,h_48,al_c,q_85,enc_avif,quality_auto/icon.png" alt="" style="width:24px;height:24px;"></div>
+        <p>Merkst, dass dein Körper oft angespannt bleibt</p>
+      </div>
+      <div class="fw-card">
+        <div class="fw-icon"><img src="https://static.wixstatic.com/media/0e5e9b_fe8bc89389754118b9a119dde645d72d~mv2.png/v1/fill/w_48,h_48,al_c,q_85,enc_avif,quality_auto/icon.png" alt="" style="width:24px;height:24px;"></div>
+        <p>Spürst, dass alte Muster dich zurückhalten</p>
+      </div>
+      <div class="fw-card">
+        <div class="fw-icon"><img src="https://static.wixstatic.com/media/0e5e9b_fe8bc89389754118b9a119dde645d72d~mv2.png/v1/fill/w_48,h_48,al_c,q_85,enc_avif,quality_auto/icon.png" alt="" style="width:24px;height:24px;"></div>
+        <p>Dich beim Sex eher im Kopf als im Gefühl erlebst</p>
+      </div>
+      <div class="fw-card">
+        <div class="fw-icon"><img src="https://static.wixstatic.com/media/0e5e9b_fe8bc89389754118b9a119dde645d72d~mv2.png/v1/fill/w_48,h_48,al_c,q_85,enc_avif,quality_auto/icon.png" alt="" style="width:24px;height:24px;"></div>
+        <p>Nicht länger nur funktionieren möchtest</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS ── -->
+<section class="section-cream">
+  <div class="container">
+    <h2 class="section-title center mb40">Warum viele Frauen sich um dieses Upgrades bewerben</h2>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">27%</div>
+        <p class="stat-text">fühlen sich in ihrem Körper taub — und lernen in der Live ORGASMIC Transformation™, echte Lust wieder als natürlichen Zustand zu erleben.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">20%</div>
+        <p class="stat-text">tragen alte Wunden mit sich — und lösen in der Transformation Schicht für Schicht das, was sie vom wirklichen Leben trennt.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">38%</div>
+        <p class="stat-text">haben sich selbst dabei verloren, immer für andere da zu sein — und finden in der Transformation zurück zu sich. Tief. Echt. Dauerhaft.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">15%</div>
+        <p class="stat-text">spüren: da ist mehr in ihnen — und entdecken in der Transformation, wer sie wirklich sind. Als Frau. Als Körper. Als Wesen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BEFORE / AFTER ── -->
+<section class="section-cream" style="padding-top:0;">
+  <div class="container">
+    <h2 class="section-title center mb40">Das hast du während der Zusammenarbeit erreicht</h2>
+
+    <div class="ba-grid">
+      <div>
+        <div class="ba-col">
+          <h3>Vorher</h3>
+          <ul class="ba-list">
+            <li><span class="mrk x">❌</span><span>Du spürst dich kaum noch — Taubheit, die du irgendwann einfach akzeptiert hast</span></li>
+            <li><span class="mrk x">❌</span><span>Sex fühlt sich nach Pflicht an — oder gar nicht</span></li>
+            <li><span class="mrk x">❌</span><span>Du weißt, dass da mehr sein müsste — aber du weißt nicht wie</span></li>
+            <li><span class="mrk x">❌</span><span>Du funktionierst. Für alle. Nur nicht für dich selbst</span></li>
+            <li><span class="mrk x">❌</span><span>Mehr Nähe fühlt sich beängstigend an — also hältst du Distanz</span></li>
+            <li><span class="mrk x">❌</span><span>Deine Weiblichkeit ist irgendwo auf der Strecke geblieben</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div style="margin-bottom:32px;">
+          <img src="https://static.wixstatic.com/media/0e5e9b_cd68ca426d40483a9e5645fc7c39ef14~mv2.png/v1/fill/w_600,h_750,al_c,q_85,enc_avif,quality_auto/image%20(2).png" alt="Nach der Transformation" style="width:100%;max-width:280px;border-radius:10px;display:block;margin:0 auto;">
+        </div>
+        <div class="ba-col">
+          <h3 style="color:var(--gold);">Nach der Live ORGASMIC Transformation™</h3>
+          <ul class="ba-list">
+            <li><span class="mrk ok">✅</span><span>Du spürst deinen Körper — wirklich, von innen</span></li>
+            <li><span class="mrk ok">✅</span><span>Lust ist kein Fremdwort mehr, sondern dein natürlicher Zustand</span></li>
+            <li><span class="mrk ok">✅</span><span>Du weißt, was du willst — und du kannst es sagen</span></li>
+            <li><span class="mrk ok">✅</span><span>Du lebst für dich, ohne dich dafür zu entschuldigen</span></li>
+            <li><span class="mrk ok">✅</span><span>Nähe macht dir keine Angst mehr — sie nährt dich</span></li>
+            <li><span class="mrk ok">✅</span><span>Deine Weiblichkeit gehört dir wieder</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOOKING ── -->
+<section class="section-navy" style="text-align:center;">
+  <div class="container">
+    <h2 class="section-title center light mb40" style="font-style:italic;">Du möchtest mehr erfahren?</h2>
+    <p class="subline light">Wenn du spürst, dass du etwas verändern möchtest, aber nicht genau weißt, wie du beginnen sollst, kann dieser Termin der erste Schritt sein. Wähle jetzt einen passenden Termin:</p>
+
+    <div class="booking-card">
+      <h3>Service buchen</h3>
+      <p class="bk-sub">Jetzt unsere verfügbaren Termine entdecken und buchen.</p>
+
+      <div class="cal-mock">
+        <strong>Mai 2026 &nbsp; ›</strong>
+        <div style="color:#aaa; font-size:11px; margin-bottom:8px;">Mo · Di · Mi · Do · Fr · Sa · So</div>
+        <div style="color:var(--gold); margin-bottom:10px;">📅 Mittwoch, 22. Mai – verfügbar</div>
+        <div class="cal-slots">
+          <button class="cal-slot">11:00</button>
+          <button class="cal-slot">19:00</button>
+          <button class="cal-slot">20:00</button>
+        </div>
+        <div style="margin-top:10px; font-size:11px; color:#aaa;">Service: ORGASMIC LIVE Expansion Call</div>
+      </div>
+
+      <div class="warning-box">
+        <span>⚠️</span>
+        <span><strong>Wichtig</strong><br>Dieser Termin ist kostenfrei. Wir nehmen uns bewusst Zeit für jede Teilnehmerin.<br>Deshalb sind pro Woche nur eine begrenzte Anzahl an Terminen verfügbar.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── IST ES AN DER ZEIT ── -->
+<section class="section-cream" style="text-align:center; padding: 80px 24px;">
+  <div class="container">
+    <h2 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(26px,4vw,46px); margin-bottom:24px; line-height:1.2;">
+      Ist es an der Zeit, etwas zu verändern?
+    </h2>
+    <p class="subline" style="margin-bottom:14px;">Du musst nicht alles allein herausfinden.</p>
+    <p class="subline" style="margin-bottom:14px;">Manchmal beginnt Veränderung einfach damit, dass jemand den Raum hält.</p>
+    <p class="subline">Wenn du möchtest, dass sich etwas verändert, ist jetzt ein guter Moment, den ersten Schritt zu machen.</p>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section class="section-cream-alt" style="text-align:center;">
+  <div class="container">
+    <h2 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(24px,3.5vw,40px); color:var(--gold);">
+      Erfahrungen anderer Teilnehmerinnen
+    </h2>
+
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p class="quote">„Ich habe endlich wieder Lust auf Sex und weiß 'bei mir ist alles richtig'"</p>
+        <div class="stars"><img src="https://static.wixstatic.com/media/0e5e9b_392ceea8f26a4c5898fe12b82d7b5ac7~mv2.png/v1/fill/w_100,h_16,al_c,q_85,enc_avif,quality_auto/stars.png" alt="★★★★★" style="height:16px;width:auto;"></div>
+        <div class="reviewer">
+          <img src="https://static.wixstatic.com/media/0e5e9b_f77ebc65d28e4d3e812f266751f4bef0~mv2.png/v1/fill/w_64,h_64,al_c,q_85,enc_avif,quality_auto/image%205.png" alt="Julia" style="width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0;">
+          <div>
+            <div class="rev-name">Julia,</div>
+            <div class="rev-age">36 Jahre</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <p class="quote">„Ich spüre endlich wieder Lust in meiner Yoni"</p>
+        <div class="stars"><img src="https://static.wixstatic.com/media/0e5e9b_392ceea8f26a4c5898fe12b82d7b5ac7~mv2.png/v1/fill/w_100,h_16,al_c,q_85,enc_avif,quality_auto/stars.png" alt="★★★★★" style="height:16px;width:auto;"></div>
+        <div class="reviewer">
+          <img src="https://static.wixstatic.com/media/0e5e9b_8beb4aa888844c23870f50ee87c881c5~mv2.png/v1/fill/w_64,h_64,al_c,q_85,enc_avif,quality_auto/image%205%20(1).png" alt="Ursula G." style="width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0;">
+          <div>
+            <div class="rev-name">Ursula G.,</div>
+            <div class="rev-age">48 Jahre</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <p class="quote">„Ich fühle mich jetzt viel freier und erlebe lustvolle Stunden mit mir alleine und mit meinem Partner"</p>
+        <div class="stars"><img src="https://static.wixstatic.com/media/0e5e9b_392ceea8f26a4c5898fe12b82d7b5ac7~mv2.png/v1/fill/w_100,h_16,al_c,q_85,enc_avif,quality_auto/stars.png" alt="★★★★★" style="height:16px;width:auto;"></div>
+        <div class="reviewer">
+          <img src="https://static.wixstatic.com/media/0e5e9b_a1c7be13368a44f992c6d8a66d68d00f~mv2.png/v1/fill/w_64,h_64,al_c,q_85,enc_avif,quality_auto/image%205%20(2).png" alt="Doris S." style="width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0;">
+          <div>
+            <div class="rev-name">Doris S.,</div>
+            <div class="rev-age">34 Jahre</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-group">
+      <a href="https://booking.orgasmic.live" target="_blank" rel="noopener" class="btn-primary">
+        ✨ Ja, ich will mich jetzt um 1 von 5 exklusiven Plätzen bewerben (in 60 Sekunden erledigt)
+      </a>
+      <a href="https://wa.me/4915167098941?text=Hallo%20ich%20habe%20euren%20Post%20gesehen%20und%20bitte%20um%20R%C3%BCckmeldung" class="btn-secondary" id="warteliste">Warteliste überspringen und Priority-Service anfragen</a>
+      <a href="https://wa.me/4915167098941?text=Hallo%20ich%20habe%20euren%20Post%20gesehen%20und%20bitte%20um%20R%C3%BCckmeldung" class="btn-optout">ich habe noch fragen und möchte auf WhatsApp schreiben</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <img src="https://static.wixstatic.com/media/0e5e9b_ebcb6159e049414d9301c6ba1eb7879a~mv2.png/v1/fill/w_164,h_68,al_c,q_85,enc_avif,quality_auto/Logo.png" alt="ORGASMIC" style="height:52px;width:auto;opacity:0.6;margin-bottom:16px;">
+  <p>© 2026 ORGASMIC – Holistic Coaching. Alle Rechte vorbehalten.</p>
+  <div class="footer-links">
+    <a href="https://www.alexandrawennmacher.de/impressum" target="_blank">Impressum</a>
+    <span>·</span>
+    <a href="https://www.alexandrawennmacher.de/datenschutz" target="_blank">Datenschutz</a>
+    <span>·</span>
+    <a href="https://www.alexandrawennmacher.de/contact" target="_blank">Kontakt</a>
+  </div>
+</footer>
+
+<script>
+  // Query-Parameter (v.a. ?name=) an die Video-Serie durchreichen und den
+  // OTO-Seitenaufruf im selben Video-Tracking-Dashboard sichtbar machen
+  // (siehe track.js / dashboard.html — gleiches Backend wie video1-8.html).
+  const TRACK_WEBHOOK_URL = window.MX_CONFIG.TRACK_URL;
+  const TRACK_KUNDE_ID    = window.MX_CONFIG.KUNDE_ID;
+  const TRACK_KUNDE_NAME  = window.MX_CONFIG.KUNDE_NAME;
+
+  function getQueryParameter() {
+    const params = {};
+    new URLSearchParams(window.location.search).forEach((v, k) => { params[k] = v; });
+    return params;
+  }
+  const queryParams = getQueryParameter();
+
+  // Kanal-Tracking-Regel 2: 'src' und 'msg' gehören NICHT an interne Weiter-Links.
+  // Sonst zählte der Klick von der OTO auf Tag 1 als zweiter WhatsApp-Klick und die
+  // Kanal-Zahlen wären erfunden. 'cmp' bleibt drin (Versand-Batch), alles zur
+  // Identität ebenfalls.
+  const keep = ['name','cluster','utm_source','utm_medium','utm_campaign','utm_content','utm_term','lead_id','c_id','cmp'];
+  const qs = new URLSearchParams();
+  keep.forEach(k => { if (queryParams[k]) qs.set(k, queryParams[k]); });
+  const suffix = qs.toString() ? '?' + qs.toString() : '';
+  const notifLink = document.getElementById('notif-video-link');
+  if (notifLink) notifLink.href = './video1.html' + suffix;
+
+  function trackOto(status, antworten) {
+    fetch(TRACK_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        kunde: { name: TRACK_KUNDE_NAME, id: TRACK_KUNDE_ID },
+        besucher_id: window.MX_VISITOR_ID,
+        status,
+        antworten,
+        query_parameter: queryParams,
+        // Herkunft mitschicken — ohne dieses Feld ist im Dashboard nicht sichtbar,
+        // über welche Anzeige oder Nachricht diese Frau auf dem Angebot gelandet ist.
+        kanal: window.MX_KANAL || {},
+        // Profil-Typ mitschicken. Damit ist im Dashboard beantwortbar, welcher
+        // Typ ueber welche Anzeige kommt und welcher Typ tatsaechlich bucht —
+        // genau die Frage, fuer die der Selbsttest vorne im Funnel steht.
+        profil_typ: window.MX_PROFIL_TYP || null,
+        zeitstempel: new Date().toISOString()
+      })
+    }).catch(() => {});
+  }
+
+  trackOto('seite_geoeffnet', [{ frage: 'Video', antwort: 'OTO-Seite' }]);
+
+  // Der Weg in die Videoserie war bisher nicht messbar. Damit liess sich die
+  // wichtigste Frage der Seite nicht beantworten: Wie viele buchen hier direkt —
+  // und wie viele gehen erst in die acht Tage und kommen später zurück?
+  if (notifLink) {
+    notifLink.addEventListener('click', function () {
+      trackOto('zum_video_klick', [{ frage: 'Video', antwort: 'OTO-Seite → Tag 1' }]);
+    });
+  }
+
+  // Sicherheitsnetz: jeder EXTERNE Link öffnet in einem neuen Tab. Ohne das führt
+  // ein Klick auf Impressum oder Datenschutz mitten aus dem Angebot heraus — im
+  // Vegan-Mind-Funnel war genau so ein Link (Breadcrumb auf die Hauptwebsite) das
+  // Leck, über das Leads verschwanden. Interne Links bleiben unangetastet.
+  document.querySelectorAll('a[href^="http"]').forEach(function (a) {
+    try {
+      if (new URL(a.href).host === window.location.host) return;
+    } catch (e) { return; }
+    a.target = '_blank';
+    a.rel = (a.rel ? a.rel + ' ' : '') + 'noopener';
+  });
+
+  // Buchungslinks auf die Adresse aus config.js setzen, BEVOR visitor.js sie
+  // veredelt. Die sechs Buttons standen hart auf "https://booking.orgasmic.live"
+  // — ohne `index.php/?service=2&provider=any-provider`. Easy!Appointments
+  // startet dann bei der Dienstleistungsauswahl statt im Kalender: ein
+  // zusaetzlicher Schritt genau an der teuersten Stelle des Funnels. Die
+  // Videoseiten machen es seit jeher so (video1.html: btnBuchung.href =
+  // CFG.BOOKING_URL), nur die OTO-Seite nicht.
+  var BUCHUNG = window.MX_CONFIG && window.MX_CONFIG.BOOKING_URL;
+  if (BUCHUNG) {
+    document.querySelectorAll('a[href^="https://booking.orgasmic.live"]').forEach(function (a) {
+      try {
+        var ist  = new URL(a.href);
+        var soll = new URL(BUCHUNG);
+        if (ist.pathname === soll.pathname) return;   // schon richtig
+        // Pfad und Pflichtparameter aus config.js uebernehmen, bereits
+        // angehaengte Parameter behalten. Wichtig, weil visitor.js beim Laden
+        // schon lead_id und a1 drangehaengt hat — ein Vergleich auf den nackten
+        // Link greift zu diesem Zeitpunkt nicht mehr.
+        ist.searchParams.forEach(function (v, k) { soll.searchParams.set(k, v); });
+        a.href = soll.toString();
+      } catch (e) {}
+    });
+  }
+
+  // Profil-Typ ans Buchungstool mitgeben: Alexandra sieht damit vor dem Gespraech,
+  // welcher Typ vor ihr sitzt, ohne nachschlagen zu muessen.
+  // ACHTUNG: `a2` muss Christian in Easy!Appointments als Zusatzfeld freischalten.
+  // Ist es nicht freigeschaltet, ignoriert das Tool den Parameter — es geht nichts
+  // kaputt, der Wert kommt nur nicht an.
+  if (window.MX_PROFIL_TYP) {
+    document.querySelectorAll('a[href*="booking.orgasmic.live"]').forEach(function (a) {
+      try {
+        var u = new URL(a.href);
+        u.searchParams.set('a2', 'typ' + window.MX_PROFIL_TYP);
+        a.href = u.toString();
+      } catch (e) {}
+    });
+  }
+
+  // Calendly-Link mit Name + E-Mail vorbefüllen (aus localStorage, siehe visitor.js)
+  if (typeof window.MX_PREFILL_CALENDLY === 'function') window.MX_PREFILL_CALENDLY();
+
+  // Jeder Booking-Klick auf der OTO-Seite zählt als Terminwunsch im Dashboard
+  document.querySelectorAll('a[href*="booking.orgasmic.live"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      trackOto('calendly_click', [{ frage: 'Video', antwort: 'OTO-Seite' }]);
+      if (typeof fbq === 'function') fbq('track', 'Schedule');
+    });
+  });
+
+  // WhatsApp-Klick ist ebenfalls ein starkes Intent-Signal — separat erfasst,
+  // damit im Dashboard sichtbar ist, wer lieber schreibt als zu buchen.
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      trackOto('whatsapp_click', [{ frage: 'Video', antwort: 'OTO-Seite' }]);
+      if (typeof fbq === 'function') fbq('track', 'Contact');
+    });
+  });
+</script>
+
+<!-- ── COUNTDOWN SCRIPT ── -->
+<script>
+  // Angebots-Countdown, 10 Minuten.
+  //
+  // Vorher startete er bei JEDEM Seitenaufruf neu bei 09:58. Wer die Seite zweimal
+  // öffnete, sah zweimal dieselben zehn Minuten — die Verknappung entlarvt sich
+  // damit selbst, und zwar genau bei den Frauen, die am längsten überlegen (also
+  // denen, für die sie gedacht ist).
+  //
+  // Ab hier: der Ablaufzeitpunkt wird beim ersten Aufruf einmal festgeschrieben und
+  // bleibt bestehen. Läuft er ab, wird nicht weitergeleitet, sondern der Zähler auf
+  // 00:00 gehalten — ein Zwangs-Redirect aus einem Angebot heraus hat im
+  // Vegan-Mind-Funnel eine Schleife erzeugt.
+  (function() {
+    var SCHLUESSEL = 'mx_oto_frist_orgasmic';
+    var DAUER_MS = (9 * 60 + 58) * 1000;
+    var minEl = document.getElementById('cd-min');
+    var secEl = document.getElementById('cd-sec');
+    if (!minEl || !secEl) return;
+
+    var ziel;
+    try {
+      var gespeichert = localStorage.getItem(SCHLUESSEL);
+      if (gespeichert) {
+        ziel = parseInt(gespeichert, 10);
+      } else {
+        ziel = Date.now() + DAUER_MS;
+        localStorage.setItem(SCHLUESSEL, String(ziel));
+      }
+    } catch (e) {
+      ziel = Date.now() + DAUER_MS;
+    }
+
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+    function tick() {
+      var rest = Math.max(0, Math.floor((ziel - Date.now()) / 1000));
+      minEl.textContent = pad(Math.floor(rest / 60));
+      secEl.textContent = pad(rest % 60);
+      if (rest <= 0) clearInterval(interval);
+    }
+
+    tick();
+    var interval = setInterval(tick, 1000);
+  })();
+</script>
+
+<!-- ========== UTM PASSTHROUGH ========== -->
+<script>
+(function(){
+  // Reicht die UTM-Parameter an Buchungs- und WhatsApp-Links durch.
+  //
+  // Gesetzt wird über die URL-API statt per String-Anhang: der frühere Anhang
+  // (a.href + '?' + qs) schrieb dieselben Parameter ein zweites Mal, sobald der href
+  // sie schon trug — und seit der Lead-ID-Brücke in visitor.js trägt er bereits
+  // Parameter. set() überschreibt und lässt alles andere am Link unangetastet.
+  var params=new URLSearchParams(window.location.search);
+  var utms=['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+  var vorhanden=utms.filter(function(k){return params.get(k);});
+  if(!vorhanden.length)return;
+  document.querySelectorAll('a[href*="booking.orgasmic.live"],a[href*="wa.me"]').forEach(function(a){
+    try{
+      var url=new URL(a.href, window.location.href);
+      vorhanden.forEach(function(k){ url.searchParams.set(k, params.get(k)); });
+      a.href=url.toString();
+    }catch(e){}
+  });
+})();
+</script>
+
+
+<script>
+  // Fortschritt des Angebotsvideos in dasselbe Dashboard wie video1-8 (trackOto
+  // ist weiter oben deklariert). Vidalytics hat vorher gezählt — aber in einem
+  // fremden Konto, auf das hier niemand schaut. Ohne diese Zeilen wäre nach dem
+  // Austausch gar nicht mehr sichtbar, ob das Video überhaupt gestartet wird.
+  (function () {
+    var v = document.getElementById('oto-video');
+    if (!v || typeof trackOto !== 'function') return;
+    var marken = [25, 50, 75, 100], gesehen = {};
+    v.addEventListener('play', function () {
+      if (gesehen.start) return;
+      gesehen.start = true;
+      trackOto('oto_video_start', [{ frage: 'OTO-Video', antwort: 'gestartet' }]);
+    });
+    // Über timeupdate, nicht über einen eigenen Zeitgeber: bei pausiertem Video
+    // feuert timeupdate nicht, ein Intervall hätte weitergezählt und Standzeit
+    // als Sehzeit gemeldet.
+    v.addEventListener('timeupdate', function () {
+      if (!v.duration || !isFinite(v.duration)) return;
+      var p = (v.currentTime / v.duration) * 100;
+      marken.forEach(function (m) {
+        if (p >= m && !gesehen[m]) {
+          gesehen[m] = true;
+          trackOto('oto_video_fortschritt', [{ frage: 'OTO-Video', antwort: m + '%' }]);
+        }
+      });
+    });
+  })();
+</script>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+</body>
+</html>
